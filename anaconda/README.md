@@ -32,20 +32,7 @@ The SMPE jobs need to be run in order.  Each job includes its own instructions a
 
 ## POST SMPE INSTALLATION INSTRUCTIONS
 
-It is recommended for all python users
-to have this in their shell init script
-```export _BPXK_AUTOCVT=ON```
-This is needed because all the programs in Anaconda, including Python, were built in "ascii" mode, and they require the ```_BPXK_AUTOCVT``` feature to properly convert to ebcdic.
-
-All python users that use bash 4.2 as their login shell
-should have this in their .bashrc
-```
-if [[ "x$_BPXK_AUTOCVT" == "x" ]]; then
-  export _BPXK_AUTOCVT=ON
-  exec $BASH "$@"
-fi
-```
-However, if you have users that use bash 4.2, you can reduce the need for the "exec" above by running the script:
+If you have users that use bash 4.2 as their logon shell, and some of these users do not re-exec the shell after setting ```_BPXK_AUTOCVT``` (see the second paragraph of the USAGE section below) you may run this script:
 ```install_ensure_scripts_are_in_ebcdic```
 Note: Please be sure to "cd" to the root of the Anaconda installation before running this script.
 
@@ -73,45 +60,45 @@ For more information, refer to the section "Defining programs in UNIX files to p
 
 ## USAGE
 
-Every user of this distribution should put the following lines at the 
-end of your shell init file:
+It is recommended for all Anaconda users to have this in their shell init script
+```export _BPXK_AUTOCVT=ON```
+This is needed because all the programs in Anaconda, including Python, were built in "ascii" mode, and they require the ```_BPXK_AUTOCVT``` feature to properly convert to ebcdic.
 
-If you use sh, put these lines at the end of your ~/.profile:
-If you use bash, put these lines at the end of your ~/.bashrc:
+All python users that use bash 4.2 as their login shell
+should have this in their .bashrc
+```
+if [[ "x$_BPXK_AUTOCVT" == "x" ]]; then
+  export _BPXK_AUTOCVT=ON
+  exec $BASH "$@"
+fi
+```
 
-export _BPXK_AUTOCVT=ON
-INSTALL=<your_install_directory>
-export RELEASE_PREFIX=
-export RELEASE_DIR=$RELEASE_PREFIX/usr/lpp/Anaconda
+Please start by reading about conda, at this url: https://conda.io/docs/index.html
 
-export PYTHON_HOME=$RELEASE_DIR/$PYTHON_ENV
-export PATH=$PYTHON_HOME/bin:$PATH
-export LIBPATH=$PYTHON_HOME/lib:$LIBPATH
-export FFI_LIB=$PYTHON_HOME/lib/ffi
-export TERMINFO=$PYTHON_HOME/share/terminfo
-export PKG_CONFIG_PATH=$PYTHON_HOME/lib/pkgconfig:$PYTHON_HOME/share/pkgconfig
-export CURL_CA_BUNDLE=$PYTHON_HOME/etc/ssl/cacert.pem
-
-If you use sh, re-run your init file with:
-. ~/.profile
-
-If you use bash, re-run your init file with:
-. ~/.bashrc
+Some conda features (including ```activate```) require that you use bash.
+bash 4.2 is included in Anaconda (and is recommended if you are also using Spark).
+bash 4.3 is available via "conda install", has better ASCII support, and is required if you use git.
 
 To properly establish the initial conda environment, please run
-source bin/activate root
+```source bin/activate root```
 You can omit root (it is the default), or replace it with the name of any other environment created with conda.
 
 At this point, the "conda" command should be in your path, and should be functional.
 
 To see what environment variables bin/activate sets up,
-you can run this command:
+you can run these commands:
+```
+export -p  | grep ' PATH=\| LIBPATH=\| CONDA_PREFIX='
 cat $CONDA_PREFIX/etc/conda/activate.d/*
+```
 
-Note: There is code in Python (and elsewhere) that uses /dev/urandom.
+## Notes
+
+Note: There is code in Python (and elsewhere) that uses ```/dev/urandom```.
 This code will not work unless the ICSF service is started.
 If it has not been started, you will get results similar to this:
+```
   head -c40 /dev/urandom
   head: /dev/urandom: EDC5157I An internal error has occurred.
-  
+``` 
   
