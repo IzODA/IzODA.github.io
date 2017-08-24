@@ -18,22 +18,22 @@ Note!  If you use tcsh, the export commands below must be
        edited by replacing every "export" with "setenv",
        and replacing every "=" with " ", in your file ~/.tcshrc.
 
-# DOWNLOAD AND UNPACK INSTRUCTIONS
+## DOWNLOAD AND UNPACK INSTRUCTIONS
 
 This is a SMPE install.  Instructions are in the Program Directory.
 
-# PREREQUISITES
+## PREREQUISITES
 
 This product has no prerequisites.
 
-# INSTALLATION INSTRUCTIONS
+## INSTALLATION INSTRUCTIONS
 
 The SMPE jobs need to be run in order.  Each job includes its own instructions at the top.
 
-# POST SMPE INSTALLATION INSTRUCTIONS
+## POST SMPE INSTALLATION INSTRUCTIONS
 
 
-# USAGE
+## USAGE
 
 Every user of this distribution should put the following lines at the 
 end of your shell init file:
