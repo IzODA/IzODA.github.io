@@ -32,6 +32,44 @@ The SMPE jobs need to be run in order.  Each job includes its own instructions a
 
 ## POST SMPE INSTALLATION INSTRUCTIONS
 
+It is recommended for all python users
+to have this in their shell init script
+```export _BPXK_AUTOCVT=ON```
+This is needed because all the programs in Anaconda, including Python, were built in "ascii" mode, and they require the ```_BPXK_AUTOCVT``` feature to properly convert to ebcdic.
+
+All python users that use bash 4.2 as their login shell
+should have this in their .bashrc
+```
+if [[ "x$_BPXK_AUTOCVT" == "x" ]]; then
+  export _BPXK_AUTOCVT=ON
+  exec $BASH "$@"
+fi
+```
+However, if you have users that use bash 4.2, you can reduce the need for the "exec" above by running the script:
+```install_ensure_scripts_are_in_ebcdic```
+Note: Please be sure to "cd" to the root of the Anaconda installation before running this script.
+
+Some sites might set up Anaconda so that the installation is read-only to everyone except the single administrator.
+This script can be used to set "group" and "other" permissions to read-only:
+```install_set_single_anaconda_admin```
+Note: Please be sure to "cd" to the root of the Anaconda installation before running this script.
+
+Some sites might set up Anaconda so that there is a group of people who can all administer Anaconda.
+This script will set the permissions (note that this script requires an argument which is the group name):
+```install_set_shared_anaconda_admin groupname```
+Note: Please be sure to "cd" to the root of the Anaconda installation before running this script.
+If you use this script, you may want to check that the RACF profile named ```FILE.GROUPOWNER.SETGID``` exists in the ```UNIXPRIV``` class, since this will ensure that any new files and directories will be in the desired group.  The script runs ```chmod g+s``` only on directories.
+
+If the Anaconda installation files are supposed to be owned by
+a userid other than the person who did the installation, please run this script:
+```install_set_owner ownername```
+Note: Please be sure to "cd" to the root of the Anaconda installation before running this script.
+
+If your site plans to run Python code in a server, you should run this script at install time:
+```install_set_program_control```
+Note: Please be sure to "cd" to the root of the Anaconda installation before running this script.
+
+For more information, refer to the section "Defining programs in UNIX files to program control" in "z/OS UNIX System Services Planning".
 
 ## USAGE
 
