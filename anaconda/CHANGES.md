@@ -22,12 +22,12 @@ If a python source file is not tagged, it will be scanned to see
 whether it is in ascii or ebcdic, before being read.
 
 Neither file tagging nor scanning of files is implemented (yet)
-for files opened with the Python "open" builtin.  On the other hand,
-because the "open" builtin calls fopen, MVS files can be opened.
-For more details, please refer to the z/OS XL C/C++ Programming Guide.
+for files opened with the Python "open" builtin.  
+Python 2 only: --On the other hand, because the "open" builtin calls fopen, 
+MVS files can be opened.  For more details, please refer to the z/OS XL C/C++ Programming Guide.--
 
 The charset ```cp1047_oe``` can be used with the codecs module to
-perform character set translations.  The "_oe" refers to "Open Edition",
+perform character set translations.  The ```_oe``` refers to "Open Edition",
 and is needed because the encoding of the newline character is different
 for the C runtime library than it is in IBM's published character set
 specifications.
@@ -49,15 +49,14 @@ The following two lines show how to control file conversion:
   fcntl.fcntl(fd, fcntl.F_CONTROL_CVT, struct.pack("IHH", fcntl.SETCVTON if is_text else fcntl.SETCVTOFF, 0, ccsid))
   fcntl.fcntl(fd, fcntl.F_SETTAG, struct.pack("HBB", ccsid, (128 if text else 0) + (64 if defer else 0), 0))
   ```
-The function os.readlink expands MVS symbolic symlinks, unless the new and optional second argument is supplied and is False
-  $SYSNAME and $VERSION are supported; These are not supported: ```$SYSSYMR,$SYSSYMA,$SYSSECR,$SYSSECA```
+The function os.readlink expands MVS symbolic symlinks, unless the new and optional second argument is supplied and is False.
 The function ```os.stat(file)``` provides more attributes  
 The new function ```os.chattr(file, attributes)``` takes a second argument, 
 attributes, that is either a result from ```os.stat```, or is a map
 Here is an example of calling ```os.chattr```:
   ```os.chattr(dst, {'st_ft_ccsid':st.st_ft_ccsid, 'st_ft_txtflag':st.st_ft_txtflag})```
   
-The Python package _ctypes relies on a library named libffi.
+The Python package ```_ctypes``` relies on a library named libffi.
 The z/OS version of libffi does not rely on code that knows the low-level details of function calling;
 instead it builds and loads a shared object for each function signature.
 It will write c files and so files into the directory ```$HOME/.ffi/```.
