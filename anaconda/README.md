@@ -1,15 +1,16 @@
-## Anaconda README placeholder
+## Anaconda README.md
 https://github.com/IzODA/izODA.github.io/blob/master/anaconda/README.md
 
 This is a release of Anaconda including Python 3.6.1 for z/OS.
 It includes the packages that are required in order to
 enable the "conda" package distribution and "environment"
-capabilities.  It is similar to what is called "Miniconda"
-for other platforms.
+capabilities.  It is similar to Continuum's "Anaconda"
+for other platforms, whoever it has a different list of
+included packages.
 
 * This release was built on a z/OS 2.2 system.
 * Everything is built 64 bit and in ASCII mode.
-* This distribution was created on "2017-05-11-17-30".
+* This distribution was created on "2017-08-24-17-30".
 
 Note!  Environment variable _BPXK_AUTOCVT must be set to ON
 
@@ -17,20 +18,22 @@ Note!  If you use tcsh, the export commands below must be
        edited by replacing every "export" with "setenv",
        and replacing every "=" with " ", in your file ~/.tcshrc.
 
-DOWNLOAD AND UNPACK INSTRUCTIONS
+# DOWNLOAD AND UNPACK INSTRUCTIONS
 
 This is a SMPE install.  Instructions are in the Program Directory.
 
-PREREQUISITES
+# PREREQUISITES
 
-This product is supposed to require no prerequisites.
+This product has no prerequisites.
 
-INSTALLATION INSTRUCTIONS
+# INSTALLATION INSTRUCTIONS
 
-The SMPE jobs need to be run in order.
-Each job is supposed to include its own instructions
-at the top.
-USAGE
+The SMPE jobs need to be run in order.  Each job includes its own instructions at the top.
+
+# POST SMPE INSTALLATION INSTRUCTIONS
+
+
+# USAGE
 
 Every user of this distribution should put the following lines at the 
 end of your shell init file:
