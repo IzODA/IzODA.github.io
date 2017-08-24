@@ -1,5 +1,11 @@
 ## Anaconda README.md
-https://github.com/IzODA/izODA.github.io/blob/master/anaconda/README.md
+
+This file is included in IBM Open Data Analytics for z/OS - Anaconda,
+and a (newer) version is available on the web, at
+``` https://github.com/IzODA/izODA.github.io/blob/master/anaconda/README.md ```
+Please note that if you are not reading this file on the web,
+you should ignore all occurrences of three backquotes in a row,
+as these are used by the web software to indicate code.
 
 This is a release of Anaconda including Python 3.6.1 for z/OS.
 It includes the packages that are required in order to
@@ -12,7 +18,7 @@ included packages.
 * Everything is built 64 bit and in ASCII mode.
 * This distribution was created on "2017-08-24-17-30".
 
-Note!  Environment variable _BPXK_AUTOCVT must be set to ON
+Note!  Environment variable ```_BPXK_AUTOCVT``` must be set to ON
 
 Note!  If you use tcsh, the export commands below must be
        edited by replacing every "export" with "setenv",
