@@ -98,6 +98,18 @@ export -p  | grep ' PATH=\| LIBPATH=\| CONDA_PREFIX='
 cat $CONDA_PREFIX/etc/conda/activate.d/*
 ```
 
+### dsdbc
+
+The *dsdbc* module enables Python applications to access the z/OS IzODA Mainframe Data Service.  The Data Service component (MDS) provides optimized, virtualized, and parallelized access to both IBM Z data sources and other off-platform data sources.  Refer to the [IBM Knowledge Center](https://www.ibm.com/support/knowledgecenter/) for product documentation (search: "Open Data Analytics").
+
+In order to use *dsdbc*, the MDS component must be installed and configured on the same LPAR.  Your environment must be set up to locate the DS Client API load library:
+```
+export STEPLIB=hlq.SAZKLOAD:$STEPLIB
+```
+Where ```hlq``` is the high-level qualifier of the MDS installation.
+
+This module conforms to the [Python DB API 2.0 Specification](https://www.python.org/dev/peps/pep-0249/).
+
 ## Notes
 
 Note: There is code in Python (and elsewhere) that uses ```/dev/urandom```.
