@@ -1,4 +1,4 @@
-## Anaconda README.md
+## Anaconda
 
 This file is included in IBM Open Data Analytics for z/OS - Anaconda,
 and a (newer) version is available on the web, at
@@ -11,16 +11,17 @@ This is a release of Anaconda including Python 3.6.1 for z/OS.
 It includes the packages that are required in order to
 enable the "conda" package distribution and "environment"
 capabilities.  It is similar to Continuum's "Anaconda"
-for other platforms, whoever it has a different list of
+for other platforms, however it has a different list of
 included packages.
 
 * This release was built on a z/OS 2.2 system.
 * Everything is built 64 bit and in ASCII mode.
+* It includes *dsdbc*, a database access module exclusive to izODA.
 * This distribution was created on "2017-08-24-17-30".
 
-Note!  Environment variable ```_BPXK_AUTOCVT``` must be set to ON
+Note:  Environment variable ```_BPXK_AUTOCVT``` must be set to ON
 
-Note!  If you use tcsh, the export commands below must be
+Note:  If you use tcsh, the export commands below must be
        edited by replacing every "export" with "setenv",
        and replacing every "=" with " ", in your file ~/.tcshrc.
 
