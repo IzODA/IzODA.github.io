@@ -95,7 +95,7 @@ At this point, the "conda" command should be in your path, and should be functio
 To see what environment variables bin/activate sets up,
 you can run these commands:
 ```
-export -p  | grep ' PATH=\| LIBPATH=\| CONDA_PREFIX='
+export -p  | grep -E ' PATH=| LIBPATH=| CONDA_PREFIX='
 cat $CONDA_PREFIX/etc/conda/activate.d/*
 ```
 
