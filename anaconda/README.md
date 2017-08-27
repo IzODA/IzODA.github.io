@@ -16,7 +16,7 @@ included packages.
 
 * This release was built on a z/OS 2.2 system.
 * Everything is built 64 bit and in ASCII mode.
-* It includes *dsdbc*, a database access module exclusive to izODA.
+* It includes *dsdbc*, a database access module exclusive to IzODA.
 * This distribution was created on 2017-08-27.
 
 Note:  Environment variable ```_BPXK_AUTOCVT``` must be set to ON
@@ -69,7 +69,7 @@ For more information, refer to the section "Defining programs in UNIX files to p
 
 It is recommended for all Anaconda users to have this in their shell init script
 ```export _BPXK_AUTOCVT=ON```
-This is needed because all the programs in Anaconda, including Python, were built in "ascii" mode, and they require the ```_BPXK_AUTOCVT``` feature to properly convert to ebcdic.
+This is needed because all the programs in Anaconda, including Python, were built in "ascii" mode, and they require the ```_BPXK_AUTOCVT``` feature to properly convert to and from ebcdic.
 
 All python users that use bash 4.2 as their login shell
 should have this in their .bashrc
@@ -82,9 +82,9 @@ fi
 
 Please start by reading about conda, at this url: https://conda.io/docs/index.html
 
-Some conda features (including ```activate```) require that you use bash.
-bash 4.2 is included in Anaconda (and is recommended if you are also using Spark).
-bash 4.3 is available via "conda install", has better ASCII support, and is required if you use git.
+Some conda features (including ```activate```) require that you use Bash.
+Bash 4.2 is included in Anaconda (and is recommended if you are also using Spark).
+Bash 4.3 is available via "conda install", has better ASCII support, and is required if you use git.
 
 To properly establish the initial conda environment, please run
 ```source bin/activate root```
