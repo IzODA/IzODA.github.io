@@ -17,7 +17,7 @@ included packages.
 * This release was built on a z/OS 2.2 system.
 * Everything is built 64 bit and in ASCII mode.
 * It includes *dsdbc*, a database access module exclusive to izODA.
-* This distribution was created on "2017-08-24-17-30".
+* This distribution was created on 2017-08-27.
 
 Note:  Environment variable ```_BPXK_AUTOCVT``` must be set to ON
 
