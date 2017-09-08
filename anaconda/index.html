@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html style="height: 100%;">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" id="spng-favicon" href="//www.ibm.com/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Language" content="EN" />
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+    <title>Anaconda</title>
+    <link rel="stylesheet" href="../w3ds/w3ds.css" type="text/css">
+
+    <!-- if data tables are required -->
+    <link rel="stylesheet" href="../w3ds/w3ds-data-tables.css" type="text/css">
+
+    <!-- if code syntax highlighting is required -->
+    <link rel="stylesheet" href="../w3ds/w3ds-prism.css" rel="text/css" />
+    <link rel="stylesheet" href="../styles/styles.css" rel="text/css" />
+  </head>
+  <body class="ds-has-sticky-footer">
+    <div class="ds-grid">
+        <div class="ds-row">
+            <div class="ds-col-xs-12 ds-col-lg-12">
+                <div class="ds-row">
+                    <div class="ds-col-xs-6 ds-col-sm-8 ds-col-lg-9 ds-col-8">
+                        <h4 class="ds-heading-4 ds-padding-top-0_5">
+                            <span class="ds-link-unstyled ds-padding-1 ds-display-inline-block">
+                                IBM <small><strong>Z</strong></small>
+                            </span>
+                        </h4>
+                    </div>
+                    <div class="ds-col-xs-3 ds-col-sm-2 ds-col-lg-1 ds-col-2 ds-padding-top-1"><a class="ds-button ds-flat tray-nav-close" href="https://pages.github.ibm.com/zos-ecosystem/IzODA/">Home</a></div>
+                    <div class="ds-col-xs-3 ds-col-sm-2 ds-col-lg-1 ds-col-2 ds-padding-top-1"><a class="ds-button ds-flat tray-nav-close" href="https://pages.github.ibm.com/zos-ecosystem/IzODA/blogs">Blogs</a></div>
+                    <div class="ds-col-xs-3 ds-col-sm-2 ds-col-lg-1 ds-col-2 ds-padding-top-1"><a class="ds-button ds-flat tray-nav-close" href="https://pages.github.ibm.com/zos-ecosystem/IzODA/spark">Spark</a></div>
+                    <div class="ds-col-xs-3 ds-col-sm-2 ds-col-lg-1 ds-col-2 ds-padding-top-1"><a class="ds-button ds-flat tray-nav-close" href="https://pages.github.ibm.com/zos-ecosystem/IzODA/odl">ODL</a></div>
+                    <div class="ds-col-xs-3 ds-col-sm-2 ds-col-lg-1 ds-col-2 ds-padding-top-1"><a class="ds-button ds-flat tray-nav-close active" href="https://pages.github.ibm.com/zos-ecosystem/IzODA/anaconda">Anaconda</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="ds-row">
+            <div class="ds-col-12">
+                <div class="ds-row ds-padding-top-3"  style="background-image: url(https://pages.github.ibm.com/zos-ecosystem/IzODA/images/ibm_z14_banner.jpg);background-position:center;background-size:cover;background-repeat:no-repeat;">
+                    <div class="ds-col-xs-10 ds-offset-xs-1 ds-padding-bottom-3">
+                        <h1 class="ds-heading-2 ds-text-light-color">
+                            IBM Open Data Analytics for z/OS
+                        </h1>
+                        <p class="ds-margin-bottom-2 ds-text-light-color" style="color: #47E3C1 !important">
+                            Analytics for the enterprise
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="ds-col-12">
+                <div class="ds-row ds-padding-top-3">
+                    <div class="ds-col-xs-10 ds-offset-xs-1 ds-padding-bottom-3">
+                        <h1 class="ds-heading-2">
+                            Anaconda
+                        </h1>
+                        <p>
+                            <a href="https://www.anaconda.com/" class="ds-text-blue-primary-2" style="color: #0a9577 !important">
+                            Anaconda</a> is an assembly of parts that implement a Python-based analytics stack.  It
+                            consists of multiple components:
+                        </p>
+                        <ul>
+                            <li>Python 3</li>
+                            <li>The conda package manager</li>
+                            <li>A library of locally installed open source packages</li>
+                            <li>A <a href="https://anaconda.org/IzODA/repo" class="ds-text-blue-primary-2" style="color: #0a9577 !important">channel, or reference repository</a>
+                                located on the
+                                <a href="https://anaconda.org" class="ds-text-blue-primary-2" style="color: #0a9577 !important">Anaconda Cloud</a></li>
+                        </ul>
+                        <div class="ds-padding-1" >
+                        <img src="https://pages.github.ibm.com/zos-ecosystem/IzODA/images/IzODA_AnacondaArchitecture.png" alt="Reference Architecture">
+                        </div>
+                        <p>
+                            The environment above shows a user interacting with the Anaconda/Python stack using the Jupyter
+                            notebook ecosystem.  Users may also perform analytics by running python applications directly from
+                            the command line of a shell session as they would any other python script.
+                        </p>
+                        <h1 class="ds-heading-2 ds-padding-top-2">
+                            Installation and Customization
+                        </h1>
+                        <p>
+                            Please refer to our
+                            <a href="https://pages.github.ibm.com/zos-ecosystem/IzODA/anaconda/install-config" class="ds-text-blue-primary-2" style="color: #0a9577 !important">
+                            Anaconda installation and configuration page</a>.
+                        </p>
+                        <h1 class="ds-heading-2 ds-padding-top-2">
+                            Verify Your Installation
+                        </h1>
+                        <p>
+                            We have created a collection of small sample applications which you can run to verify that
+                            Anaconda is installed and configured properly.  Please choose one of the following <em>Install
+                            Verification Programs (IVPs)</em> below to ensure your configuration is correct.
+                            <ul>
+                                <li> <a href="https://pages.github.ibm.com/zos-ecosystem/IzODA/blogs/ana-jupyter-odl-ivp" class="ds-text-blue-primary-2" style="color: #0a9577 !important">
+                                IVP with ODL and Jupyter Notebook</a>:
+                                This IVP demonstrates the Anaconda stack through a Jupyter Notebook and retrieves the
+                                data from ODL using a python module.</li>
+                                <li> <a href="https://pages.github.ibm.com/zos-ecosystem/IzODA/blogs/ana-pyspark-ivp" class="ds-text-blue-primary-2" style="color: #0a9577 !important">
+                                IVP with Pyspark</a>:
+                                This IVP demonstrates the Spark stack through a Python Jupyter notebook that uses Pyspark
+                                (Python API to Spark) to illustrate the use of Spark dataframes.
+                                </li>
+                            </ul>
+                        </p>
+                        <h1 class="ds-heading-2 ds-padding-top-2">
+                            Restrictions and Usage Notes
+                        </h1>
+                        <p>
+                            There are some known issues with the Anaconda environment of IzODA.  To avoid these
+                            issues, here is a list of restrictions on the functionality of Anaconda:
+                        </p>
+                        <table style="width:100%" border="1px solid black">
+                            <tr>
+                                <th>Restriction</th>
+                                <th>Mitigation</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Distributed Dask capabilities will not be available at GA.  “Big Data” Dask
+                                    collections will be available and supported, and distributed capabilities
+                                    will be made available in beta form through the IzODA channel.
+                                </td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    The interactive backend packages for Matplotlib is not currently supported.
+                                    This includes, GTK, WX, Cairo, etc. The user has the option instead, to use
+                                    a non-interactive backend, capable of writing to a file.
+                                </td>
+                                <td>
+                                    Use Matplotlib with the Seaborn backend, or use Bokeh for graphical visualization. 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    The conda, activate, and deactivate commands must be run from a nested bash shell.
+                                </td>
+                                <td>
+                                    Run the bash command after logging on and before using Anaconda.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    The Python interactive interpreter must be run from inside of an active Anaconda environment.
+                                </td>
+                                <td>
+                                    Activate the root environment before running the python command to start the
+                                    interactive interpreter.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Cannot write to HDF5 files using Dask’s APIs.
+                                </td>
+                                <td></td>
+                            </tr>
+                        </table>
+                        <h2 class="ds-heading-4 ds-padding-top-1">
+                            Usage Notes
+                        </h2>
+                        <p>
+                            Several additional capabilities ship with Anaconda that have not yet been fully verified.
+                            These are not restrictions, but we advise that these are in beta form, and are not yet
+                            fully supported:
+                        </p>
+                        <ul>
+                            <li>Package installation from platform agnostic channels at anaconda.org</li>
+                            <li>Package installation using the Python Packaging Authority Installer (PIP)</li>
+                            <li>
+                                Jupyter notebook server on z/OS.  We recommend continued use of our current Kernel
+                                Gateway/Apache Toree offering in concert with a Linux-based Jupyter notebook server.
+                            </li>
+                            <li>Bash 4.3.46</li>
+                            <li>Some operations with the Dask package may result in error messages about broken pipes</li>
+                        </ul>
+                        <p>
+                            Work is continuing to resolve the problems underlying the restriction set.  We will
+                            remove restrictions as they are resolved, and fully support the beta functions above
+                            as verification is completed.
+                        </p>
+                        <h1 class="ds-heading-2 ds-padding-top-2">
+                            Reference Material
+                        </h1>
+                        <p>
+                            Most of the documentation for Anaconda is included in this portal.  A library of documentation
+                            for the other components of the <em>IBM Open Data Analytics for z/OS</em> offering can be found at the
+                            <a href="https://www.ibm.com/support/knowledgecenter/SS3H8V_1.1.0/com.ibm.izoda.v1r1.izodalp/izoda.htm" class="ds-text-blue-primary-2" style="color: #0a9577 !important">
+                            IBM Knowledge Center</a>.
+                        </p>
+                        <p>
+                            The <a href="http://www.redbooks.ibm.com/abstracts/sg248325.html" class="ds-text-blue-primary-2" style="color: #0a9577 !important">
+                            Apache Spark Implementation on IBM z/OS</a> is another good source of information about
+                            both Spark and ODL.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="ds-sticky-footer ds-grid ds-bg-neutral-warm-2" style="width: 100%; height: 110px;" >
+      <div class="ds-row">
+        <h5 class="ds-offset-xs-1 ds-col-xs-10 ds-padding-top-2_5 ds-heading-5">
+          <span class="ds-icon-github-l" style="position: relative; top: 1px; vertical-align: middle;"></span>
+          <a href="https://github.com/IzODA" target="_blank" class="ds-text-neutral-6 ds-font-weight-light">IzODA on GitHub</a>
+        </h5>
+      </div>
+    </footer>
+    <script src="../w3ds/w3ds.js"></script>
+  </body>
+</html>

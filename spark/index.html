@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html style="height: 100%;">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" id="spng-favicon" href="//www.ibm.com/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Language" content="EN" />
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+    <title>Apache Spark</title>
+    <link rel="stylesheet" href="../w3ds/w3ds.css" type="text/css">
+
+    <!-- if data tables are required -->
+    <link rel="stylesheet" href="../w3ds/w3ds-data-tables.css" type="text/css">
+
+    <!-- if code syntax highlighting is required -->
+    <link rel="stylesheet" href="../w3ds/w3ds-prism.css" rel="text/css" />
+    <link rel="stylesheet" href="../styles/styles.css" rel="text/css" />
+  </head>
+  <body class="ds-has-sticky-footer">
+    <div class="ds-grid">
+        <div class="ds-row">
+            <div class="ds-col-xs-12 ds-col-lg-12">
+                <div class="ds-row">
+                    <div class="ds-col-xs-6 ds-col-sm-8 ds-col-lg-9 ds-col-8">
+                        <h4 class="ds-heading-4 ds-padding-top-0_5">
+                            <span class="ds-link-unstyled ds-padding-1 ds-display-inline-block">
+                                IBM <small><strong>Z</strong></small>
+                            </span>
+                        </h4>
+                    </div>
+                    <div class="ds-col-xs-3 ds-col-sm-2 ds-col-lg-1 ds-col-2 ds-padding-top-1"><a class="ds-button ds-flat tray-nav-close" href="https://pages.github.ibm.com/zos-ecosystem/IzODA/">Home</a></div>
+                    <div class="ds-col-xs-3 ds-col-sm-2 ds-col-lg-1 ds-col-2 ds-padding-top-1"><a class="ds-button ds-flat tray-nav-close" href="https://pages.github.ibm.com/zos-ecosystem/IzODA/blogs">Blogs</a></div>
+                    <div class="ds-col-xs-3 ds-col-sm-2 ds-col-lg-1 ds-col-2 ds-padding-top-1"><a class="ds-button ds-flat tray-nav-close active" href="https://pages.github.ibm.com/zos-ecosystem/IzODA/spark">Spark</a></div>
+                    <div class="ds-col-xs-3 ds-col-sm-2 ds-col-lg-1 ds-col-2 ds-padding-top-1"><a class="ds-button ds-flat tray-nav-close" href="https://pages.github.ibm.com/zos-ecosystem/IzODA/odl">ODL</a></div>
+                    <div class="ds-col-xs-3 ds-col-sm-2 ds-col-lg-1 ds-col-2 ds-padding-top-1"><a class="ds-button ds-flat tray-nav-close" href="https://pages.github.ibm.com/zos-ecosystem/IzODA/anaconda">Anaconda</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="ds-row">
+            <div class="ds-col-12">
+                <div class="ds-row ds-padding-top-3"  style="background-image: url(https://pages.github.ibm.com/zos-ecosystem/IzODA/images/ibm_z14_banner.jpg);background-position:center;background-size:cover;background-repeat:no-repeat;">
+                    <div class="ds-col-xs-10 ds-offset-xs-1 ds-padding-bottom-3">
+                        <h1 class="ds-heading-2 ds-text-light-color">
+                            IBM Open Data Analytics for z/OS
+                        </h1>
+                        <p class="ds-margin-bottom-2 ds-text-light-color" style="color: #47E3C1 !important">
+                            Analytics for the enterprise
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="ds-col-12">
+                <div class="ds-row ds-padding-top-3">
+                    <div class="ds-col-xs-10 ds-offset-xs-1 ds-padding-bottom-3">
+                        <h1 class="ds-heading-2 ds-padding-top-2">
+                            Apache Spark
+                        </h1>
+                        <p>
+                            <a href="https://spark.apache.org/" class="ds-text-blue-primary-2" style="color: #0a9577 !important">
+                            Apache Spark</a> is a general purpose, high performance clustering analytics engine that
+                            allocates resources and distributes work across a set of processes and tasks.  It is organized
+                            as a set core functions that underpin a collection of functional libraries.
+                        </p>
+                        <div class="ds-padding-1" >
+                        <img src="https://pages.github.ibm.com/zos-ecosystem/IzODA/images/spark-stack.png" alt="Spark stack">
+                        </div>
+                        <p>
+                            Spark was originally released through the <em>IBM z/OS Platform for Apache Spark</em> offering in March of 2016.
+                        </p>
+                        <h1 class="ds-heading-2 ds-padding-top-2">
+                            Spark and Anaconda
+                        </h1>
+                        <p>
+                            Apache Spark has no dependencies on Anaconda.  However, Anaconda's package management capabilities have
+                            allowed for all of Spark's dependencies to be included in the IzODA Anaconda package library.  This means that
+                            IzODA is a self-contained offering with no pre-requisites other than z/OS and Java at the proper service levels.
+                            It also means that Spark and Anaconda are effectively co-requisites, and should always be installed along
+                            with the ODL (MDS) FMID.
+                        </p>
+                        <div class="ds-padding-1" >
+                        <img src="https://pages.github.ibm.com/zos-ecosystem/IzODA/images/IzODA_SparkArchitecture.png" alt="Spark architecture">
+                        </div>
+                        <p>
+                            Along with Spark's pre-requisites, those parts of the Jupyter ecosystem that run on z/OS can now be installed
+                            via conda from the
+                            <a href="https://anaconda.org/izoda/hamlet" class="ds-text-blue-primary-2" style="color: #0a9577 !important">
+                            hamlet</a> package.
+                        </p>
+                        <h1 class="ds-heading-2 ds-padding-top-2">
+                            Installation and Customization
+                        </h1>
+                        <p>
+                            Instructions about how to install and customize Apache Spark are in the chapters 2 and 3 of the
+                            <a href="https://www-304.ibm.com/servers/resourcelink/svc00100.nsf/pages/izodav110sc279033/$file/azk1a100.pdf" class="ds-text-blue-primary-2" style="color: #0a9577 !important">
+                            IzODA Installation and Customization Guide</a>.
+                        </p>
+                        <h1 class="ds-heading-2 ds-padding-top-2">
+                            Verify Your Installation
+                        </h1>
+                        <p>
+                            We have created a collection of small sample applications which you can run to verify that Spark is
+                            installed and configured properly, and works with the other components of IzODA.  Please choose one of the
+                            <a href="https://pages.github.ibm.com/zos-ecosystem/IzODA/blogs/" class="ds-text-blue-primary-2" style="color: #0a9577 !important">
+                            Install Verification Programs (IVPs)</a> from our blog to ensure your configuration is correct.
+                        </p>
+                        <h1 class="ds-heading-2 ds-padding-top-2">
+                            Reference Material
+                        </h1>
+                        <p>
+                            A library of documentation is available for the <em>IBM Open Data Analytics for z/OS</em> offering.  This
+                            can be found at the
+                            <a href="https://www.ibm.com/support/knowledgecenter/SS3H8V_1.1.0/com.ibm.izoda.v1r1.izodalp/izoda.htm" class="ds-text-blue-primary-2" style="color: #0a9577 !important">
+                            IBM Knowledge Center</a>.
+                        </p>
+                        <p>
+                            The <a href="http://www.redbooks.ibm.com/abstracts/sg248325.html" class="ds-text-blue-primary-2" style="color: #0a9577 !important">
+                            Apache Spark Implementation on IBM z/OS</a> is another good source of information about
+                            both Spark and ODL.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="ds-sticky-footer ds-grid ds-bg-neutral-warm-2" style="width: 100%; height: 110px;" >
+      <div class="ds-row">
+        <h5 class="ds-offset-xs-1 ds-col-xs-10 ds-padding-top-2_5 ds-heading-5">
+          <span class="ds-icon-github-l" style="position: relative; top: 1px; vertical-align: middle;"></span>
+          <a href="https://github.com/IzODA" target="_blank" class="ds-text-neutral-6 ds-font-weight-light">IzODA on GitHub</a>
+        </h5>
+      </div>
+    </footer>
+    <script src="../w3ds/w3ds.js"></script>
+  </body>
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html style="height: 100%;">
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" id="spng-favicon" href="//www.ibm.com/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Language" content="EN" />
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+    <title>z/OS - IBM Open Data Analytics for z/OS</title>
+    <link rel="stylesheet" href="../w3ds/w3ds.css" type="text/css">
+
+    <!-- if data tables are required -->
+    <link rel="stylesheet" href="../w3ds/w3ds-data-tables.css" type="text/css">
+
+    <!-- if code syntax highlighting is required -->
+    <link rel="stylesheet" href="../w3ds/w3ds-prism.css" rel="text/css" />
+    <link rel="stylesheet" href="../styles/styles.css" rel="text/css" />
+    <link rel="stylesheet" href="../styles/prism.css" rel="text/css" />
+</head>
+<body class="ds-has-sticky-footer">
+<div class="ds-grid">
+    <div class="ds-row">
+        <div class="ds-col-xs-12 ds-col-lg-12">
+            <div class="ds-row">
+                <div class="ds-col-xs-6 ds-col-sm-8 ds-col-lg-9 ds-col-8">
+                    <h4 class="ds-heading-4 ds-padding-top-0_5">
+                            <span class="ds-link-unstyled ds-padding-1 ds-display-inline-block">
+                                IBM <small><strong>zSystems</strong></small>
+                            </span>
+                    </h4>
+                </div>
+                <div class="ds-col-xs-3 ds-col-sm-2 ds-col-lg-1 ds-col-2 ds-padding-top-1"><a class="ds-button ds-flat tray-nav-close" href="https://pages.github.ibm.com/zos-ecosystem/IzODA/">Home</a></div>
+                <div class="ds-col-xs-3 ds-col-sm-2 ds-col-lg-1 ds-col-2 ds-padding-top-1"><a class="ds-button ds-flat tray-nav-close active" href="https://pages.github.ibm.com/zos-ecosystem/IzODA/blogs">Blogs</a></div>
+                <div class="ds-col-xs-3 ds-col-sm-2 ds-col-lg-1 ds-col-2 ds-padding-top-1"><a class="ds-button ds-flat tray-nav-close" href="https://pages.github.ibm.com/zos-ecosystem/IzODA/spark">Spark</a></div>
+                <div class="ds-col-xs-3 ds-col-sm-2 ds-col-lg-1 ds-col-2 ds-padding-top-1"><a class="ds-button ds-flat tray-nav-close" href="https://pages.github.ibm.com/zos-ecosystem/IzODA/odl">ODL</a></div>
+                <div class="ds-col-xs-3 ds-col-sm-2 ds-col-lg-1 ds-col-2 ds-padding-top-1"><a class="ds-button ds-flat tray-nav-close" href="https://pages.github.ibm.com/zos-ecosystem/IzODA/anaconda">Anaconda</a></div>
+            </div>
+        </div>
+    </div>
+    <div class="ds-row">
+        <div class="ds-col-12">
+            <div class="ds-row ds-padding-top-3">
+                <div class="ds-col-xs-10 ds-offset-xs-1 ds-padding-bottom-3">
+                    <a id="back-button" href="https://pages.github.ibm.com/zos-ecosystem/IzODA/blogs/" class="ds-text-neutral-cool-5 ds-link-unstyled"><span class="ds-icon-caret-left"></span> Back</a>
+                    <h1 class="ds-heading-2 ds-margin-top-1">
+                        Anaconda/ODL Installation Verification Program (IVP) with Jupyter Notebook
+                    </h1>
+                    <p>
+                        This Installation Verification Program (IVP) is provided by IBM to get started with Anaconda and
+                        Optimized Data Layer (ODL) stacks of IzODA. Upon completion of this IVP, it ensures Anaconda and ODL have been
+                        installed successfully and users are able to run data visualizations and analysis on Mainframe data sources.
+                    </p>
+                    <h2 class="ds-heading-3 ds-margin-top-3">
+                        Background
+                    </h2>
+                    <p>
+                        The following shows step-by-step instructions on how to run IBM Open Data Analytics for z/OS
+                        Anaconda and ODL stacks. If you have not yet installed Anaconda including Python 3.6 for z/OS
+                        please do so using our
+                        <a href="https://pages.github.ibm.com/zos-ecosystem/IzODA/anaconda/install-config" class="ds-text-blue-primary-2" style="color: #0a9577 !important">
+                        installation and configuration page</a> before proceeding.<br><br>
+
+                        Anaconda for z/OS provides a "conda" command for managing packages and environments. It is similar to Anaconda
+                        for other platforms with the exception that it includes a different list of packages. However,
+                        many of the popular data science packages are included with this distribution, for instance,
+                        pandas, numpy, scipy, scikit-learn, matplotlib, seaborn, and more. In this IVP, you will create
+                        and run a Jupyter Notebook on an x86 platform with a Jupyter kernel on z/OS executing Python code
+                        using the <a href="https://anaconda.org/izoda/hamlet" class="ds-text-blue-primary-2" style="color: #0a9577 !important">Hamlet</a> package and
+                        <a href="https://github.com/IzODA/JKG2AT" class="ds-text-blue-primary-2" style="color: #0a9577 !important">JKG2AT's</a>
+                        x86 install instructions. The Jupyter Notebook will demonstrate simple usage of data science packages by performing exploratory
+                        analysis on credit risk data retrieved from ODL.
+
+                        After completion of this IVP you will have learned the following:<br>
+                        <ui>
+                            <li>Basic conda commands</li>
+                            <li>JKG2AT and Hamlet setup</li>
+                            <li>Steps for executing code in a Jupyter Notebook</li>
+                            <li>Ingesting data sources into ODL</li>
+                            <li>Retrieve data via the Python-ODL API (dsdbc)</li>
+                            <li>Simple data analysis on z/OS</li>
+                        </ui>
+                    </p>
+                    <h2 class="ds-heading-3 ds-margin-top-3">
+                        Ingesting data into the Optimized Data Layer (ODL)
+                    </h2>
+                    <p>
+                        The data source we will be using is the
+                        <a href="https://archive.ics.uci.edu/ml/datasets/statlog+(german+credit+data)" class="ds-text-blue-primary-2" style="color: #0a9577 !important">
+                        German Credit Data</a> from the UCI Machine Learning Repository. Please download the csv file titled "ivp-german-data.csv"
+                        <a href="https://github.com/IzODA/examples/tree/master/python/data" class="ds-text-blue-primary-2" style="color: #0a9577 !important">here</a>.
+                        This data source is manipulated to avoid pre-processing such as, converting the input data into human-readable format,
+                        for the purpose of the IVP.<br><br>
+
+                        First, we will convert the CSV data file into a mainframe data source and store it in ODL. ODL enables
+                        data from multiple, disconnected sources on z/OS to be virtually integrated into a single, logical
+                        data source, which can then be imported into a dataframe for further analysis. Note that previously,
+                        ODL was called Mainframe Data Services (MDS). We choose this setup as opposed to reading directly
+                        from csv to ensure that we can retrieve a data source from ODL via the ODL-Python module, dsdbc.<br><br>
+                        <ol type = "1">
+                            <li>Create a copybook to describe the data layout. Please use the copybook
+                            <a href="https://github.com/IzODA/examples/tree/master/python/data/ivp-german-credit-data.cpy" class="ds-text-blue-primary-2" style="color: #0a9577 !important">here</a>.
+                            </li>
+                            <li>Allocate an empty data set on the host. For simplicity, create a physical sequential file with a
+                                record length that is wide enough to accommodate each record and call it "<b>CREDIT_DATA</b>".</li>
+                            <li>In Data Server Studio, create a sequential virtual table using the copybook given above and the
+                            empty physical sequential dataset. We will use this dataset to insert our csv data.</li>
+                            <li>Use the <a href="https://github.com/IzODA/examples/tree/master/python/data/ivp-load.py" class="ds-text-blue-primary-2" style="color: #0a9577 !important">ivp-load.py</a>
+                                script to load the csv data into the PS dataset. The script uses pandas to read the csv data
+                                into a dataframe and dsdbc to insert the values in the dataframe into the physical dataset.
+                                Please change the ivp-load.py variable ssid to the subsystem id of the local data service server.
+                            </li>
+                        </ol><br>
+
+                        Once the script is done running, we now have the CSV data in ODL.<br><br>
+
+                        For more information on ODL please refer to the
+                        <a href="http://www.redbooks.ibm.com/redbooks/pdfs/sg248325.pdf" class="ds-text-blue-primary-2" style="color: #0a9577 !important">Apache Spark Implementation on IBM z/OS</a><br>
+                        <b>Note:</b> ODL is referred to as MDSS or Mainframe Data Service in the redbook. Since writing
+                        the redbook, it has changed names to Optimized Data Layer (ODL).
+                    </p>
+                    <h2 class="ds-heading-3 ds-margin-top-3">
+                        Hamlet and JKG2AT Setup
+                    </h2>
+                    <p>
+                        To execute and run a Jupyter Notebook server, the current solution is to use our
+                        <a href="https://anaconda.org/izoda/hamlet" class="ds-text-blue-primary-2" style="color: #0a9577 !important">Hamlet</a> conda package and
+                        <a href="https://github.com/IzODA/JKG2AT/blob/master/x86/README.md" class="ds-text-blue-primary-2" style="color: #0a9577 !important">JKG2AT's install process on x86</a>.<br><br>
+                        Hamlet isn't included as part of the SMPE Anaconda install so you will need to run the command given in the IzODA channel:
+
+                        <pre><code class="language-bash">conda install -c izoda hamlet</code></pre>
+
+                        <b>Note:</b> Unless the system administrator set permissions for everyone to be able to administer
+                        Anaconda or if you want to install Hamlet in your own conda environment you will need to first
+                        make a clone of the environment:
+
+                        <pre><code class="language-bash">conda create -n <<i>name-of-env</i>> --clone="<<i>path-to-anaconda-home</i>>"</code></pre>
+
+                        When the clone is complete, you will need to activate the new environment:
+
+                        <pre><code class="language-bash">source activate <<i>name-of-env</i>></i></code></pre>
+
+                        Notice that when you activate the new environment you will see the environment name in parenthesis
+                        before the prompt. After the clone is complete, please run the conda install command given above.<br><br>
+
+                        When the install is complete, please run the following to ensure Hamlet is in the environment:
+
+                        <pre><code class="language-bash">conda list</code></pre>
+
+                        You should see Hamlet listed as one of the installed conda packages:
+
+                        <pre><code class="language-bash">hamlet                    1.0.0                         6    izoda</code></pre>
+
+                        The Hamlet install will also install its dependencies, apache toree and kernel-gateway among some others.
+                        Note for this IVP, we will only be using Jupyter's ipython kernel for python 3. Apache Toree kernel
+                        is used to interact with Apache Spark which will not be included in this IVP. After Hamlet is
+                        installed, please follow the instructions under <b><i>path-to-anaconda-install-dir</i>/pkgs/hamlet-1.0.0-0/info/recipe/README.md</b>
+                        to setup Jupyter Kernel Gateway and the iPython kernel for Python 3 on z/OS. Again, you can ignore the Apache Toree
+                        setup explained in the instructions.<br><br>
+
+                        Once you have setup the z/OS side, you will now need to set up Jupyter Notebook Server on the
+                        x86 side. Please follow the instructions <a href="https://github.com/IzODA/JKG2AT/blob/master/x86/README.md" class="ds-text-blue-primary-2" style="color: #0a9577 !important">here</a>.<br><br>
+
+                        When both sides of the solution are setup, you should be able to start up jupyter kernel gateway using the following command:
+
+                        <pre><code class="language-bash">jupyter kernelgateway</code></pre>
+                        <b>Note:</b> This is if the optional jupyter_kernel_gateway_config.py is setup. If not please run with --ip and --port options.<br><br>
+
+                        And you should also be able to start up the notebook server on x86 in the container via the following run command:
+
+                        <pre><code class="language-bash">./start.sh <<i>optional-config-file</i>></code></pre>
+
+                        You will know the setup is successful if you see the jupyter notebook dashboard in your web browser:<br><br>
+
+                        <center><img src="https://pages.github.ibm.com/zos-ecosystem/IzODA/images/blogs/jupyter-notebook.png" alt="Jupyter Notebook"></center><br><br>
+                        Then if you click on the drop-down menu "New" you should see Python 3 as one of the options for
+                        creating a new notebook.
+
+                    </p>
+                    <h2 class="ds-heading-2 ds-margin-top-3">
+                        Running Jupyter Notebook
+                    </h2>
+                    <p>
+                        For running the Jupyter Notebook, you will need to upload our Jupyter Notebook into your Jupyter
+                        Notebook server. In order to upload, please download <a href="https://github.com/IzODA/examples/tree/master/python" class="ds-text-blue-primary-2" style="color: #0a9577 !important">Credit-Risk-Assessment-IVP.ipynb</a>
+                        to your local machine. When you have finished downloading, click the "Upload" button in your Jupyter Notebook
+                        dashboard and find the .ipynb file you just downloaded. Then hit "Open". At this point you should see the notebook
+                        in your dashboard with the option to "Upload" next to the file name. Please click "Upload". Run the
+                        Jupyter Notebook by clicking on the .ipynb file. A new window should pop open and you'll see something like
+                        the following:<br><br>
+
+                        <center><img src="https://pages.github.ibm.com/zos-ecosystem/IzODA/images/blogs/credit-risk-ivp.png" alt="Credit Risk IVP"></center><br><br>
+
+                        Notice in the top right hand corner, it says the kernel you are using, in our case, Python 3. Also notice,
+                        the open circle that is next to the kernel name, this is telling us that the connection is established
+                        and the kernel is ready to execute code written in the Jupyter notebook cells (the different cells
+                        are denoted with "In []:" next to it) In our IVP notebook, there are two different types of cells, Markdown
+                        and code cells. Markdown cells include documentation for our IVP and code cells include python
+                        code to be executed by the jupyter kernel, ipython. To start executing code, click on a cell and
+                        go to <i>Cell > Run Cells</i> (or use the shortcut keys Shift + Enter). The execution is done when you see
+                        a number in "In []:" i.e. "In [1]:" next to the cell. The number corresponds to the order the cell was run in. (Order matters!
+                        Please run the notebook from top to bottom or you can run all cells by going to <i>Cell > Run All</i>).
+                        If there is a * within the brackets i.e. "In [*]:" that means the code is still executing. Note
+                        also that some of the code cells will produce output that will appear directly underneath the cell.<br><br>
+
+                        The Jupyter Notebook is split into three sections:<br>
+                        <ui>
+                            <li>Retrieve Data Source from ODL</li>
+                            <li>Data Analysis with Pandas</li>
+                            <li>Visualization with Matplotlib</li>
+                        </ui><br>
+
+                        If all the code cells run successfully, you can ensure Anaconda has been installed properly.
+                        At this point, you should have a good understanding of how to use Jupyter Notebooks to perform data
+                        analysis/machine learning on mainframe data sources.
+                    </p>
+
+                    <p class="ds-text-small ds-align-text-center">
+                        Authors: Yunli Tang, Joe Bostian &nbsp;&nbsp; Date: September 5th, 2017 </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="ds-sticky-footer ds-grid ds-bg-neutral-warm-2" style="width: 100%; height: 110px;" >
+    <div class="ds-row">
+        <h5 class="ds-offset-xs-1 ds-col-xs-10 ds-padding-top-2_5 ds-heading-5">
+            <span class="ds-icon-github-l" style="position: relative; top: 1px; vertical-align: middle;"></span>
+            <a href="https://github.com/IzODA" target="_blank" class="ds-text-neutral-6 ds-font-weight-light">IzODA on GitHub</a>
+        </h5>
+    </div>
+</footer>
+<script src="../w3ds/w3ds.js"></script>
+<script src="../js/prism.js"></script>
+</body>
+</html>

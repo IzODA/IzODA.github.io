@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html style="height: 100%;">
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" id="spng-favicon" href="//www.ibm.com/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Language" content="EN" />
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+    <title>Anaconda</title>
+    <link rel="stylesheet" href="../w3ds/w3ds.css" type="text/css">
+
+    <!-- if data tables are required -->
+    <link rel="stylesheet" href="../w3ds/w3ds-data-tables.css" type="text/css">
+
+    <!-- if code syntax highlighting is required -->
+    <link rel="stylesheet" href="../w3ds/w3ds-prism.css" rel="text/css" />
+    <link rel="stylesheet" href="../styles/styles.css" rel="text/css" />
+    <link rel="stylesheet" href="../styles/prism.css" rel="text/css" />
+</head>
+<body class="ds-has-sticky-footer">
+<div class="ds-grid">
+    <div class="ds-row">
+        <div class="ds-col-xs-12 ds-col-lg-12">
+            <div class="ds-row">
+                <div class="ds-col-xs-6 ds-col-sm-8 ds-col-lg-9 ds-col-8">
+                    <h4 class="ds-heading-4 ds-padding-top-0_5">
+                            <span class="ds-link-unstyled ds-padding-1 ds-display-inline-block">
+                                IBM <small><strong>Z</strong></small>
+                            </span>
+                    </h4>
+                </div>
+                <div class="ds-col-xs-3 ds-col-sm-2 ds-col-lg-1 ds-col-2 ds-padding-top-1"><a class="ds-button ds-flat tray-nav-close" href="https://pages.github.ibm.com/zos-ecosystem/IzODA/">Home</a></div>
+                <div class="ds-col-xs-3 ds-col-sm-2 ds-col-lg-1 ds-col-2 ds-padding-top-1"><a class="ds-button ds-flat tray-nav-close" href="https://pages.github.ibm.com/zos-ecosystem/IzODA/blogs">Blogs</a></div>
+                <div class="ds-col-xs-3 ds-col-sm-2 ds-col-lg-1 ds-col-2 ds-padding-top-1"><a class="ds-button ds-flat tray-nav-close" href="https://pages.github.ibm.com/zos-ecosystem/IzODA/spark">Spark</a></div>
+                <div class="ds-col-xs-3 ds-col-sm-2 ds-col-lg-1 ds-col-2 ds-padding-top-1"><a class="ds-button ds-flat tray-nav-close" href="https://pages.github.ibm.com/zos-ecosystem/IzODA/odl">ODL</a></div>
+                <div class="ds-col-xs-3 ds-col-sm-2 ds-col-lg-1 ds-col-2 ds-padding-top-1"><a class="ds-button ds-flat tray-nav-close active" href="https://pages.github.ibm.com/zos-ecosystem/IzODA/anaconda">Anaconda</a></div>
+            </div>
+        </div>
+    </div>
+    <div class="ds-row">
+        <div class="ds-col-12">
+            <div class="ds-row ds-padding-top-3"  style="background-image: url(https://pages.github.ibm.com/zos-ecosystem/IzODA/images/ibm_z14_banner.jpg);background-position:center;background-size:cover;background-repeat:no-repeat;">
+                <div class="ds-col-xs-10 ds-offset-xs-1 ds-padding-bottom-3">
+                    <h1 class="ds-heading-2 ds-text-light-color">
+                        IBM Open Data Analytics for z/OS
+                    </h1>
+                    <p class="ds-margin-bottom-2 ds-text-light-color" style="color: #47E3C1 !important">
+                        Analytics for the enterprise
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="ds-col-12">
+            <div class="ds-row ds-padding-top-3">
+                <div class="ds-col-xs-10 ds-offset-xs-1 ds-padding-bottom-3">
+                    <h1 class="ds-heading-2 ds-margin-top0">
+                        Anaconda Installation and Configuration
+                    </h1>
+                    <p>
+                        This process installs all of the components of a fully a functional Anaconda deployment.  There are
+                        some key characteristics of the z/OS environment to be aware of:
+                    </p>
+                    <ul>
+                        <li>All Anaconda components are 64-bit ASCII applications.</li>
+                        <li>Since Anaconda is an ASCII environment running on a platform with a default EBCDIC code page,
+                        file tagging is used extensively.  Be aware that newly created files in this environment must be
+                        properly tagged for everything to run smoothly.</li>
+                        <li>These instructions are for a system administrator running in a z/OS shell.  They are tailored for
+                        a bash shell instance.  If you are using the default <em>tcsh</em> that comes with z/OS, substitute the
+                        <em>setenv</em> command for <em>export</em>.</li>
+                        <li>Proper WLM classification of Python workloads depends on how the tasks and processes associated
+                        with the application are named.  By default, all such tasks will be associated with the name of the
+                        invoking user.  However, this gives no indication to WLM that the given task is part of a Python workload.
+                        See the environmental setup section below for an explanation about how to associate a job name
+                        with the tasks of your Python application that WLM can recognize.</li>
+                    </ul>
+                    <h1 class="ds-heading-2 ds-padding-top-2">
+                        Prerequisites
+                    </h1>
+                    <ul>
+                        <li>Python makes use of the <em>/dev/urandom</em> character special file to read pseudo-random values for use in a
+                        variety of applications.  The <em>Integrated Cryptographic Service Facility (ICSF)</em> service of z/OS
+                        must be started for /dev/urandom to function properly.  Failures will occur if ICSF is not active when
+                        Anaconda is installed.
+<pre><code class="language-bash">
+  head -c40 /dev/urandom
+  head: /dev/urandom: EDC5157I An internal error has occurred.
+</code></pre></li>
+                        <li>The pre-requisite level of bash is 4.2.53.  This is the version installed as the default during Anaconda
+                        installation.  A 4.3.46 version of bash is also included as an Anaconda package that can be installed via
+                        conda.  This is a functional version of the shell, but this is not officially supported with either Spark
+                        or Anaconda.</li>
+                    </ul>
+                    <h1 class="ds-heading-2 ds-padding-top-2">
+                        Environmental Setup
+                    </h1>
+                    <p>
+                        This is the setup necessary for any user to run Python applications and make use of other Anaconda functions:
+                        <ul>
+                            <li>Include this setup in your .bashrc profile to make file conversion and tagging transparent
+                            to your Python application:</li>
+<pre><code class="language-bash">
+  export _CEE_RUNOPTS="FILETAG(AUTOCVT,AUTOTAG) POSIX(ON)"
+  if [[ "x$_BPXK_AUTOCVT" == "x" ]]; then
+    export _BPXK_AUTOCVT=ON
+    exec $BASH "$@"
+  fi
+</code></pre>
+                            <li>Add the Anaconda bin directory to your PATH in .bashrc:
+<pre><code class="language-bash">
+export ANACONDA_ROOT="/usr/lpp/IBM/izoda/Anaconda"
+export PATH=$ANACONDA_ROOT/bin:$PATH
+</code></pre>
+                            The Anaconda bin directory doesn't have to be first in your PATH, but if there are
+                            other shells or versions of bash installed on the system, the Anaconda bin directory
+                            has to preceed them in the PATH.  Note: substitute the actual
+                            path to the Anaconda root from your environment when exporting ANACONDA_ROOT.</li>
+                            <li>Most Python applications will use the Optimized Data Layer to access data sources
+                            on z/OS and from remote servers.  These call to ODL through the <em>dsdbc</em> api.  Set up
+                            your STEPLIB to include the load library for this interface in .bashrc:
+<pre><code class="language-bash">
+  export STEPLIB=hlq.SAZKLOAD:$STEPLIB
+</code></pre>
+                            where <em>hlq</em> is the high-level qualifier of the ODL (MDS) installation.</li>
+                            <li>Grant users running Python applications READ permission to the BPX.JOBNAME facility
+                            class profile so that they can assign jobnames to their workload.  Please see the
+                            <a href="https://www.ibm.com/support/knowledgecenter/SSLTBW_2.1.0/com.ibm.zos.v2r1.bpxb200/bpxenv.htm" class="ds-text-blue-primary-2" style="color: #0a9577 !important">
+                            _BPX environment variables section</a> of the <em>z/OS UNIX System Services Planning</em> guide
+                            for more information.  Note: superusers are allowed to set jobnames regardless of
+                            their access to BPX.JOBNAME.  <strong>In general, we recommend against Python users having superuser
+                            privileges.</strong> </li>
+                        </ul>
+                    </p>
+                    <h1 class="ds-heading-2 ds-padding-top-2">
+                        Download and Unpack
+                    </h1>
+                    <p>
+                        IzODA installs using SMP/E.  Instructions are in the Program Directory.
+                    </p>
+
+                    <h1 class="ds-heading-2 ds-padding-top-2">
+                        Install
+                    </h1>
+                    <p>
+                        The SMP/E jobs need to be run in order. Each job includes its own instructions at the top.
+                    </p>
+                    <h1 class="ds-heading-2 ds-padding-top-2">
+                        Post-SMP/E Installation Instructions
+                    </h1>
+                    <p>
+                        There are several additional steps that a system administrator may wish to perform, depending
+                        on the runtime configuration they intend to create.  Before running any of the following steps,
+                        cd to the root directory of the of the Anaconda installation.  Note that all of the tools below
+                        are in the bin directory under the Anaconda root directory.
+                    </p>
+                    <ul>
+                        <li>Bash 4.2 requires shell scripts to be encoded in EBCDIC, even though all Python scripts
+                        in Anaconda are ASCII, and are file tagged to indicate this.  The
+                        <em>install_ensure_scripts_are_in_ebcdic</em> tool can be used to guarantee all shell scripts
+                        in the Anaconda installation have the proper encoding.</li>
+                        <li>A good practice is to install Anaconda read-only for all users except an owning
+                        administrator.  You can use the <em>install_set_single_anaconda_admin</em> tool to set the
+                        <em>group</em> and <em>other</em> permissions for All Anaconda parts to read-only.</li>
+                        <li>If you wish to set up Anaconda to be managed by a group of administrators, use the
+                        <em>install_set_shared_anaconda_admin</em> tool.  Run the command like this:
+<pre><code class="language-bash">
+  install_set_shared_anaconda_admin groupname
+</code></pre>
+                        where groupname is the name of the administrators group.</li>
+                        <li>If you plan to run Python code in a server (as a daemon), you should run the
+                        <em>install_set_program_control</em> tool.  For more information, refer to the
+                        <a href="https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.1.0/com.ibm.zos.v2r1.bpxb200/progcontr.htm" class="ds-text-blue-primary-2" style="color: #0a9577 !important">
+                        Defining programs in UNIX files to program control</a> section of the <em>z/OS Unix System Services Planning</em>
+                        guide.</li>
+                    </ul>
+                    <p>
+                        There is one mandatory last step - run the <em>conda</em> command to pull all updates to the Anaconda
+                        environment from the IzODA channel on the Anaconda cloud.
+<pre><code class="language-bash">
+  conda update
+</code></pre>
+                        This step is necessary because updates are frequently made to the packages of the
+                        Anaconda root environment.  The PID version of IzODA will usually be downlevel from
+                        the version that exists in the IzODA Anaconda channel.
+                    </p>
+                    <h2 class="ds-heading-2 ds-padding-top-2">
+                        Activate an Environment
+                    </h2>
+                    <p>
+                        A successful Anaconda installation results in a root environment that includes all of the
+                        packages shipped with IzODA.  The root environment can be activated with the Anaconda
+                        <em>activate</em> command.
+                    </p>
+                    <p>
+                        <em>Note: as a temporary restriction, anaconda commands must be run from a bash sub-shell.
+                        If you have established a login with one bash session active, run bash again from the command
+                        line to create the necessary shell nesting before using Anaconda commands.</em>
+                    </p>
+                    <p>
+                        In order to affect the current shell environment, the Anaconda <em>activate</em> command must be
+                        run using the <em>source</em> bash builtin:
+                    </p>
+<pre><code class="language-bash">
+  /home/condausr> bash
+  /home/condausr> source activate root
+  (root) /home/condausr>
+</code></pre>
+                    <p>
+                        Note that the name of the active Anaconda environment is in parentheses before any command line
+                        prompt that you have have set up.  At this point, any packages in the active environment are
+                        available to applications that you may want to run.
+                    </p>
+                    <p>
+                        In order to exit the root environment and return to you original shell, use the Anaconda
+                        <em>deactivate</em> command:
+                    </p>
+<pre><code class="language-bash">
+  (root) /home/condausr> source deactivate root
+  /home/condausr>
+</code></pre>
+                    <p>
+                        A complete description of conda and its functions is available in the
+                        <a href="https://conda.io/docs/user-guide/index.html" class="ds-text-blue-primary-2" style="color: #0a9577 !important">
+                        conda User Guide</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="ds-sticky-footer ds-grid ds-bg-neutral-warm-2" style="width: 100%; height: 110px;" >
+    <div class="ds-row">
+        <h5 class="ds-offset-xs-1 ds-col-xs-10 ds-padding-top-2_5 ds-heading-5">
+            <span class="ds-icon-github-l" style="position: relative; top: 1px; vertical-align: middle;"></span>
+            <a href="https://github.com/IzODA" target="_blank" class="ds-text-neutral-6 ds-font-weight-light">IzODA on GitHub</a>
+        </h5>
+    </div>
+</footer>
+<script src="../w3ds/w3ds.js"></script>
+<script src="../js/prism.js"></script>
+</body>
+</html>

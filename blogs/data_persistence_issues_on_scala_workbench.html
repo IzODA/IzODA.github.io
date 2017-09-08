@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html style="height: 100%;">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" id="spng-favicon" href="//www.ibm.com/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Language" content="EN" />
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+    <title>z/OS - IBM Open Data Analytics for z/OS</title>
+    <link rel="stylesheet" href="../w3ds/w3ds.css" type="text/css">
+
+    <!-- if data tables are required -->
+    <link rel="stylesheet" href="../w3ds/w3ds-data-tables.css" type="text/css">
+    
+    <!-- if code syntax highlighting is required -->
+    <link rel="stylesheet" href="../w3ds/w3ds-prism.css" rel="text/css" />
+    <link rel="stylesheet" href="../styles/styles.css" rel="text/css" />
+    <link rel="stylesheet" href="../styles/prism.css" rel="text/css" />
+  </head>
+  <body class="ds-has-sticky-footer">
+    <div class="ds-grid">
+        <div class="ds-row">
+            <div class="ds-col-xs-12 ds-col-lg-12">
+                <div class="ds-row">
+                    <div class="ds-col-xs-6 ds-col-sm-8 ds-col-lg-9 ds-col-8">
+                        <h4 class="ds-heading-4 ds-padding-top-0_5">
+                            <span class="ds-link-unstyled ds-padding-1 ds-display-inline-block">
+                                IBM <small><strong>zSystems</strong></small>
+                            </span>
+                        </h4>
+                    </div>
+                    <div class="ds-col-xs-3 ds-col-sm-2 ds-col-lg-1 ds-col-2 ds-padding-top-1"><a class="ds-button ds-flat tray-nav-close" href="https://pages.github.ibm.com/zos-ecosystem/IzODA/">Home</a></div>
+                    <div class="ds-col-xs-3 ds-col-sm-2 ds-col-lg-1 ds-col-2 ds-padding-top-1"><a class="ds-button ds-flat tray-nav-close active" href="https://pages.github.ibm.com/zos-ecosystem/IzODA/blogs">Blogs</a></div>
+                    <div class="ds-col-xs-3 ds-col-sm-2 ds-col-lg-1 ds-col-2 ds-padding-top-1"><a class="ds-button ds-flat tray-nav-close" href="https://pages.github.ibm.com/zos-ecosystem/IzODA/spark">Spark</a></div>
+                    <div class="ds-col-xs-3 ds-col-sm-2 ds-col-lg-1 ds-col-2 ds-padding-top-1"><a class="ds-button ds-flat tray-nav-close" href="https://pages.github.ibm.com/zos-ecosystem/IzODA/odl">ODL</a></div>
+                    <div class="ds-col-xs-3 ds-col-sm-2 ds-col-lg-1 ds-col-2 ds-padding-top-1"><a class="ds-button ds-flat tray-nav-close" href="https://pages.github.ibm.com/zos-ecosystem/IzODA/anaconda">Anaconda</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="ds-row">
+            <div class="ds-col-12">
+                <div class="ds-row ds-padding-top-3">
+                    <div class="ds-col-xs-10 ds-offset-xs-1 ds-padding-bottom-3">
+                        <a id="back-button" href="https://pages.github.ibm.com/zos-ecosystem/IzODA/blogs/" class="ds-text-neutral-cool-5 ds-link-unstyled"><span class="ds-icon-caret-left"></span> Back</a>
+                        <h1 class="ds-heading-2 ds-margin-top-1">
+                            Data Persistence Issues on Scala Workbench
+                        </h1>
+                        <p>The topic of this blog entry is on the data persistence issue regarding text files saved/retrieved from a filesystem. This issue can be seen using scala workbench on a LoZ system and a Spark cluster running on a system with z/OS 2.2; it is encountered when trying to persist data via saving to text file or when retrieving data from filesystem. The following is some code examples of the issue described.</p>
+                        <h2 class="ds-heading-3 ds-margin-top-3">
+                            Scenario 1: Reading in a text file
+                        </h2>
+                        <p>Suppose we have a file called "test.txt" saved under dir /home/user on LoZ. We will encounter the following error:<br>
+                            <strong>Note</strong>: the try/catch is used to force the stacktrace to print out.
+                        </p>
+                        <p>In [9]:</p>
+                        <p>
+                            <pre><code class="language-scala">try { 
+    val distFile = sc.textFile("file:///home/user/test.txt")
+    distFile.count()
+} catch{
+    case e: Exception => println(e)
+}</code></pre>
+                        </p>
+                        <p>
+                            org.apache.hadoop.mapred.InvalidInputException: Input path does not exist: file:/home/user/test.txt
+                        </p>
+                        <p>
+                            Out [9]: Even though the file does indeed exist, we encountered the above error! Let's take a look at what our current working directory is
+                        </p>
+                        <p>In [10]:</p>
+                        <p>
+                            <pre><code class="language-scala">System.getProperty("user.dir")</code></pre>
+                        </p>
+                        <p>
+                            Out [10]: /home/jovyan/work
+                        </p>
+                        <p>
+                            The issue here is that our current working directory is pointing to a directory located on LoZ where the scala workbench is installed when ideally, we should be pointing to a file path where the remote spark cluster is running. This is because when installing the apachee toree kernel, it requires that we install a local spark to resolve dependencies. Even though during the build phase we specify the remote master spark server to perform the actual work, we also had the requirement of having the local installation when setting up apache toree. This is where the confusion happens! /home/jovyan/work is a directory that is setup within our Docker image during the build phase and when starting up the notebook, this will be our current working directory instead of a directory where the master server is running.
+                        </p>
+                        <h2 class="ds-heading-3 ds-margin-top-3">
+                            Scenario 2: Saving RDD to text file
+                        </h2>
+                        <p>In [18]:</p>
+                        <p>
+                            <pre><code class="language-scala">val data = Array(1,2,3,4,5)
+val dataTest = sc.parallelize(data)
+dataTest.collect()
+try{
+    dataTest.saveAsTextFile("test.txt")
+} catch{
+    case e: Exception => println(e)
+}</code></pre>
+                        </p>
+                        <p>
+                            <pre><code class="language-bash">org.apache.spark.SparkException: Job aborted due to stage failure: Task 2 in stage 17.0 failed 4 times, most recent failure: Lost task 2.3 in stage 17.0 (TID 98, 9.12.41.72): java.io.IOException: Mkdirs failed to create file:/home/jovyan/work/test.txt/_temporary/0/_temporary/attempt_201702201616_0017_m_000002_98 (exists=false, cwd=file:/Voyager/Spark/spark-2.0.2/work/app-20170220134726-0002/0)
+	at org.apache.hadoop.fs.ChecksumFileSystem.create(ChecksumFileSystem.java:455)
+	at org.apache.hadoop.fs.ChecksumFileSystem.create(ChecksumFileSystem.java:440)
+	at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:911)
+	at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:804)
+	at org.apache.hadoop.mapred.TextOutputFormat.getRecordWriter(TextOutputFormat.java:123)
+	at org.apache.spark.SparkHadoopWriter.open(SparkHadoopWriter.scala:90)
+	at org.apache.spark.rdd.PairRDDFunctions$$anonfun$saveAsHadoopDataset$1$$anonfun$13.apply(PairRDDFunctions.scala:1199)
+	at org.apache.spark.rdd.PairRDDFunctions$$anonfun$saveAsHadoopDataset$1$$anonfun$13.apply(PairRDDFunctions.scala:1190)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:70)
+	at org.apache.spark.scheduler.Task.run(Task.scala:86)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:274)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1153)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.lang.Thread.run(Thread.java:785)
+
+Driver stacktrace:</code></pre>
+                        </p>
+                        <p>
+                            The same problem is encountered above when trying to save an RDD to a text file. From the stacktrace we notice that the current working directory is /Voyager/Spark/spark-2.0.2/..(where our master server is running) and we try to make the directory where apache toree is running (home/jovyan/work/) Again, this is due to the local spark dependencies of Apache Toree. Let's see what happens when we try saving to a directory where the master server is running.
+                        </p>
+                        <h2 class="ds-heading-3 ds-margin-top-3">
+                            Scenario 3: Saving text file to where the Spark cluster is running
+                        </h2>
+                        <p>In [13]:</p>
+                        <p>
+                            <pre><code class="language-scala">val data = Array(1,2,3,4,5)
+val dataTest = sc.parallelize(data)
+dataTest.collect()
+try{
+    dataTest.saveAsTextFile("/Voyager/Spark/spark-2.0.2/text-file")
+} catch{
+    case e: Exception => println(e)
+}</code></pre>
+                        </p>
+                        <p>
+                            java.io.FileNotFoundException: File file:/Voyager/Spark/spark-2.0.2/text-file/_temporary/0 does not exist
+                        </p>
+                        <p>
+                            When navigating to the above directory we notice that the directory does exist! However, remember we couldn't configure apache toree with the remote spark during buildtime. Again, we see the same issues here as described above.
+                        </p>
+                        <p class="ds-text-small ds-align-text-center">
+                            Author: Lili Tang &nbsp;&nbsp; Date: March 3rd, 2017
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="ds-sticky-footer ds-grid ds-bg-neutral-warm-2" style="width: 100%; height: 110px;" >
+      <div class="ds-row">
+        <h5 class="ds-offset-xs-1 ds-col-xs-10 ds-padding-top-2_5 ds-heading-5">
+          <span class="ds-icon-github-l" style="position: relative; top: 1px; vertical-align: middle;"></span>
+          <a href="https://github.com/IzODA" target="_blank" class="ds-text-neutral-6 ds-font-weight-light">IzODA on GitHub</a>
+        </h5>
+      </div>
+    </footer>
+    <script src="../w3ds/w3ds.js"></script>
+    <script src="../js/prism.js"></script>
+  </body>
+</html>

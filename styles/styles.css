@@ -1,0 +1,32 @@
+.ds-button.active {
+    border-bottom: 3px solid #47E3C1
+}
+
+.ds-row.dark {
+    background-color: #1C3358; 
+    color: #ffffff;
+}
+
+.ds-panel.transparent {
+    background-color: transparent; 
+}
+
+.ds-button.teal {
+    color: #1C3358;
+    background-color: #47E3C1;
+}
+
+.truncate {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+a#back-button {
+    color: #232323 !important;
+}
+
+a#back-button > span::before {
+    position: relative;
+    top: 3px;
+}
