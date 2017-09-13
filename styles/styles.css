@@ -3,12 +3,12 @@
 }
 
 .ds-row.dark {
-    background-color: #1C3358; 
+    background-color: #1C3358;
     color: #ffffff;
 }
 
 .ds-panel.transparent {
-    background-color: transparent; 
+    background-color: transparent;
 }
 
 .ds-button.teal {
@@ -29,4 +29,8 @@ a#back-button {
 a#back-button > span::before {
     position: relative;
     top: 3px;
+}
+
+img {
+    width: 100%
 }
