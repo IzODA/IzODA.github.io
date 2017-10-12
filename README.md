@@ -1,5 +1,5 @@
 <div  align="center">
-    <img src="https://pages.github.ibm.com/zos-ecosystem/IzODA/images/ibm_z14_banner.jpg" alt="Lightning Logo"/>
+    <img src="images/ibm_z14_banner.jpg" alt="Lightning Logo"/>
 </div>
 <br />
 
