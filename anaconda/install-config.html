@@ -178,10 +178,13 @@ export PATH=$ANACONDA_ROOT/bin:$PATH
                         environment from the IzODA channel on the Anaconda cloud.
 <pre><code class="language-bash">
   conda update
+  conda install bash=4.2
 </code></pre>
                         This step is necessary because updates are frequently made to the packages of the
                         Anaconda root environment.  The PID version of IzODA will usually be downlevel from
-                        the version that exists in the IzODA Anaconda channel.
+                        the version that exists in the IzODA Anaconda channel.  If you use Spark, you should
+                        also run the <em>conda install</em> to restore the version of bash that has been tested
+                        with Spark.
                     </p>
                     <h2 class="ds-heading-2 ds-padding-top-2">
                         Activate an Environment
