@@ -154,6 +154,11 @@ export PATH=$ANACONDA_ROOT/bin:$PATH
                         are in the bin directory under the Anaconda root directory.
                     </p>
                     <ul>
+		        <li>A common method of installing service involves mounting the filesystem containing Anaconda at a different location from normal, and in read_write mode.  After installing service, the filesystem is re-mounted at is usual location, and may be in read-only mode.  If you use this method, you must run change-prefix to fix the pathnames that are imbedded in many of the scripts.  change-prefix takes two arguments, old-prefix and new-prefix.  For example:
+<pre><code class="language-bash">
+  change-prefix /service/usr/lpp/IBM/izoda/anaconda /usr/lpp/IBM/izoda/anaconda
+</code></pre>
+			Please note that change-prefix is not included in the GA release of IzODA, but is included in the first PTF.  You can download change-prefix <a href="https://izODA.github.io/anaconda/change-prefix.pax">here</a>, then upload it to your system (in binary mode), then cd to the root directory of anaconda and unpack it with "pax -r -f change-prefix.pax".
                         <li>Bash 4.2 requires shell scripts to be encoded in EBCDIC, even though all Python scripts
                         in Anaconda are ASCII, and are file tagged to indicate this.  The
                         <em>install_ensure_scripts_are_in_ebcdic</em> tool can be used to guarantee all shell scripts
