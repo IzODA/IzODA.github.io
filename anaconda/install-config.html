@@ -158,7 +158,7 @@ export PATH=$ANACONDA_ROOT/bin:$PATH
 <pre><code class="language-bash">
   change-prefix /service/usr/lpp/IBM/izoda/anaconda /usr/lpp/IBM/izoda/anaconda
 </code></pre>
-			Please note that change-prefix is not included in the GA release of IzODA, but is included in the first PTF.  You can download change-prefix <a href="https://izODA.github.io/anaconda/change-prefix.pax">here</a>, then upload it to your system (in binary mode), then cd to the root directory of anaconda and unpack it with "pax -r -f change-prefix.pax".
+			Please note that change-prefix is not included in the GA release of IzODA, but is included in the first PTF.  You can download change-prefix <a href="https://izODA.github.io/anaconda/change-prefix.pax">here</a>, then upload it to your system (in binary mode), then cd to the Anaconda root directory and unpack it with "pax -r -f change-prefix.pax".
                         <li>Bash 4.2 requires shell scripts to be encoded in EBCDIC, even though all Python scripts
                         in Anaconda are ASCII, and are file tagged to indicate this.  The
                         <em>install_ensure_scripts_are_in_ebcdic</em> tool can be used to guarantee all shell scripts
@@ -235,7 +235,119 @@ export PATH=$ANACONDA_ROOT/bin:$PATH
                       Latebreaking News
                     </h1>
                     <p>
-Stuff will go here
+                       This section augments information in the 
+                       <a href="http://www-01.ibm.com/support/docview.wss?uid=isg1_ZODAV1R1_HANA110" class="ds-text-blue-primary-2" style="color: #0a9577 !important">PSP bucket for Anaconda 1.1.0</a>.
+                    </p>
+                    <h1 class="ds-heading-3 ds-padding-top-0_5" id="latebreaking">
+                      Applying maintenance
+                    </h1>
+                    <p>
+                      Anaconda takes a new approach to software maintenance. Rather than require all
+                      users on a system to use the same version of a given tool, Anaconda allows each user
+                      to select whatever version they wish to run, by controlling the content of their
+                      <em>conda environment</em>. Users can create as many environments as they wish, 
+                      potentially using different versions of tools for different task.
+                    </p>
+
+                    <p>
+                      This means that installing new versions of the tools and packages controlled by
+                      conda <em>adds the new versions to the system without removing old versions</em>.
+                      This allows users to transition to new versions on their own schedule.
+                    </p>
+
+                    <p>
+                      That said, the <em>default</em> environment (also known as the <em>root</em>
+                      environment) is managed by the system administrator, and usually provides
+                      the most recent versions of tools. 
+                    </p>
+
+                    <p>
+                      The preferred means of installing new code into the conda root environment
+                      is by using the <tt>conda update</tt> command. This will obtain the latest
+                      versions of packages and tools from a <em>channel</em>. IBM provides the
+                      <a href="https://anaconda.org/izoda/repo?type=conda&label=main" 
+                         class="ds-text-blue-primary-2" 
+                         style="color: #0a9577 !important">IzODA channel on the Anaconda cloud</a>,
+                      which will be updated regularly with new packages, and new versions of 
+                      existing packages. This channel is enabled by default when Anaconda is
+                      first installed.
+                    </p>
+
+                    <p>
+                      However, not all installations will choose to install maintenance via the 
+                      Internet. For such installations, IBM will provide regular PTFs for use with
+                      SMP/E.
+                    </p>
+
+                    <p>
+                      Note, however, that installing maintenance via PTF will disable 
+                      default access to the IzODA channel, under the presumption that
+                      subsequent maintenance will also be applied via SMP/E. Access can 
+                      be restored by 
+                      <a href="https://conda.io/docs/user-guide/configuration/use-condarc.html#channel-locations-channels"
+                         class="ds-text-blue-primary-2" 
+                         style="color: #0a9577 !important">
+                        altering the conda configuration file.
+                      </a>
+                    </p>
+
+                    <h1 class="ds-heading-3 ds-padding-top-0_5" id="latebreaking">
+                      Maintaining the correct file ownership
+                    </h1>
+
+                    <p>
+                      If Anaconda is installed and maintained by a userid other than <tt>root</tt>,
+                      installation of maintenance will generally result in files in the
+                      Anaconda root directory having the owner and group IDs of that userid.
+                    </p>
+
+                    <p>
+                       If, on the other hand, Anaconda is installed and maintained by <tt>root</tt>,
+                       files created or modified by installing maintenance (either via <tt>conda update</tt>
+                       or SMP/E) may produce files whose user and owner IDs are determined by
+                       the system that created the package. This is not desirable. To avoid this
+                       situation, execute the following commands, as <tt>root</tt> after installing maintenance:
+                    </p>
+
+<pre>
+  cd /usr/lpp/IBM/izoda/anaconda   # or the Anaconda root directory, if changed
+  chown -R 0:0 .
+</pre>
+
+                    <p>
+                      This will force the uid/gid for all of the files in the entire
+                      Anaconda root directory (and subdirectories) to 0, which is reserved
+                      for <tt>root</tt>.
+                    </p>
+
+
+                    <h1 class="ds-heading-2 ds-padding-top-2" id="latebreaking">
+                      Terminology
+                    </h1>
+                    <h1 class="ds-heading-3 ds-padding-top-0_5" id="latebreaking">
+                      root
+                    </h1>
+                    <p>
+                       The term "root" has one of three meanings, in the context of Anaconda:
+                       <ul>
+                         <li>
+                           <tt>root</tt> can mean the <em>root userid</em>.  This user has uid 0.  
+                           However, in z/OS, there are other ways to get all privileges, 
+                           and the use of uid of 0 is less common.
+                         </li>
+                         <li>
+                           <tt>root</tt> can mean the <em>Anaconda root directory</em>.
+                           This is usually <tt>/usr/lpp/IBM/izoda/anaconda</tt>. It can be
+                           changed at installation time, and will often be temporarily
+                           different while service is being applied.
+                         </li>
+                         <li>
+                           <tt>root</tt> can mean the <em>root conda environment</em>. When you run
+                           the script named <tt>activate</tt> to activate a conda environment, it sets an
+                           environment variable that causes bash to print the environment name in
+                           parenthesis.  The default environment is named <tt>root</tt>.
+                         </li>
+                       </ul>
                     </p>
                 </div>
             </div>
