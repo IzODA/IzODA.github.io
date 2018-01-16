@@ -78,6 +78,17 @@
                         Prerequisites
                     </h1>
                     <ul>
+                        <li>IzODA installs Anaconda from a local archive shipped as part of the SMP/E offering.  Because of this,
+                        the install process requires room for the archive, plus about the same amount of space in the target file
+                        system that contains the Anaconda home directory - usually <em>/usr/lpp/IBM/izoda/anaconda</em>.  Since
+                        Anaconda ships with approximately 230 packages, a finished install consumes between 2.5 and 3 GB.
+                        <p/>
+                        <p>In addition to the space required during the IzODA install, it's important to remember that Anaconda keeps
+                        all package versions that have been installed from the IzODA channel through the conda command.  This
+                        allows previous versions of any installed package to be referenced in addition to the latest version.  Be
+                        sure to give Anaconda enough room to operate.  The minimum space for an Anaconda installation is 6 GB, and
+                        the recommended amount of space is 20 GB.</p>
+                        </li>
                         <li>Python makes use of the <em>/dev/urandom</em> character special file to read pseudo-random values for use in a
                         variety of applications.  The <em>Integrated Cryptographic Service Facility (ICSF)</em> service of z/OS
                         must be started for /dev/urandom to function properly.  Failures will occur if ICSF is not active when
@@ -235,7 +246,7 @@ export PATH=$ANACONDA_ROOT/bin:$PATH
                       Latebreaking News
                     </h1>
                     <p>
-                       This section augments information in the 
+                       This section augments information in the
                        <a href="http://www-01.ibm.com/support/docview.wss?uid=isg1_ZODAV1R1_HANA110" class="ds-text-blue-primary-2" style="color: #0a9577 !important">PSP bucket for Anaconda 1.1.0</a>.
                     </p>
                     <h1 class="ds-heading-3 ds-padding-top-0_5" id="latebreaking">
@@ -245,7 +256,7 @@ export PATH=$ANACONDA_ROOT/bin:$PATH
                       Anaconda takes a new approach to software maintenance. Rather than require all
                       users on a system to use the same version of a given tool, Anaconda allows each user
                       to select whatever version they wish to run, by controlling the content of their
-                      <em>conda environment</em>. Users can create as many environments as they wish, 
+                      <em>conda environment</em>. Users can create as many environments as they wish,
                       potentially using different versions of tools for different task.
                     </p>
 
@@ -258,34 +269,34 @@ export PATH=$ANACONDA_ROOT/bin:$PATH
                     <p>
                       That said, the <em>default</em> environment (also known as the <em>root</em>
                       environment) is managed by the system administrator, and usually provides
-                      the most recent versions of tools. 
+                      the most recent versions of tools.
                     </p>
 
                     <p>
                       The preferred means of installing new code into the conda root environment
                       is by using the <tt>conda update</tt> command. This will obtain the latest
                       versions of packages and tools from a <em>channel</em>. IBM provides the
-                      <a href="https://anaconda.org/izoda/repo?type=conda&label=main" 
-                         class="ds-text-blue-primary-2" 
+                      <a href="https://anaconda.org/izoda/repo?type=conda&label=main"
+                         class="ds-text-blue-primary-2"
                          style="color: #0a9577 !important">IzODA channel on the Anaconda cloud</a>,
-                      which will be updated regularly with new packages, and new versions of 
+                      which will be updated regularly with new packages, and new versions of
                       existing packages. This channel is enabled by default when Anaconda is
                       first installed.
                     </p>
 
                     <p>
-                      However, not all installations will choose to install maintenance via the 
+                      However, not all installations will choose to install maintenance via the
                       Internet. For such installations, IBM will provide regular PTFs for use with
                       SMP/E.
                     </p>
 
                     <p>
-                      Note, however, that installing maintenance via PTF will disable 
+                      Note, however, that installing maintenance via PTF will disable
                       default access to the IzODA channel, under the presumption that
-                      subsequent maintenance will also be applied via SMP/E. Access can 
-                      be restored by 
+                      subsequent maintenance will also be applied via SMP/E. Access can
+                      be restored by
                       <a href="https://conda.io/docs/user-guide/configuration/use-condarc.html#channel-locations-channels"
-                         class="ds-text-blue-primary-2" 
+                         class="ds-text-blue-primary-2"
                          style="color: #0a9577 !important">
                         altering the conda configuration file.
                       </a>
@@ -331,8 +342,8 @@ export PATH=$ANACONDA_ROOT/bin:$PATH
                        The term "root" has one of three meanings, in the context of Anaconda:
                        <ul>
                          <li>
-                           <tt>root</tt> can mean the <em>root userid</em>.  This user has uid 0.  
-                           However, in z/OS, there are other ways to get all privileges, 
+                           <tt>root</tt> can mean the <em>root userid</em>.  This user has uid 0.
+                           However, in z/OS, there are other ways to get all privileges,
                            and the use of uid of 0 is less common.
                          </li>
                          <li>
