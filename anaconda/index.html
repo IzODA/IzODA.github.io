@@ -152,6 +152,16 @@
                                     </ul>
                                 </td>
                             </tr>
+                            <tr>
+                                <td>
+                                    When creating an "empty" conda environment, be sure to include the Python package.
+                                    Failing to do so can result in Python being unable to find its main shared library
+                                    (libpython3.6m.so). If you have an environment active and install a new package into
+                                    it, please exit and re-enter the environment using source deactivate/activate to ensure
+                                    that all path variables in the environment are set properly.
+                                </td>
+                                <td></td>
+                            </tr>
                         </table>
 
 
