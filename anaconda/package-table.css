@@ -1,0 +1,57 @@
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Button inside dropdown to override default margin */
+.dropdown-content button {
+    margin-bottom: 0px;
+}
+
+/* Show the dropdown menu by overriding 'display: none'*/
+.show {display:block;}
+
+.package-options-table td {
+    background-color: rgb(0, 89, 138);
+}
+
+/* Override background-color for selects in the package-options-table */
+.package-options-table select {
+    background-color:#ffffff;
+    min-width: 200px;
+}
+
+.package-options-table span {
+    color:#ffffff;
+}
+
+.package-options-table .comparison-view td{
+    background-color:#ffffff;
+    display: none;
+}
+.package-options-table .comparison-view span{
+    color:#000000;
+}
+
+.right-justified {
+    display: inline; 
+    float: right;
+}
+
+.search-box {
+    width: 100%; 
+    padding: 8px 15px 9px 15px;
+}
+
+.no-margin {
+    margin: 0px 0px 0px 0px;
+}
