@@ -6,7 +6,6 @@ function loadPackageTable(compare = false) {
     setElementDisplay('comparison-view-td', 'none');
 	var selectedRelease = getSelectedRelease()
 	loadPackageTableFromFile(packageFileDir + selectedRelease, selectedRelease, compare);
-	alert(latestPackageText[0]);
 }
 
 function getSelectedRelease() {
@@ -24,7 +23,6 @@ function loadPackageTableFromFile(file, releaseName, compare = false, isLatest =
 		if(rawFile.status === 200 || rawFile.status == 0)
 		{
 		    var allText = rawFile.responseText;
-		    alert(allText);
 	        var splitLines = allText.split("\n");
 		
 		    if (isLatest) {
