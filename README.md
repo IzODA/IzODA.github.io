@@ -4,7 +4,7 @@
 <br />
 
 <h1 align="center">IBM Open Data Analytics for z/OS</h1>
-<div align="center"><strong>Visit the <a href="https://pages.github.ibm.com/zos-ecosystem/IzODA/" target="_blank" style="color: #47E3C1;">GitHub Page</a> to learn more about the product</strong> :octocat:</div>
+<div align="center"><strong>Visit the <a href="https://izoda.github.io//" target="_blank" style="color: #47E3C1;">GitHub Page</a> to learn more about the product</strong> :octocat:</div>
 <br>
 
 <br/>
