@@ -1,36 +1,68 @@
-.ds-button.active {
-    border-bottom: 3px solid #47E3C1
+body{
+  background-color:##efefef;
 }
 
-.ds-row.dark {
-    background-color: #1C3358;
-    color: #ffffff;
+html{
+  height:100%;
 }
 
-.ds-panel.transparent {
-    background-color: transparent;
+nav{
+  background-color: #efefef;
 }
 
-.ds-button.teal {
-    color: #1C3358;
-    background-color: #47E3C1;
+ul{
+  margin:auto;
 }
 
-.truncate {
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
+#githublogo{
+  height:20px;
+  width:20px;
 }
 
-a#back-button {
-    color: #232323 !important;
+footer {
+  background-color: #dfe3e6;
+  width:100%;
+  height:100%;
+  padding: 7px;
 }
 
-a#back-button > span::before {
-    position: relative;
-    top: 3px;
+iframe {
+  height:1000px;
+  width:1420px;
+  object-position: center top
+}
+h1{
+  text-align: center;
 }
 
-img {
-    width: 100%
+h6{
+  text-align:center;
+}
+
+.centerImage{
+  margin-left:auto;
+  margin-right:auto;
+  display:block;
+}
+
+p{
+  text-align:center;
+  margin-left:9em;
+  margin-right:9em;
+}
+
+#bannertextdiv{
+  position: absolute;
+   top: 28%;
+   width: 100%;
+   text-align: center;
+}
+
+#bannertext1{
+  color:white;
+  font-size: 3.5em;
+}
+
+.externalLink{
+  color: #0a9577;
 }
