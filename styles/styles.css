@@ -2,7 +2,7 @@ body{
   background-color:##efefef;
 }
 
-html{
+html, body{
   height:100%;
 }
 
@@ -20,17 +20,20 @@ ul{
 }
 
 footer {
+  width: 100%;
+  text-align: center;
   background-color: #dfe3e6;
-  width:100%;
-  height:100%;
   padding: 7px;
 }
 
 iframe {
-  height:1000px;
-  width:1420px;
   object-position: center top
 }
+
+.embed-responsive {
+  height:77.5%;
+}
+
 h1{
   text-align: center;
 }
