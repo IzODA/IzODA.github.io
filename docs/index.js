@@ -48,25 +48,25 @@ function loadPackageTableFromFile(file, releaseName, compare = false, isLatest =
               var license = 1;
               var description = 3;
               var label = 11;
+              var url = 9;
 
   			      if (splitLines[lineIdx].length == 0)
               	continue;
     			    var splitVals = splitLines[lineIdx].split("\"", );
-    			    var packageArray = [splitVals[packageName],  splitVals[version], splitVals[license], splitVals[description], splitVals[label]];
+    			    var packageArray = [splitVals[packageName],  splitVals[version], splitVals[license], splitVals[description], splitVals[label], splitVals[url]];
               var labelSplit = splitVals[label].split(',');
 
               for(var i = 0; i < labelSplit.length; i++){
                if(!labelArray.includes(labelSplit[i]))
                 labelArray.push(labelSplit[i])
              }
-             console.log(labelArray);
 
     		     parsedText.push(packageArray);
 
     			   if (!compare)
     			    allText = allText + getPackageTableEntry(packageArray);
     	      }
-            console.log(labelSplit);
+
             addLabelOptions();
     		    if (isLatest) {
     			       latestText = parsedText;
@@ -83,7 +83,7 @@ function loadPackageTableFromFile(file, releaseName, compare = false, isLatest =
 }
 
 function getPackageTableEntry(packageArray) {
-	return "<tr><td>" + packageArray[0] + "</td><td>" + packageArray[1] +
+	return "<tr><td><a href=\"" + packageArray[5] + "\">" + packageArray[0] + "</a></td><td>" + packageArray[1] +
 				"</td><td>" + packageArray[2] + "</td><td>" + packageArray[3] + "</td><td>" +packageArray[4] + "</td></tr>";
 }
 
