@@ -1,212 +1,126 @@
 <!DOCTYPE html>
-<html style="height: 100%;">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" id="spng-favicon" href="//www.ibm.com/favicon.ico">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="Content-Language" content="EN" />
-    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+    <meta name="viewport" content="initial-scale=1.0, width=device-width">
     <title>z/OS - IBM Open Data Analytics for z/OS</title>
-    <link rel="stylesheet" href="./w3ds/w3ds.css" type="text/css">
-
-    <!-- if data tables are required -->
-    <link rel="stylesheet" href="./w3ds/w3ds-data-tables.css" type="text/css">
-
-    <!-- if code syntax highlighting is required -->
-    <link rel="stylesheet" href="./w3ds/w3ds-prism.css" rel="text/css" />
-    <link rel="stylesheet" href="./styles/styles.css" rel="text/css" />
-
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script type = "text/javascript">
       /* Define digital data object based on _appInfo object */
       window.digitalData = {
-	   page: {
-	      category: {
-		 primaryCategory: 'NO_CATEGORY_ASSIGNED',
-	      },
-	      pageInfo: {
-		 ibm: {
-		    siteID: 'IBM_NonMarketing',
-		 }
-	      },
-	   }
-	};
+	       page: {
+	          category: {
+		            primaryCategory: 'NO_CATEGORY_ASSIGNED',
+	          },
+	          pageInfo: {
+		            ibm: {
+		                siteID: 'IBM_NonMarketing',
+		            }
+            },
+	       }
+	    };
     </script>
     <!-- GDPR Compliance -->
     <script src="//1.www.s81c.com/common/stats/ida_stats.js" type="text/javascript"></script>
   </head>
-  <body class="ds-has-sticky-footer">
-    <div class="ds-grid">
-        <div class="ds-row">
-            <div class="ds-col-xs-12 ds-col-lg-12">
-                <div class="ds-row">
-                    <div class="ds-col-xs-6 ds-col-sm-8 ds-col-lg-9 ds-col-8">
-                        <h4 class="ds-heading-4 ds-padding-top-0_5">
-                            <span class="ds-link-unstyled ds-padding-1 ds-display-inline-block">
-                                IBM <small><strong>Z</strong></small>
-                            </span>
-                        </h4>
-                    </div>
-                    <div class="ds-col-xs-3 ds-col-sm-2 ds-col-lg-1 ds-col-3 ds-padding-top-1"><a class="ds-button ds-flat tray-nav-close active" href="https://izODA.github.io/">Home</a></div>
-                    <div class="ds-col-xs-3 ds-col-sm-2 ds-col-lg-1 ds-col-3 ds-padding-top-1"><a class="ds-button ds-flat tray-nav-close" href="https://izODA.github.io/spark/">Spark</a></div>
-                    <div class="ds-col-xs-3 ds-col-sm-2 ds-col-lg-1 ds-col-3 ds-padding-top-1"><a class="ds-button ds-flat tray-nav-close" href="https://izODA.github.io/odl/">ODL</a></div>
-                    <div class="ds-col-xs-3 ds-col-sm-2 ds-col-lg-1 ds-col-3 ds-padding-top-1"><a class="ds-button ds-flat tray-nav-close" href="https://izODA.github.io/anaconda/">Anaconda</a></div>
-                    <div class="ds-col-xs-3 ds-col-sm-2 ds-col-lg-1 ds-col-3 ds-padding-top-1"><a class="ds-button ds-flat tray-nav-close" href="https://izODA.github.io/ecosystem/">Ecosystem</a></div>
-                </div>
-            </div>
-        </div>
-        <div class="ds-row">
-            <div class="ds-col-12">
-                <div class="ds-row ds-padding-top-3"  style="background-image: url(https://izODA.github.io/images/ibm_z14_banner.jpg);background-position:center;background-size:cover;background-repeat:no-repeat;">
-                    <div class="ds-col-xs-10 ds-offset-xs-1 ds-padding-bottom-3">
-                        <h1 class="ds-heading-2 ds-text-light-color">
-                            IBM Open Data Analytics for z/OS
-                        </h1>
-                        <p class="ds-margin-bottom-2 ds-text-light-color" style="color: #47E3C1 !important">
-                            Analytics for the enterprise
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="ds-col-12">
-                <div class="ds-row ds-padding-top-3">
-                    <div class="ds-col-xs-10 ds-offset-xs-1 ds-padding-bottom-3">
-                        <h1 class="ds-heading-2">
-                            IBM Open Data Analytics for z/OS
-                        </h1>
-                        <p>
-                            Develop business insights from your most valuable enterprise data with
-                            <a href="https://www.ibm.com/us-en/marketplace/open-data-analytics-for-zos/" class="ds-text-blue-primary-2" style="color: #0a9577 !important">
-                            IBM Open Data Analytics for z/OS</a> (IzODA).  IzODA is an assembly of key open source and
-                            proprietary technologies that allow data scientists and application developers to
-                            analyze and visualize the large volumes of data hosted on
-                            <a href="https://www.ibm.com/it-infrastructure/z/" class="ds-text-blue-primary-2" style="color: #0a9577 !important">
-                            IBM Z</a>.
-                        </p>
-                        <p>
-                            Federate your IBM Z environment with your existing analytics infrastructure across
-                            platforms to bring compute capabilities to your original data sources.  Avoid
-                            unnecessary data movement, duplication of data, and know that the privacy and security
-                            policies of your enterprise are being enforced.
-                        </p>
-                        <p>
-                            Efficiently utilize the analytics skills of your organization by providing your
-                            data scientists with the most popular application and data visualization interfaces
-                            from the open source community.  IzODA makes IBM Z look like any other data
-                            source or compute node to this audience so that they can focus on analysis instead
-                            of acquisition.
-                        </p>
-                        <h1 class="ds-heading-2 ds-padding-top-2">
-                            What's Inside
-                        </h1>
-                        <p>IzODA is made up of 3 components:</p>
-
-                        <div class="ds-row ds-padding-bottom-3">
-                            <div class="ds-col-xs-12 ds-col-sm-12 ds-col-md-4 ds-col-lg-4 ds-col-4">
-                                <div class="ds-panel ds-panel-raised">
-                                    <div class="ds-panel-container">
-                                        <h2 class="ds-margin-top-0">Apache Spark</h2>
-                                        <p class="ds-set-height-group-3 ds-panel-content ds-text-small ds-align-text-left">A fast and general engine for large-scale data processing</p>
-                                        <a href="spark/index.html" class="ds-button ds-primary ds-small teal">READ MORE</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="ds-col-xs-12 ds-col-sm-12 ds-col-md-4 ds-col-lg-4 ds-col-4">
-                                <div class="ds-panel ds-panel-raised">
-                                    <div class="ds-panel-container">
-                                        <h2 class="ds-margin-top-0">The Optimized Data Layer (ODL)</a></h2>
-                                        <p class="ds-set-height-group-3 ds-panel-content ds-text-small ds-align-text-left">A.K.A. the Mainframe Data Service (MDS).  Provides common access to heterogeneous data sources.</p>
-                                        <a href="odl/index.html" class="ds-button ds-primary ds-small teal">READ MORE</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="ds-col-xs-12 ds-col-sm-12 ds-col-md-4 ds-col-lg-4 ds-col-4">
-                                <div class="ds-panel ds-panel-raised">
-                                    <div class="ds-panel-container">
-                                        <h2 class="ds-margin-top-0">Anaconda</h2>
-                                        <p class="ds-set-height-group-3 ds-panel-content ds-text-small ds-align-text-left">A leading open data science platform powered by Python</p>
-                                        <a href="anaconda/index.html" class="ds-button ds-primary ds-small teal">READ MORE</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <p>
-                            IzODA contains two of the most popular code stacks used by the data science community - Apache
-                            Spark and Anaconda, to analyze modern enterprise level volumes of data.  The Optimized Data Layer
-                            provides unique data abstraction capabilities that allow data scientists to reach key data sources
-                            on and off the mainframe through a common interface.
-                        </p>
-                        <h1 class="ds-heading-2 ds-padding-top-2">
-                            Reference Architecture
-                        </h1>
-                        <p>
-                            IzODA works seamlessly with other compute nodes and ecosystem infrastructure to bring compute closer
-                            to original data sources and reduce the need for unnecessary data transfer.  This minimizes wasted
-                            time and resource to perform Extract, Transform, and Load (ETL), while making results available to
-                            your common data repository of choice.
-                        </p>
-                        <div class="ds-padding-1">
-                        <img src="https://izODA.github.io/images/IzODA_ReferenceArchitecture.png" alt="Reference Architecture">
-                        </div>
-                        <h1 class="ds-heading-2 ds-padding-top-2">
-                            The Analytics Ecosystem
-                        </h1>
-                        <p>
-                            Access to Spark and Anaconda is generally handled through a set of open source packages
-                            that system administrators and developers assemble into interfaces used by data scientists.
-                            One of the most popular interfaces is the <a href="http://jupyter.org/" class="ds-text-blue-primary-2" style="color: #0a9577 !important">Jupyter Notebook</a>.
-                        </p>
-                        <p>
-                            The <a href="https://izODA.github.io/ecosystem/" class="ds-text-blue-primary-2" style="color: #0a9577 !important">IzODA ecosystem</a> includes additional companion projects that simplify the creation of
-                            these package assemblies, along with suggested configurations to enhance the security of
-                            the end-to-end analytics environment.  See the repositories below for more information.
-                        </p>
-                        <h1 class="ds-heading-2 ds-padding-top-2">
-                            Samples, Examples, and Developer Journeys
-                        </h1>
-                        <p>
-                            We have several
-                            <a href="https://github.com/IzODA/examples/" class="ds-text-blue-primary-2" style="color: #0a9577 !important">
-                            Scala and Python application examples</a> on our github to show how to use Spark and Anaconda.
-                        </p>
-                        <!--
-                        <p>
-                            See this
-                            <a href="https://developer.ibm.com/code/journey/boost-insight-by-moving-analytics-closer-to-data/" class="ds-text-blue-primary-2" style="color: #0a9577 !important">
-                            developerWorks Journey</a> that shows the advantages of bringing your compute close to your original
-                            data sources on z/OS.
-                        </p>
-                        -->
-                        <h1 class="ds-heading-2 ds-padding-top-2">
-                            Our Blog
-                        </h1>
-                        <p>
-                            We have an active <a href="https://izODA.github.io/blogs/" class="ds-text-blue-primary-2" style="color: #0a9577 !important">blog</a>
-                            to highlight new developments, explain technical issues more deeply, and provide information about
-                            key topics in analytics.
-                        </p>
-                        <h1 class="ds-heading-2 ds-padding-top-2">
-                            Try It Out
-                        </h1>
-                        <p>
-                            <a href="https://www-03.ibm.com/systems/z/resources/trials.html" class="ds-text-blue-primary-2" style="color: #0a9577 !important">
-                            Try IBM Open Data Analytics for z/OS</a> - no installation required.
-                        </p>
-                        <div class="ds-padding-1" >
-                        <img width="100%" src="https://izODA.github.io/images/IBMZ_Trials.png" alt="IBM Z Trials">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <footer class="ds-sticky-footer ds-grid ds-bg-neutral-warm-2" style="width: 100%; height: 110px;" >
-      <div class="ds-row">
-        <h5 class="ds-offset-xs-1 ds-col-xs-10 ds-padding-top-2_5 ds-heading-5">
-          <span class="ds-icon-github-l" style="position: relative; top: 1px; vertical-align: middle;"></span>
-          <a href="https://github.com/IzODA" target="_blank" class="ds-text-neutral-6 ds-font-weight-light">IzODA on GitHub</a>
-        </h5>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="https://www.ibm.com/it-infrastructure/z"><img src="images/ibmlogo.png" height="40px" width="50px"/></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav">
+          <li class="nav-item active px-4">
+            <a class="nav-link" href="index.html">Overview</a>
+          </li>
+          <li class="nav-item px-4">
+            <a class="nav-link" href="guide.html">Guides / Documentation</a>
+          </li>
+          <li class="nav-item px-4">
+            <a class="nav-link" href="https://github.com/IzODA" target="_blank">IzODA on Github <img id="githublogo" src="https://raw.githubusercontent.com/cdara/movie-box/gh-pages/_images/github-icon.png" /></a>
+          </li>
+        </ul>
       </div>
-    </footer>
-    <script src="./w3ds/w3ds.js"></script>
+    </nav>
+    <div>
+      <img src="images/Stars.png" height="90%" width="100%"/>
+      <div id="bannertextdiv">
+        <h1 id="bannertext1">Open Data Analytics on z/OS</h1>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="row mx-5 mt-4">
+        <div class="col-xs-12">
+          <h1>What is IzODA?</h1>
+          <p><a class="externalLink" href="https://www.ibm.com/us-en/marketplace/open-data-analytics-for-zos?cm_mc_uid=&cm_mc_sid_50200000="
+              target="_blank">IBM Open Data Analytics for z/OS (IzODA)</a>
+            is an assembly of key open source and proprietary technologies that
+            allow data scientists and application developers to analyze
+            and visualize the large volumes of data hosted on <a class="externalLink" href="https://www.ibm.com/it-infrastructure/z"
+              target="_blank">IBM Z.</a>
+          </p>
+          <p>Federate your IBM Z environment with your existing analytics
+             infrastructure across platforms to bring compute capabilities
+             to your original data sources. Avoid unnecessary data movement,
+             duplication of data, and know that the privacy and security
+             policies of your enterprise are being enforced.
+          </p>
+          <p>Efficiently utilize the analytics skills of your organization
+            by providing your data scientists with the most popular application
+            and data visualization interfaces from the open source community.
+            IzODA makes IBM Z look like any other data source or compute node
+            to this audience so that they can focus on analysis instead of acquisition.
+          </p>
+          <p>IzODA contains two of the most popular code stacks used by the
+            data science community - Apache Spark and Anaconda, to analyze
+            modern enterprise level volumes of data. The Optimized Data Layer
+            provides unique data abstraction capabilities that allow data scientists
+            to reach key data sources on and off the mainframe through a common interface.
+          </p>
+          <h1>Reference Architecture</h1>
+          <p>IzODA works seamlessly with other compute nodes and ecosystem
+            infrastructure to bring compute closer to original data sources and
+            reduce the need for unnecessary data transfer. This minimizes wasted
+            time and resource to perform Extract, Transform, and Load (ETL),
+            while making results available to your common data repository of choice.
+          </p>
+          <img class="centerImage" src="images/IzODA_ReferenceArchitecture.png" alt="IzODA Architecture" height="40%" width="70%" />
+          <h1>The Analytics Ecosystem</h1>
+          <p>Access to Spark and Anaconda is generally handled through a set of open source packages that
+            system administrators and developers assemble into interfaces used by data scientists.
+            One of the most popular interfaces is the <a href="http://jupyter.org/" target="_blank" class="externalLink">Jupyter Notebook.</a>
+          </p>
+          <p>The IzODA ecosystem includes additional companion projects that simplify
+            the creation of these package assemblies, along with suggested configurations
+            to enhance the security of the end-to-end analytics environment.
+          </p>
+          <h1>
+            <a href="https://www.ibm.com/it-infrastructure/z/resources/trial" target="_blank" class="externalLink" target="_blank">Try Open Data Analytics on z/OS Now</a>
+          </h1>
+        </div>
+      </div>
+  </div>
+  <footer>
+          <p>
+            <i class="fa fa-github" id="githubLogo"></i>
+            <a class="externalLink" href="https://github.com/IzODA" target="_blank">IzODA on GitHub</a>
+          </p>
+          <p>
+            <a class="externalLink" href="guide.html">Guides / Documentation</a>
+          </p>
+          <p>Licensed/Copyright by IBM, 2018</p>
+  </footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
   </body>
 </html>
