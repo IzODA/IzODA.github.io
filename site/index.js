@@ -1,6 +1,6 @@
 var latestText = [];
 var latestReleaseName = "LATEST";
-var packageFileDir = "https://pages.github.ibm.com/IzODA/izoda-testwebpage/";
+var packageFileDir = "http://izODA.github.io/";
 var labelArray = ["main"];
 
 function loadPackageTable(compare = false) {
