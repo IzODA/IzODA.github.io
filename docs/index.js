@@ -3,10 +3,9 @@ var latestReleaseName = "LATEST";
 var packageFileDir = "https://izoda.github.io/";
 var labelArray = ["main"];
 
-function loadPackageTable(compare = false) {
-  setElementDisplay('comparison-view-td', 'none');
+function loadPackageTable() {
   var selectedRelease = getSelectedRelease();
-  loadPackageTableFromFile(packageFileDir + selectedRelease, selectedRelease, compare);
+  loadPackageTableFromFile(packageFileDir + selectedRelease, selectedRelease);
 }
 
 function addLabelOptions() {
@@ -23,7 +22,7 @@ function getSelectedRelease() {
   return document.getElementById("packageSelect").value;
 }
 
-function loadPackageTableFromFile(file, releaseName, compare = false, isLatest = false) {
+function loadPackageTableFromFile(file, releaseName, isLatest = false) {
   var rawFile = new XMLHttpRequest();
   document.getElementById("searchBox").value = "";
   rawFile.open("GET", file, false);
@@ -49,10 +48,9 @@ function loadPackageTableFromFile(file, releaseName, compare = false, isLatest =
         var url = 9;
 
         for (var lineIdx = 0; lineIdx < splitLines.length; lineIdx++) {
-
-
           if (splitLines[lineIdx].length == 0)
             continue;
+
           var splitVals = splitLines[lineIdx].split("\"", );
           var packageArray = [splitVals[packageName], splitVals[version], splitVals[license], splitVals[description], splitVals[label], splitVals[url]];
           var labelSplit = splitVals[label].split(',');
@@ -63,16 +61,11 @@ function loadPackageTableFromFile(file, releaseName, compare = false, isLatest =
           }
 
           parsedText.push(packageArray);
-
-          if (!compare)
-            allText = allText + getPackageTableEntry(packageArray);
         }
 
         addLabelOptions();
         if (isLatest) {
           latestText = parsedText;
-        } else if (compare) {
-          allText = comparePackageLevelWithLatest(parsedText, releaseName);
         }
 
         table = document.getElementById("packageTable");
@@ -94,33 +87,6 @@ function getPackageTableHeader() {
 
 function getPackageHeaderRow() {
   return "<tr><th>Package</th><th>Version</th><th>License</th><th>Description</th><th>Label</th>";
-}
-
-function comparePackageLevelWithLatest(packageList, releaseName) {
-  document.getElementById("comparison-view-text").innerHTML = "Comparing " + releaseName + " with " + latestReleaseName;
-
-  var comparePackageIndex = 0;
-  var compareResult = getPackageTableHeader();
-  for (var packageIndex = 0; packageIndex < latestText.length; packageIndex++) {
-    while (comparePackageIndex + 1 < packageList.length && latestText[packageIndex][0] > packageList[comparePackageIndex][0]) {
-      packageList[comparePackageIndex][1] = packageList[comparePackageIndex][1] + " -> Removed";
-      compareResult = compareResult + getPackageTableEntry(packageList[comparePackageIndex]);
-      comparePackageIndex++;
-    }
-
-    if (latestText[packageIndex][0] === packageList[comparePackageIndex][0]) {
-      if (latestText[packageIndex][1] !== packageList[comparePackageIndex][1]) {
-        packageList[comparePackageIndex][1] = packageList[comparePackageIndex][1] + " -> " + latestText[packageIndex][1];
-        compareResult = compareResult + getPackageTableEntry(packageList[comparePackageIndex]);
-      }
-      comparePackageIndex++;
-    } else {
-      var newPackageArray = latestText[packageIndex].slice();
-      newPackageArray[1] = "Not included -> " + newPackageArray[1];
-      compareResult = compareResult + getPackageTableEntry(newPackageArray);
-    }
-  }
-  return compareResult;
 }
 
 function searchBoxChange() {
@@ -157,9 +123,6 @@ function labelChange() {
   }
 }
 
-function setElementDisplay(elementId, display) {
-  document.getElementById("comparison-view-td").style.display = display;
-}
 
 function generateInstallScript() {
   var table = document.getElementById("packageTable");
