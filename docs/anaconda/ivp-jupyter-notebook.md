@@ -4,9 +4,9 @@ This Installation Verification Program (IVP) is provided by IBM to get started w
 
 ###Background
 
-The following shows step-by-step instructions on how to run IBM Open Data Analytics for z/OS Anaconda and ODL stacks. If you have not yet installed Anaconda including Python 3.6 for z/OS please do so using our <a href="../install-config" target="_blank">installation and configuration page</a> before proceeding.
+The following shows step-by-step instructions on how to run IBM Open Data Analytics for z/OS Anaconda and ODL stacks. If you have not yet installed Anaconda including Python 3.6 for z/OS please do so using our <a href="../install-config" target="_blank" rel="noopener noreferrer">installation and configuration page</a> before proceeding.
 
-Anaconda for z/OS provides a "conda" command for managing packages and environments. It is similar to Anaconda for other platforms with the exception that it includes a different list of packages. However, many of the popular data science packages are included with this distribution, for instance, pandas, numpy, scipy, scikit-learn, matplotlib, seaborn, and more. In this IVP, you will create and run a Jupyter Notebook on an x86 platform with a Jupyter kernel on z/OS executing Python code using the <a href="https://www.anaconda.org/izoda/hamlet" target="_blank">Hamlet</a> package and <a href="#" target="_blank">JKG2AT's</a> x86 install instructions. The Jupyter Notebook will demonstrate simple usage of data science packages by performing exploratory analysis on credit risk data retrieved from ODL. After completion of this IVP you will have learned the following:
+Anaconda for z/OS provides a "conda" command for managing packages and environments. It is similar to Anaconda for other platforms with the exception that it includes a different list of packages. However, many of the popular data science packages are included with this distribution, for instance, pandas, numpy, scipy, scikit-learn, matplotlib, seaborn, and more. In this IVP, you will create and run a Jupyter Notebook on an x86 platform with a Jupyter kernel on z/OS executing Python code using the <a href="https://www.anaconda.org/izoda/hamlet" target="_blank" rel="noopener noreferrer">Hamlet</a> package and <a href="#" target="_blank" rel="noopener noreferrer">JKG2AT's</a> x86 install instructions. The Jupyter Notebook will demonstrate simple usage of data science packages by performing exploratory analysis on credit risk data retrieved from ODL. After completion of this IVP you will have learned the following:
 <ul>
 <li>Basic conda commands</li>
 <li>JKG2AT and Hamlet setup</li>
@@ -17,24 +17,24 @@ Anaconda for z/OS provides a "conda" command for managing packages and environme
 </ul>
 ###Ingesting data into the Optimized Data Layer (ODL)
 
-The data source we will be using is the <a href="https://archive.ics.uci.edu/ml/datasets/statlog+(german+credit+data)" target="_blank">German Credit Data</a> from the UCI Machine Learning Repository. Please download the csv file titled "ivp-german-data.csv" <a href="https://github.com/IzODA/examples/tree/master/python/data" target="_blank">here.</a> This data source is manipulated to avoid pre-processing such as, converting the input data into human-readable format, for the purpose of the IVP.
+The data source we will be using is the <a href="https://archive.ics.uci.edu/ml/datasets/statlog+(german+credit+data)" target="_blank" rel="noopener noreferrer">German Credit Data</a> from the UCI Machine Learning Repository. Please download the csv file titled "ivp-german-data.csv" <a href="https://github.com/IzODA/examples/tree/master/python/data" target="_blank" rel="noopener noreferrer">here.</a> This data source is manipulated to avoid pre-processing such as, converting the input data into human-readable format, for the purpose of the IVP.
 
 First, we will convert the CSV data file into a mainframe data source and store it in ODL. ODL enables data from multiple, disconnected sources on z/OS to be virtually integrated into a single, logical data source, which can then be imported into a dataframe for further analysis. Note that previously, ODL was called Mainframe Data Services (MDS). We choose this setup as opposed to reading directly from csv to ensure that we can retrieve a data source from ODL via the ODL-Python module, dsdbc.
 <ol>
-   <li>Create a copybook to describe the data layout. Please use the copybook <a href="https://github.com/IzODA/examples/blob/master/python/data/ivp-german-credit-data.cpy" target="_blank">here.</a></li>
+   <li>Create a copybook to describe the data layout. Please use the copybook <a href="https://github.com/IzODA/examples/blob/master/python/data/ivp-german-credit-data.cpy" target="_blank" rel="noopener noreferrer">here.</a></li>
    <li>Allocate an empty data set on the host. For simplicity, create a physical sequential file with a record length that is wide enough to accommodate each record and call it <strong>"CREDIT_DATA"</strong>.</li>
    <li>In Data Server Studio, create a sequential virtual table using the copybook given above and the empty physical sequential dataset. We will use this dataset to insert our csv data.</li>
-   <li>Use the <a href="https://github.com/IzODA/examples/blob/master/python/data/ivp-load.py" target="_blank">ivp-load.py</a> script to load the csv data into the PS dataset. The script uses pandas to read the csv data into a dataframe and dsdbc to insert the values in the dataframe into the physical dataset. Please change the ivp-load.py variable ssid to the subsystem id of the local data service server.</li>
+   <li>Use the <a href="https://github.com/IzODA/examples/blob/master/python/data/ivp-load.py" target="_blank" rel="noopener noreferrer">ivp-load.py</a> script to load the csv data into the PS dataset. The script uses pandas to read the csv data into a dataframe and dsdbc to insert the values in the dataframe into the physical dataset. Please change the ivp-load.py variable ssid to the subsystem id of the local data service server.</li>
 </ol>
 
 Once the script is done running, we now have the CSV data in ODL.
 
-For more information on ODL please refer to the <a href="http://www.redbooks.ibm.com/redbooks/pdfs/sg248325.pdf" target="_blank">Apache Spark Implementation on IBM z/OS</a>
+For more information on ODL please refer to the <a href="http://www.redbooks.ibm.com/redbooks/pdfs/sg248325.pdf" target="_blank" rel="noopener noreferrer">Apache Spark Implementation on IBM z/OS</a>
 <strong>Note:</strong> ODL is referred to as MDSS or Mainframe Data Service in the redbook. Since writing the redbook, it has changed names to Optimized Data Layer (ODL).
 
 ###Hamlet and JKG2AT Setup
 
-To execute and run a Jupyter Notebook server, the current solution is to use our <a href="https://www.anaconda.org/izoda/hamlet" target="_blank">Hamlet</a> conda package and <a href="#" target="_blank">JKG2AT's</a> install process on x86.
+To execute and run a Jupyter Notebook server, the current solution is to use our <a href="https://www.anaconda.org/izoda/hamlet" target="_blank" rel="noopener noreferrer">Hamlet</a> conda package and <a href="#" target="_blank" rel="noopener noreferrer">JKG2AT's</a> install process on x86.
 
 Hamlet isn't included as part of the SMPE Anaconda install so you will need to run the command given in the IzODA channel:
 
@@ -81,7 +81,7 @@ Then if you click on the drop-down menu "New" you should see Python 3 as one of 
 
 ###Running Jupyter Notebook
 
-For running the Jupyter Notebook, you will need to upload our Jupyter Notebook into your Jupyter Notebook server. In order to upload, please download <a href="https://github.com/IzODA/examples/tree/master/python" target="_blank">Credit-Risk-Assessment-IVP.ipynb</a> to your local machine. When you have finished downloading, click the "Upload" button in your Jupyter Notebook dashboard and find the .ipynb file you just downloaded. Then hit "Open". At this point you should see the notebook in your dashboard with the option to "Upload" next to the file name. Please click "Upload". Run the Jupyter Notebook by clicking on the .ipynb file. A new window should pop open and you'll see something like the following:
+For running the Jupyter Notebook, you will need to upload our Jupyter Notebook into your Jupyter Notebook server. In order to upload, please download <a href="https://github.com/IzODA/examples/tree/master/python" target="_blank" rel="noopener noreferrer">Credit-Risk-Assessment-IVP.ipynb</a> to your local machine. When you have finished downloading, click the "Upload" button in your Jupyter Notebook dashboard and find the .ipynb file you just downloaded. Then hit "Open". At this point you should see the notebook in your dashboard with the option to "Upload" next to the file name. Please click "Upload". Run the Jupyter Notebook by clicking on the .ipynb file. A new window should pop open and you'll see something like the following:
 
 ![Credit Risk Assessment](../img/credit-risk-ivp.png)
 

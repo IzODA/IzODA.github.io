@@ -1,11 +1,11 @@
 <h1>Anaconda</h1>
 
-<a href="https://www.anaconda.com/" target="_blank">Anaconda</a> is an assembly of parts that implement a Python-based analytics stack. It consists of multiple components:
+<a href="https://www.anaconda.com/" target="_blank" rel="noopener noreferrer">Anaconda</a> is an assembly of parts that implement a Python-based analytics stack. It consists of multiple components:
 <ul>
    <li>Python 3.6.1</li>
    <li>The conda package manager</li>
    <li>A library of locally installed open source packages</li>
-   <li>A <a href="https://anaconda.org/IzODA/repo" target="_blank">channel, or reference repository</a> located on the <a href="https://anaconda.org/" target="_blank">Anaconda Cloud</a></li>
+   <li>A <a href="https://anaconda.org/IzODA/repo" target="_blank" rel="noopener noreferrer">channel, or reference repository</a> located on the <a href="https://anaconda.org/" target="_blank" rel="noopener noreferrer">Anaconda Cloud</a></li>
 </ul>
 
 #Reference Architecture
@@ -14,14 +14,14 @@ The environment above shows a user interacting with the Anaconda/Python stack us
 
 #Installation and Customization
 
-Please refer to our <a href="../install-config" target="_blank">Anaconda installation and configuration page.</a>
+Please refer to our <a href="../install-config" target="_blank" rel="noopener noreferrer">Anaconda installation and configuration page.</a>
 
 #Verify Your Installation
 
 We have created a collection of small sample applications which you can run to verify that Anaconda is installed and configured properly. Please choose one of the following <em>Install Verification Programs (IVPs)</em> below to ensure your configuration is correct.
 <ul>
-   <li><a href="../ivp-jupyter-notebook" target="_blank">IVP with ODL and Jupyter Notebook:</a> This IVP demonstrates the Anaconda stack through a Jupyter Notebook and retrieves the data from ODL using a python module.</li>
-   <li><a href="../ivp-pyspark" target="_blank">IVP with Pyspark:</a> This IVP demonstrates the Spark stack through a Python Jupyter notebook that uses Pyspark (Python API to Spark) to illustrate the use of Spark dataframes.</li>
+   <li><a href="../ivp-jupyter-notebook" target="_blank" rel="noopener noreferrer">IVP with ODL and Jupyter Notebook:</a> This IVP demonstrates the Anaconda stack through a Jupyter Notebook and retrieves the data from ODL using a python module.</li>
+   <li><a href="../ivp-pyspark" target="_blank" rel="noopener noreferrer">IVP with Pyspark:</a> This IVP demonstrates the Spark stack through a Python Jupyter notebook that uses Pyspark (Python API to Spark) to illustrate the use of Spark dataframes.</li>
 </ul>
 #Restrictions and Usage Notes
 

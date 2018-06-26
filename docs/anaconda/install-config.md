@@ -51,11 +51,11 @@ This is the setup necessary for any user to run Python applications and make use
      export STEPLIB=hlq.SAZKLOAD:$STEPLIB
 
    where hlq is the high-level qualifier of the ODL (MDS) installation.</li>
-   <li>Grant users running Python applications READ permission to the BPX.JOBNAME facility class profile so that they can assign jobnames to their workload. Please see the <a href="https://www.ibm.com/support/knowledgecenter/SSLTBW_2.1.0/com.ibm.zos.v2r1.bpxb200/bpxenv.htm" target="_blank">_BPX environment variables section</a> of the z/OS UNIX System Services Planning guide for more information. Note: superusers are allowed to set jobnames regardless of their access to BPX.JOBNAME. <strong>In general, we recommend against Python users having superuser privileges.</strong></li>
+   <li>Grant users running Python applications READ permission to the BPX.JOBNAME facility class profile so that they can assign jobnames to their workload. Please see the <a href="https://www.ibm.com/support/knowledgecenter/SSLTBW_2.1.0/com.ibm.zos.v2r1.bpxb200/bpxenv.htm" target="_blank" rel="noopener noreferrer">_BPX environment variables section</a> of the z/OS UNIX System Services Planning guide for more information. Note: superusers are allowed to set jobnames regardless of their access to BPX.JOBNAME. <strong>In general, we recommend against Python users having superuser privileges.</strong></li>
 </ul>
 ###Download and Unpack
 
-IzODA installs using SMP/E. Instructions are in the <a href="https://www-304.ibm.com/servers/resourcelink/svc00100.nsf/pages/izodav110gi134348/$file/azk1e100.pdf" target="_blank">Program Directory.</a> The PSP bucket for Anaconda 1.1.0 should be reviewed prior to installation; see also the <a href="#latebreaking-news">Latebreaking News</a> section of this page.
+IzODA installs using SMP/E. Instructions are in the <a href="https://www-304.ibm.com/servers/resourcelink/svc00100.nsf/pages/izodav110gi134348/$file/azk1e100.pdf" target="_blank" rel="noopener noreferrer">Program Directory.</a> The PSP bucket for Anaconda 1.1.0 should be reviewed prior to installation; see also the <a href="#latebreaking-news">Latebreaking News</a> section of this page.
 
 ###Install
 
@@ -79,7 +79,7 @@ There are several additional steps that a system administrator may wish to perfo
      install_set_shared_anaconda_admin groupname
 
    where groupname is the name of the administrators group.</li>
-   <li>If you plan to run Python code in a server (as a daemon), you should run the <em>install_set_program_control</em> tool. For more information, refer to the <a href="https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.1.0/com.ibm.zos.v2r1.bpxb200/progcontr.htm" target="_blank">Defining programs in UNIX files to program control</a> section of the <em>z/OS Unix System Services Planning guide.</em></li>
+   <li>If you plan to run Python code in a server (as a daemon), you should run the <em>install_set_program_control</em> tool. For more information, refer to the <a href="https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.1.0/com.ibm.zos.v2r1.bpxb200/progcontr.htm" target="_blank" rel="noopener noreferrer">Defining programs in UNIX files to program control</a> section of the <em>z/OS Unix System Services Planning guide.</em></li>
 </ul>
 There is one mandatory last step - run the <em>conda</em> command to pull all updates to the Anaconda environment from the IzODA channel on the Anaconda cloud.
 
@@ -114,11 +114,11 @@ In order to exit the root environment and return to you original shell, use the 
 
  ```/home/condausr>```
 
-A complete description of conda and its functions is available in the <a href="https://conda.io/docs/user-guide/index.html" target="_blank">conda User Guide</a>.
+A complete description of conda and its functions is available in the <a href="https://conda.io/docs/user-guide/index.html" target="_blank" rel="noopener noreferrer">conda User Guide</a>.
 
 ####Latebreaking News
 
-This section augments information in the <a href="http://www-01.ibm.com/support/docview.wss?uid=isg1_ZODAV1R1_HANA110" target="_blank">PSP bucket for Anaconda 1.1.0</a>.
+This section augments information in the <a href="http://www-01.ibm.com/support/docview.wss?uid=isg1_ZODAV1R1_HANA110" target="_blank" rel="noopener noreferrer">PSP bucket for Anaconda 1.1.0</a>.
 
 ###Applying maintenance
 
@@ -128,11 +128,11 @@ This means that installing new versions of the tools and packages controlled by 
 
 That said, the <em>default</em> environment (also known as the <em>root</em> environment) is managed by the system administrator, and usually provides the most recent versions of tools.
 
-The preferred means of installing new code into the conda root environment is by using the <em>conda update</em> command. This will obtain the latest versions of packages and tools from a <em>channel</em>. IBM provides the <a href="https://anaconda.org/izoda/repo?type=conda&label=main" target="_blank">IzODA channel on the Anaconda cloud</a>, which will be updated regularly with new packages, and new versions of existing packages. This channel is enabled by default when Anaconda is first installed.
+The preferred means of installing new code into the conda root environment is by using the <em>conda update</em> command. This will obtain the latest versions of packages and tools from a <em>channel</em>. IBM provides the <a href="https://anaconda.org/izoda/repo?type=conda&label=main" target="_blank" rel="noopener noreferrer">IzODA channel on the Anaconda cloud</a>, which will be updated regularly with new packages, and new versions of existing packages. This channel is enabled by default when Anaconda is first installed.
 
 However, not all installations will choose to install maintenance via the Internet. For such installations, IBM will provide regular PTFs for use with SMP/E.
 
-Note, however, that installing maintenance via PTF will disable default access to the IzODA channel, under the presumption that subsequent maintenance will also be applied via SMP/E. Access can be restored by <a href="https://conda.io/docs/user-guide/configuration/use-condarc.html#channel-locations-channels" target="_blank">altering the conda configuration file.</a>
+Note, however, that installing maintenance via PTF will disable default access to the IzODA channel, under the presumption that subsequent maintenance will also be applied via SMP/E. Access can be restored by <a href="https://conda.io/docs/user-guide/configuration/use-condarc.html#channel-locations-channels" target="_blank" rel="noopener noreferrer">altering the conda configuration file.</a>
 
 ###Maintaining the correct file ownership
 

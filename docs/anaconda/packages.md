@@ -1,5 +1,5 @@
 <h1>IzODA Anaconda Packages</h1>
-The following are the packages provided by the <a href="https://anaconda.org/izoda" target="_blank">IzODA Anaconda Channel.</a>
+The following are the packages provided by the <a href="https://anaconda.org/izoda" target="_blank" rel="noopener noreferrer">IzODA Anaconda Channel.</a>
 
 <div class="container-fluid">
 <div class="table-responsive">
