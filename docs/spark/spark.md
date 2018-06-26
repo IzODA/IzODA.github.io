@@ -16,11 +16,11 @@ Along with Spark's pre-requisites, those parts of the Jupyter ecosystem that run
 
 ##Installation and Customization
 
-Instructions about how to install and customize Apache Spark are in the chapters 2 and 3 of the <a href="https://www-304.ibm.com/servers/resourcelink/svc00100.nsf/pages/izodav110sc279033/$file/azk1a100.pdf" target="_blank">IzODA Installation and Customization Guide.</a>
+Refer to the <a href="https://www.ibm.com/support/knowledgecenter/" target="_blank">IBM Knowledge Center</a> for installation and customization instructions. The guides can be downloaded via <a href="https://www.ibm.com/support/knowledgecenter/SS3H8V_1.1.0/com.ibm.izoda.v1r1.izodalp/izoda.htm" target="_blank">PDF or TOC here.</a> Further instructions about how to install and customize Apache Spark are in chapters 2 and 3 of the <a href="https://www-304.ibm.com/servers/resourcelink/svc00100.nsf/pages/izodav110sc279033/$file/azk1a100.pdf" target="_blank">IzODA Installation and Customization Guide.</a>
 
 ##Verify Your Installation
 
-We have created a collection of small sample applications which you can run to verify that Spark is installed and configured properly, and works with the other components of IzODA. Please choose one of the Install Verification Programs (IVPs) from our docs to ensure your configuration is correct.
+We have created a collection of small sample applications which you can run to verify that Spark is installed and configured properly, and works with the other components of IzODA. Please choose one of the Install Verification Programs (IVPs) from the <a href="https://www.ibm.com/support/knowledgecenter/en/SS3H8V_1.1.0/com.ibm.izoda.v1r1.azka100/topics/azkic_c_partverify.htm" target="_blank">IBM Knowledge Center.</a>
 
 ##Reference Material
 

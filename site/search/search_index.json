@@ -147,7 +147,7 @@
         },
         {
             "location": "/anaconda/packages/",
-            "text": "IzODA Anaconda Packages\n\n\n\nThe following are the packages provided by the \nIzODA Anaconda Channel.\n\n\n\n  \n\n    \n\n      \n\n        \n\n          \nRelease Level: \n\n          \n\n            \nLATEST\n\n          \n\n          \n\n            \n\n              \nCompare With Latest\n\n              \nGenerate Environment Script\n\n            \n\n        \n\n      \n\n      \n\n        \n\n          \n\n          \nClose comparison view\n\n        \n\n      \n\n    \n\n  \n\n\n\n\n\n\n  \n\n    \nPackage\n\n    \nVersion\n\n    \nLicense\n\n    \nDescription",
+            "text": "IzODA Anaconda Packages\n\n\n\nThe following are the packages provided by the \nIzODA Anaconda Channel.\n\n\n\n\n\n  \n\n    \n\n      \n\n        \n\n          \nLabel/Release Level: \n\n          \n\n            \nmain\n\n          \n\n        \n\n        \n\n          \n\n        \n\n        \n\n          \nGenerate Environment Script\n\n        \n\n      \n\n    \n\n  \n\n\n\n\n\n\n  \n\n    \nPackage\n\n    \nVersion\n\n    \nLicense\n\n    \nDescription",
             "title": "Packages"
         },
         {
