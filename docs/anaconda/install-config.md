@@ -83,7 +83,6 @@ There are several additional steps that a system administrator may wish to perfo
 </ul>
 There is one mandatory last step - run the <em>conda</em> command to pull all updates to the Anaconda environment from the IzODA channel on the Anaconda cloud.
 
-
  ```conda update```
 
  ```conda install bash=4.2```

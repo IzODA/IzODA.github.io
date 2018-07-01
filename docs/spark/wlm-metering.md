@@ -60,6 +60,7 @@
    <strong>Example:</strong> The following figure shows an example of creating a resource group called ODASRG with a maximum capacity of 10 percent of the LPAR share in the general processor pool and a memory limit of 20 GB:
 
    ![WLM Resource Group example](../img/wlm-resource-group.png)
+
    Figure 2. Example of creating a resource group
 
 
@@ -78,6 +79,6 @@
 
    Setting the honor priority attribute to NO might also change the goals for your workload. For instance, if a Spark service class has high velocity goals and is set to use only zIIPs, these two settings might interfere with each other under certain conditions and cause an undesired state for the Spark applications and their workload priorities.
 
-   See the WLM APAR OA52611 text for more information on the WLM Metering and Capping support.
+   See the <a href="http://www-01.ibm.com/support/docview.wss?uid=isg1OA52611" target="_blank" ref="noopener noreferrer">WLM APAR OA52611 text</a> for more information on the WLM Metering and Capping support.
 
 Authors: Jessie Yu (jessieyu@us.ibm.com), Michael Gildein (megildei@us.ibm.com), Kevin Carr (kgcarr@us.ibm.com).    Date: November 27th, 2017

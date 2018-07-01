@@ -6,7 +6,7 @@ The easiest solution to this mixed-endian data integrity problem is to avoid run
 
 ###Jupyter Kernel Gateway on the Mainframe
 
-What is <a href="https://jupyter-kernel-gateway.readthedocs.io/en/latest/ target="_blank" rel="noopener noreferrer">Jupyter Kernel Gateway?</a> Jupyter Kernel Gateway has several capabilities, but one of these capabilities is to offer Jupyter Notebook kernels to remote hosts. The kernels will run on the mainframe but can be executed by an x86 system.
+What is <a href="https://jupyter-kernel-gateway.readthedocs.io/en/latest/" target="_blank" rel="noopener noreferrer">Jupyter Kernel Gateway?</a> Jupyter Kernel Gateway has several capabilities, but one of these capabilities is to offer Jupyter Notebook kernels to remote hosts. The kernels will run on the mainframe but can be executed by an x86 system.
 
 ![JKG2AT Reference Diagram](../img/JKG2AT.jpg)
 
