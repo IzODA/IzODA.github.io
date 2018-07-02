@@ -1,4 +1,3 @@
-html {
-  height: 800px;
-  overflow: hidden;
+.embed-responsive {
+  height: 100%;
 }
