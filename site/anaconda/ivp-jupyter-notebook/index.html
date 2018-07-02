@@ -114,7 +114,7 @@
     <li class="toctree-l3"><a href="#ingesting-data-into-the-optimized-data-layer-odl">Ingesting data into the Optimized Data Layer (ODL)</a></li>
     
 
-    <li class="toctree-l3"><a href="#hamlet-and-jkg2at-setup">Hamlet and JKG2AT Setup</a></li>
+    <li class="toctree-l3"><a href="#jkg2at-and-nb2kg-setup">JKG2AT and NB2KG Setup</a></li>
     
 
     <li class="toctree-l3"><a href="#running-jupyter-notebook">Running Jupyter Notebook</a></li>
@@ -124,7 +124,7 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../ivp-pyspark/">Anaconda/ODL Installation Verification with PySpark</a>
+    <a class="" href="../ivp-pyspark/">IzODA Installation Verification with PySpark</a>
                 </li>
     </ul>
 	    </li>
@@ -175,10 +175,10 @@
 <p>This Installation Verification Program (IVP) is provided by IBM to get started with Anaconda and Optimized Data Layer (ODL) stacks of IzODA. Upon completion of this IVP, it ensures Anaconda and ODL have been installed successfully and users are able to run data visualizations and analysis on Mainframe data sources.</p>
 <h3 id="background">Background</h3>
 <p>The following shows step-by-step instructions on how to run IBM Open Data Analytics for z/OS Anaconda and ODL stacks. If you have not yet installed Anaconda including Python 3.6 for z/OS please do so using our <a href="../install-config/">installation and configuration page</a> before proceeding.</p>
-<p>Anaconda for z/OS provides a "conda" command for managing packages and environments. It is similar to Anaconda for other platforms with the exception that it includes a different list of packages. However, many of the popular data science packages are included with this distribution, for instance, pandas, numpy, scipy, scikit-learn, matplotlib, seaborn, and more. In this IVP, you will create and run a Jupyter Notebook on an x86 platform with a Jupyter kernel on z/OS executing Python code using the <a href="https://www.anaconda.org/izoda/hamlet" target="_blank" rel="noopener noreferrer">Hamlet</a> package and <a href="#" target="_blank" rel="noopener noreferrer">JKG2AT's</a> x86 install instructions. The Jupyter Notebook will demonstrate simple usage of data science packages by performing exploratory analysis on credit risk data retrieved from ODL. After completion of this IVP you will have learned the following:
+<p>Anaconda for z/OS provides a "conda" command for managing packages and environments. It is similar to Anaconda for other platforms with the exception that it includes a different list of packages. However, many of the popular data science packages are included with this distribution, for instance, pandas, numpy, scipy, scikit-learn, matplotlib, seaborn, and more. In this IVP, you will create and run a Jupyter Notebook on an x86 platform with a Jupyter kernel on z/OS executing Python code using the <a href="https://www.anaconda.org/izoda/JKG2AT" target="_blank" rel="noopener noreferrer">JKG2AT</a> package and <a href="https://github.com/jupyter-incubator/nb2kg" target="_blank" rel="noopener noreferrer">NB2KG's</a> x86 install instructions. The Jupyter Notebook will demonstrate simple usage of data science packages by performing exploratory analysis on credit risk data retrieved from ODL. After completion of this IVP you will have learned the following:
 <ul>
 <li>Basic conda commands</li>
-<li>JKG2AT and Hamlet setup</li>
+<li>NB2KG and JKG2AT setup</li>
 <li>Steps for executing code in a Jupyter Notebook</li>
 <li>Ingesting data sources into ODL</li>
 <li>Retrieve data via the Python-ODL API (dsdbc)</li>
@@ -196,20 +196,20 @@
 <p>Once the script is done running, we now have the CSV data in ODL.</p>
 <p>For more information on ODL please refer to the <a href="http://www.redbooks.ibm.com/redbooks/pdfs/sg248325.pdf" target="_blank" rel="noopener noreferrer">Apache Spark Implementation on IBM z/OS</a>
 <strong>Note:</strong> ODL is referred to as MDSS or Mainframe Data Service in the redbook. Since writing the redbook, it has changed names to Optimized Data Layer (ODL).</p>
-<h3 id="hamlet-and-jkg2at-setup">Hamlet and JKG2AT Setup</h3>
-<p>To execute and run a Jupyter Notebook server, the current solution is to use our <a href="https://www.anaconda.org/izoda/hamlet" target="_blank" rel="noopener noreferrer">Hamlet</a> conda package and <a href="#" target="_blank" rel="noopener noreferrer">JKG2AT's</a> install process on x86.</p>
-<p>Hamlet isn't included as part of the SMPE Anaconda install so you will need to run the command given in the IzODA channel:</p>
-<p><code>conda install -c izoda hamlet</code></p>
-<p><strong>Note:</strong> Unless the system administrator set permissions for everyone to be able to administer Anaconda or if you want to install Hamlet in your own conda environment you will need to first make a clone of the environment:</p>
+<h3 id="jkg2at-and-nb2kg-setup">JKG2AT and NB2KG Setup</h3>
+<p>To execute and run a Jupyter Notebook server, the current solution is to use our <a href="https://www.anaconda.org/izoda/JKG2AT" target="_blank" rel="noopener noreferrer">JKG2AT</a> conda package and <a href="#" target="_blank" rel="noopener noreferrer">NB2KG's</a> install process on x86.</p>
+<p>JKG2AT isn't included as part of the SMPE Anaconda install so you will need to run the command given in the IzODA channel:</p>
+<p><code>conda install -c izoda JKG2AT</code></p>
+<p><strong>Note:</strong> Unless the system administrator set permissions for everyone to be able to administer Anaconda or if you want to install JKG2AT in your own conda environment you will need to first make a clone of the environment:</p>
 <p><code>conda create -n &lt;name-of-env&gt; --clone="&lt;path-to-anaconda-home&gt;"</code></p>
 <p>When the clone is complete, you will need to activate the new environment:</p>
 <p><code>source activate &lt;name-of-env&gt;</code></p>
 <p>Notice that when you activate the new environment you will see the environment name in parenthesis before the prompt. After the clone is complete, please run the conda install command given above.</p>
-<p>When the install is complete, please run the following to ensure Hamlet is in the environment:</p>
+<p>When the install is complete, please run the following to ensure JKG2AT is in the environment:</p>
 <p><code>conda list</code></p>
-<p>You should see Hamlet listed as one of the installed conda packages:</p>
-<p><code>hamlet       1.0.0      6    izoda</code></p>
-<p>The Hamlet install will also install its dependencies, apache toree and kernel-gateway among some others. Note for this IVP, we will only be using Jupyter's ipython kernel for python 3. Apache Toree kernel is used to interact with Apache Spark which will not be included in this IVP. After Hamlet is installed, please follow the instructions under <strong>path-to-anaconda-install-dir/pkgs/hamlet-1.0.0-0/info/recipe/README.md</strong> to setup Jupyter Kernel Gateway and the iPython kernel for Python 3 on z/OS. Again, you can ignore the Apache Toree setup explained in the instructions.</p>
+<p>You should see JKG2AT listed as one of the installed conda packages:</p>
+<p><code>JKG2AT       1.0.0      6    izoda</code></p>
+<p>The JKG2AT install will also install its dependencies, apache toree and kernel-gateway among some others. Note for this IVP, we will only be using Jupyter's ipython kernel for python 3. Apache Toree kernel is used to interact with Apache Spark which will not be included in this IVP. After JKG2AT is installed, please follow the instructions under <strong>/Path/To/Anaconda/lib/python3.6/site-packages/jkg2at/README.md (If you are in a conda environment /Path/To/Anaconda/envs/<envName>lib/python3.6/site-packages/jkg2at/README.md)</strong> to setup Jupyter Kernel Gateway and the iPython kernel for Python 3 on z/OS. Again, you can ignore the Apache Toree setup explained in the instructions.</p>
 <p>Once you have setup the z/OS side, you will now need to set up Jupyter Notebook Server on the x86 side. Please follow the instructions here.</p>
 <p>When both sides of the solution are setup, you should be able to start up jupyter kernel gateway using the following command:</p>
 <p><code>jupyter kernelgateway</code></p>
@@ -238,7 +238,7 @@ If all the code cells run successfully, you can ensure Anaconda has been install
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../ivp-pyspark/" class="btn btn-neutral float-right" title="Anaconda/ODL Installation Verification with PySpark">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../ivp-pyspark/" class="btn btn-neutral float-right" title="IzODA Installation Verification with PySpark">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../install-config/" class="btn btn-neutral" title="Installation and Configuration"><span class="icon icon-circle-arrow-left"></span> Previous</a>

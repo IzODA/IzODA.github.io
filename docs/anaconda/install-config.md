@@ -70,7 +70,7 @@ There are several additional steps that a system administrator may wish to perfo
 
      change-prefix /service/usr/lpp/IBM/izoda/anaconda /usr/lpp/IBM/izoda/anaconda
 
-   Please note that change-prefix is not included in the GA release of IzODA, but is included in the first PTF. You can download change-prefix here, then upload it to your system (in binary mode), then cd to the Anaconda root directory and unpack it with "pax -r -f change-prefix.pax".</li>
+   Please note that change-prefix is not included in the GA release of IzODA, but is included in the first PTF. You can <a href="https://izoda.github.io/change-prefix.pax">download change-prefix here</a>, then upload it to your system (in binary mode), then cd to the Anaconda root directory and unpack it with "pax -r -f change-prefix.pax".</li>
    <li>Bash 4.2 requires shell scripts to be encoded in EBCDIC, even though all Python scripts in Anaconda are ASCII, and are file tagged to indicate this. The <em>install_ensure_scripts_are_in_ebcdic</em> tool can be used to guarantee all shell scripts in the Anaconda installation have the proper encoding.</li>
    <li>A good practice is to install Anaconda read-only for all users except an owning administrator. You can use the <em>install_set_single_anaconda_admin</em> tool to set the group and other permissions for All Anaconda parts to read-only.
    <li>If you wish to set up Anaconda to be managed by a group of administrators, use the <em>install_set_shared_anaconda_admin</em> tool. Run the command like this:

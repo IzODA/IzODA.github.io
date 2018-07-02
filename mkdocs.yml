@@ -13,7 +13,7 @@ pages:
     - 'Packages': 'anaconda/packages.md'
     - 'Installation and Configuration': 'anaconda/install-config.md'
     - 'Anaconda/ODL Installation Verification with Jupyter Notebook': 'anaconda/ivp-jupyter-notebook.md'
-    - 'Anaconda/ODL Installation Verification with PySpark': 'anaconda/ivp-pyspark.md'
+    - 'IzODA Installation Verification with PySpark': 'anaconda/ivp-pyspark.md'
   - 'Ecosystem': 'ecosystem.md'
 extra_css: [extra.css]
 extra_javascript: [index.js]

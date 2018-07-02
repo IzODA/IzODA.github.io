@@ -6,10 +6,10 @@ This Installation Verification Program (IVP) is provided by IBM to get started w
 
 The following shows step-by-step instructions on how to run IBM Open Data Analytics for z/OS Anaconda and ODL stacks. If you have not yet installed Anaconda including Python 3.6 for z/OS please do so using our <a href="../install-config/">installation and configuration page</a> before proceeding.
 
-Anaconda for z/OS provides a "conda" command for managing packages and environments. It is similar to Anaconda for other platforms with the exception that it includes a different list of packages. However, many of the popular data science packages are included with this distribution, for instance, pandas, numpy, scipy, scikit-learn, matplotlib, seaborn, and more. In this IVP, you will create and run a Jupyter Notebook on an x86 platform with a Jupyter kernel on z/OS executing Python code using the <a href="https://www.anaconda.org/izoda/hamlet" target="_blank" rel="noopener noreferrer">Hamlet</a> package and <a href="#" target="_blank" rel="noopener noreferrer">JKG2AT's</a> x86 install instructions. The Jupyter Notebook will demonstrate simple usage of data science packages by performing exploratory analysis on credit risk data retrieved from ODL. After completion of this IVP you will have learned the following:
+Anaconda for z/OS provides a "conda" command for managing packages and environments. It is similar to Anaconda for other platforms with the exception that it includes a different list of packages. However, many of the popular data science packages are included with this distribution, for instance, pandas, numpy, scipy, scikit-learn, matplotlib, seaborn, and more. In this IVP, you will create and run a Jupyter Notebook on an x86 platform with a Jupyter kernel on z/OS executing Python code using the <a href="https://www.anaconda.org/izoda/JKG2AT" target="_blank" rel="noopener noreferrer">JKG2AT</a> package and <a href="https://github.com/jupyter-incubator/nb2kg" target="_blank" rel="noopener noreferrer">NB2KG's</a> x86 install instructions. The Jupyter Notebook will demonstrate simple usage of data science packages by performing exploratory analysis on credit risk data retrieved from ODL. After completion of this IVP you will have learned the following:
 <ul>
 <li>Basic conda commands</li>
-<li>JKG2AT and Hamlet setup</li>
+<li>NB2KG and JKG2AT setup</li>
 <li>Steps for executing code in a Jupyter Notebook</li>
 <li>Ingesting data sources into ODL</li>
 <li>Retrieve data via the Python-ODL API (dsdbc)</li>
@@ -32,15 +32,15 @@ Once the script is done running, we now have the CSV data in ODL.
 For more information on ODL please refer to the <a href="http://www.redbooks.ibm.com/redbooks/pdfs/sg248325.pdf" target="_blank" rel="noopener noreferrer">Apache Spark Implementation on IBM z/OS</a>
 <strong>Note:</strong> ODL is referred to as MDSS or Mainframe Data Service in the redbook. Since writing the redbook, it has changed names to Optimized Data Layer (ODL).
 
-###Hamlet and JKG2AT Setup
+###JKG2AT and NB2KG Setup
 
-To execute and run a Jupyter Notebook server, the current solution is to use our <a href="https://www.anaconda.org/izoda/hamlet" target="_blank" rel="noopener noreferrer">Hamlet</a> conda package and <a href="#" target="_blank" rel="noopener noreferrer">JKG2AT's</a> install process on x86.
+To execute and run a Jupyter Notebook server, the current solution is to use our <a href="https://www.anaconda.org/izoda/JKG2AT" target="_blank" rel="noopener noreferrer">JKG2AT</a> conda package and <a href="#" target="_blank" rel="noopener noreferrer">NB2KG's</a> install process on x86.
 
-Hamlet isn't included as part of the SMPE Anaconda install so you will need to run the command given in the IzODA channel:
+JKG2AT isn't included as part of the SMPE Anaconda install so you will need to run the command given in the IzODA channel:
 
-```conda install -c izoda hamlet```
+```conda install -c izoda JKG2AT```
 
-<strong>Note:</strong> Unless the system administrator set permissions for everyone to be able to administer Anaconda or if you want to install Hamlet in your own conda environment you will need to first make a clone of the environment:
+<strong>Note:</strong> Unless the system administrator set permissions for everyone to be able to administer Anaconda or if you want to install JKG2AT in your own conda environment you will need to first make a clone of the environment:
 
 ```conda create -n <name-of-env> --clone="<path-to-anaconda-home>"```
 
@@ -50,15 +50,15 @@ When the clone is complete, you will need to activate the new environment:
 
 Notice that when you activate the new environment you will see the environment name in parenthesis before the prompt. After the clone is complete, please run the conda install command given above.
 
-When the install is complete, please run the following to ensure Hamlet is in the environment:
+When the install is complete, please run the following to ensure JKG2AT is in the environment:
 
 ```conda list```
 
-You should see Hamlet listed as one of the installed conda packages:
+You should see JKG2AT listed as one of the installed conda packages:
 
-```hamlet       1.0.0      6    izoda```
+```JKG2AT       1.0.0      6    izoda```
 
-The Hamlet install will also install its dependencies, apache toree and kernel-gateway among some others. Note for this IVP, we will only be using Jupyter's ipython kernel for python 3. Apache Toree kernel is used to interact with Apache Spark which will not be included in this IVP. After Hamlet is installed, please follow the instructions under <strong>path-to-anaconda-install-dir/pkgs/hamlet-1.0.0-0/info/recipe/README.md</strong> to setup Jupyter Kernel Gateway and the iPython kernel for Python 3 on z/OS. Again, you can ignore the Apache Toree setup explained in the instructions.
+The JKG2AT install will also install its dependencies, apache toree and kernel-gateway among some others. Note for this IVP, we will only be using Jupyter's ipython kernel for python 3. Apache Toree kernel is used to interact with Apache Spark which will not be included in this IVP. After JKG2AT is installed, please follow the instructions under <strong>/Path/To/Anaconda/lib/python3.6/site-packages/jkg2at/README.md (If you are in a conda environment /Path/To/Anaconda/envs/<envName>lib/python3.6/site-packages/jkg2at/README.md)</strong> to setup Jupyter Kernel Gateway and the iPython kernel for Python 3 on z/OS. Again, you can ignore the Apache Toree setup explained in the instructions.
 
 Once you have setup the z/OS side, you will now need to set up Jupyter Notebook Server on the x86 side. Please follow the instructions here.
 

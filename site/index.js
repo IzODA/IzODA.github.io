@@ -110,6 +110,7 @@ function labelChange() {
     }
   }
 }
+
 //Generate a conda install script using the packageName and version
 function generateInstallScript() {
   var tr = table.tBodies[0].getElementsByTagName("tr");
@@ -137,6 +138,7 @@ function generateInstallScript() {
   download("condaInstall" + latestReleaseName + ".sh", script);
 }
 
+//Downloads the conda install script
 function download(filename, text) {
   var element = document.createElement('a');
   element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));

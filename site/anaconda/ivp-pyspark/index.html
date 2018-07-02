@@ -8,7 +8,7 @@
   
   <meta name="author" content="Stephen Stone">
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Anaconda/ODL Installation Verification with PySpark - IzODA Documentation</title>
+  <title>IzODA Installation Verification with PySpark - IzODA Documentation</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -18,7 +18,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Anaconda/ODL Installation Verification with PySpark";
+    var mkdocs_page_name = "IzODA Installation Verification with PySpark";
     var mkdocs_page_input_path = "anaconda/ivp-pyspark.md";
     var mkdocs_page_url = "/anaconda/ivp-pyspark/";
   </script>
@@ -109,7 +109,7 @@
                 </li>
                 <li class=" current">
                     
-    <a class="current" href="./">Anaconda/ODL Installation Verification with PySpark</a>
+    <a class="current" href="./">IzODA Installation Verification with PySpark</a>
     <ul class="subnav">
             
     <li class="toctree-l3"><a href="#running-the-program">Running the Program</a></li>
@@ -151,7 +151,7 @@
         
       
     
-    <li>Anaconda/ODL Installation Verification with PySpark</li>
+    <li>IzODA Installation Verification with PySpark</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -161,13 +161,15 @@
           <div role="main">
             <div class="section">
               
-                <h1>Anaconda/ODL Installation Verification Program (IVP) with PySpark</h1>
+                <h1>IzODA Installation Verification Program (IVP) with PySpark</h1>
 
 <p>This Installation Verification Program (IVP) is provided by IBM to get started with the Anaconda and PySpark stacks of IzODA. Upon completion of this IVP, it ensures Anaconda and PySpark have been installed successfully and users are able to run simple data analysis on Mainframe data sources using Spark dataframes.</p>
 <p>The following IVP utilizes IBM Open Data Analytics for z/OS Anaconda and PySpark stack. If you have not yet installed Anaconda including Python 3.6 for z/OS please do so using our <a href="../install-config/">installation and configuration page</a> before proceeding.</p>
 <h3 id="running-the-program">Running the Program</h3>
 <p>Please download the python source code <a href="https://github.com/IzODA/examples/blob/master/python/anaconda-pyspark-ivp.py" target="_blank" rel="noopener noreferrer">here.</a> To run the script please execute the following command:</p>
 <p><code>$SPARK_HOME/bin/spark-submit anaconda-pyspark-ivp.py [mdsURL] [user] [password]</code></p>
+<p>If PySpark is not found, you need to export Python path as follows:</p>
+<p><code>export PYTHONPATH="$SPARK_HOME/python:$SPARK_HOME/python/lib/py4j-0.10.4-src.zip:$PYTHONPATH"</code></p>
 <p>Authors: Michael Gildein, Yunli Tang    Date: September 6th, 2017</p>
               
             </div>
