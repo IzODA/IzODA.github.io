@@ -2,12 +2,10 @@ var latestText = [];
 var latestReleaseName = "LATEST";
 var packageFileDir = "https://izoda.github.io/";
 var labelArray = ["main"];
+var table = document.getElementById("packageTable");
 
-function loadPackageTable() {
-  var selectedRelease = getSelectedRelease();
-  loadPackageTableFromFile(packageFileDir + selectedRelease, selectedRelease);
-}
-
+//This function iterates through the labels of each package
+//and adds each label as an option to the labelSelect
 function addLabelOptions() {
   var labelSelect = document.getElementById("packageSelect");
   var labelArrayLength = labelArray.length;
@@ -18,24 +16,15 @@ function addLabelOptions() {
   }
 }
 
-function getSelectedRelease() {
-  return document.getElementById("packageSelect").value;
-}
-
-function loadPackageTableFromFile(file, releaseName, isLatest = false) {
+//This function loads the package table from https://izoda.github.io/LATEST
+function loadPackageTableFromFile(file) {
   var rawFile = new XMLHttpRequest();
-  document.getElementById("searchBox").value = "";
-  rawFile.open("GET", file, false);
+  rawFile.open("GET", file);
   rawFile.onreadystatechange = function() {
     if (rawFile.readyState === 4) {
       if (rawFile.status === 200 || rawFile.status == 0) {
         var allText = rawFile.responseText;
         var splitLines = allText.split("\n");
-
-        if (isLatest) {
-          latestText = [];
-        }
-
         var parsedText = [];
 
         allText = getPackageTableHeader();
@@ -47,6 +36,7 @@ function loadPackageTableFromFile(file, releaseName, isLatest = false) {
         var label = 11;
         var url = 9;
 
+        //LATEST gets split by each "," which is then pushed into an array
         for (var lineIdx = 0; lineIdx < splitLines.length; lineIdx++) {
           if (splitLines[lineIdx].length == 0)
             continue;
@@ -60,14 +50,10 @@ function loadPackageTableFromFile(file, releaseName, isLatest = false) {
               labelArray.push(labelSplit[i])
           }
 
-          parsedText.push(packageArray);
+          allText = allText + getPackageTableEntry(packageArray);
         }
 
         addLabelOptions();
-        if (isLatest) {
-          latestText = parsedText;
-        }
-
         table = document.getElementById("packageTable");
         table.innerHTML = allText;
       }
@@ -89,6 +75,7 @@ function getPackageHeaderRow() {
   return "<tr><th>Package</th><th>Version</th><th>License</th><th>Description</th><th>Label</th>";
 }
 
+//This function allows users to search for package names
 function searchBoxChange() {
   var table = document.getElementById("packageTable");
   var searchText = document.getElementById("searchBox").value.toLowerCase();
@@ -106,6 +93,7 @@ function searchBoxChange() {
   }
 }
 
+//This allows users to sort packages by labels
 function labelChange() {
   var table = document.getElementById("packageTable");
   var searchText = document.getElementById("packageSelect").value.toLowerCase();
@@ -123,15 +111,18 @@ function labelChange() {
   }
 }
 
-
+//Generate a conda install script using the packageName and version
 function generateInstallScript() {
-  var table = document.getElementById("packageTable");
   var tr = table.tBodies[0].getElementsByTagName("tr");
   var script = "";
   var currentLine = "conda install";
   // Loop through all table rows and generate
   for (i = 0; i < tr.length; i++) {
     var name = tr[i].getElementsByTagName("td")[0];
+    name = name.innerHTML;
+    name = name.split(">");
+    name = name[1].split("<")
+    console.log(name);
     var version = tr[i].getElementsByTagName("td")[1];
     if (name && version) {
       if (name.innerHTML !== "conda") {
@@ -139,15 +130,15 @@ function generateInstallScript() {
           script = script + currentLine + " \\\n";
           currentLine = "";
         }
-
-        currentLine = currentLine + " " + name.innerHTML + "=" + version.innerHTML.replace("v", "");
+        currentLine = currentLine + " " + name[0] + "=" + version.innerHTML.replace("v", "");
       }
     }
   }
   script = script + currentLine;
-  download("condaInstall" + getSelectedRelease() + ".sh", script);
+  download("condaInstall" + latestReleaseName + ".sh", script);
 }
 
+//Downloads the conda install script
 function download(filename, text) {
   var element = document.createElement('a');
   element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
@@ -161,5 +152,4 @@ function download(filename, text) {
   document.body.removeChild(element);
 }
 
-document.getElementById("latestPackageSelect").selected = "selected";
-loadPackageTableFromFile(packageFileDir + "LATEST", latestReleaseName, false, true);
+loadPackageTableFromFile(packageFileDir + latestReleaseName);
