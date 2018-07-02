@@ -12,7 +12,7 @@ Apache Spark has no dependencies on Anaconda. However, Anaconda's package manage
 
 ![Spark Architecture](../img/IzODA_SparkArchitecture.png)
 
-Along with Spark's pre-requisites, those parts of the Jupyter ecosystem that run on z/OS can now be installed via conda from the <a href="https://anaconda.org/izoda/jkg2at" target="_blank" rel="noopener noreferrer">JKG2AT package.</a>
+Along with Spark's pre-requisites, those parts of the Jupyter ecosystem that run on z/OS can now be installed via conda from the <a href="https://anaconda.org/izoda/jkg2at" target="_blank" rel="noopener noreferrer">JKG2AT package.</a> Setup information about JKG2AT can be <a href="../jupyter-remote-notebook/">found here.</a>
 
 ##Installation and Customization
 

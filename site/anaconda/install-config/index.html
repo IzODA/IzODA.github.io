@@ -217,7 +217,7 @@
 <ul>
    <li>Include this setup in your .bashrc profile to make file conversion and tagging transparent to your Python application:</li></p>
 <pre><code> export _CEE_RUNOPTS="FILETAG(AUTOCVT,AUTOTAG) POSIX(ON)"
- if [[ "x$_BPXK_AUTOCVT" == "x" ]]; then
+ if [[ -z ”$_BPXK_AUTOCVT"]]; then
    export _BPXK_AUTOCVT=ON
    exec $BASH "$@"
  fi

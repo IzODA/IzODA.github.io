@@ -28,21 +28,17 @@ This is the setup necessary for any user to run Python applications and make use
 <ul>
    <li>Include this setup in your .bashrc profile to make file conversion and tagging transparent to your Python application:</li>
 
-
      export _CEE_RUNOPTS="FILETAG(AUTOCVT,AUTOTAG) POSIX(ON)"
-     if [[ "x$_BPXK_AUTOCVT" == "x" ]]; then
+     if [[ -z ”$_BPXK_AUTOCVT"]]; then
        export _BPXK_AUTOCVT=ON
        exec $BASH "$@"
      fi
 
    <li>Add the Anaconda bin directory to your PATH in .bashrc:</li>
 
-
-
    ```export ANACONDA_ROOT="/usr/lpp/IBM/izoda/anaconda"```
 
    ```export PATH=$ANACONDA_ROOT/bin:$PATH```
-
 
    <li>The Anaconda bin directory doesn't have to be first in your PATH, but if there are other shells or versions of bash installed on the system, the Anaconda bin directory has to preceed them in the PATH. Note: substitute the actual path to the Anaconda root from your environment when exporting ANACONDA_ROOT.</li>
    <li>Most Python applications will use the Optimized Data Layer to access data sources on z/OS and from remote servers. These call to ODL through the dsdbc api. Set up your STEPLIB to include the load library for this interface in .bashrc:

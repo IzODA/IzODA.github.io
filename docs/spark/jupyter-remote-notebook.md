@@ -16,10 +16,10 @@ The diagram above shows how this process works. An end user would connect to a J
 
 ###Setup the Kernel Gateway and Apache Toree on z/OS
 
-Given that this example revolves around the mainframe, a lot of the work will be done on a z/OS host. To install and run the Jupyter Kernel Gateway with Apache Toree solution on z/OS follow these <a href="#" target="_blank" rel="noopener noreferrer">instructions.</a>
+Given that this example revolves around the mainframe, a lot of the work will be done on a z/OS host. To install and run the Jupyter Kernel Gateway with Apache Toree solution on z/OS follow these <a href="https://www.anaconda.org/izoda/JKG2AT" target="_blank" rel="noopener noreferrer">instructions.</a>
 
 ###Setup the Jupyter Notebook Server with nb2kg Extension
 
-Now that you have the Jupyter Kernel Gateway Server running on z/OS, you now need to setup the Jupyter Notebook Server with nb2kg extension. There are a few ways to set this up, and choosing one depends on your environment. If you wish to run the Jupyter Notebook Server on a Linux on z LPAR, follow <a href="#" target="_blank" rel="noopener noreferrer">these instructions.</a> If you wish to run the Jupyter Notebook Server on an x86 Linux system, follow <a href="#" target="_blank" rel="noopener noreferrer">these instructions.</a>
+Now that you have the Jupyter Kernel Gateway Server running on z/OS, you now need to setup the Jupyter Notebook Server with nb2kg extension. There are a few ways to set this up, and choosing one depends on your environment. If you wish to run the Jupyter Notebook Server on a Linux on z LPAR, follow <a href="#" target="_blank" rel="noopener noreferrer">these instructions.</a> If you wish to run the Jupyter Notebook Server on an x86 Linux system, follow <a href="https://github.com/jupyter-incubator/nb2kg" target="_blank" rel="noopener noreferrer">these instructions.</a>
 
 Authors: David Rice, Jessie Yu    Date: April 5th, 2017
