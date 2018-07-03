@@ -1,6 +1,6 @@
 site_name: IzODA Documentation
 pages:
-  - 'About': 'index.md'
+  - 'Overview/Home Page|https://izoda.github.io/': 'index.md'
   - 'Apache Spark':
     - 'Overview': 'spark/spark.md'
     - 'Jupyter with Remote Notebook on the Mainframe': 'spark/jupyter-remote-notebook.md'
@@ -21,4 +21,3 @@ theme:
   name: readthedocs
 site_description: IzODA Documentation, Guides, and Examples
 site_author: Stephen Stone
-copyright: © Licensed/Copyrighted by IBM Corporation, 2018
