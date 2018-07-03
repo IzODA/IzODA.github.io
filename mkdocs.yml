@@ -1,6 +1,6 @@
 site_name: IzODA Documentation
 pages:
-  - 'Overview/Home Page|https://izoda.github.io/': 'index.md'
+  - 'About': 'index.md'
   - 'Apache Spark':
     - 'Overview': 'spark/spark.md'
     - 'Jupyter with Remote Notebook on the Mainframe': 'spark/jupyter-remote-notebook.md'

@@ -1,11 +1,7 @@
-var anchors = Array.from(document.getElementsByClassName("wy-menu")[0].getElementsByTagName("a"));
-anchors.forEach(function(anchor) {
-  var sep = anchor.innerText.indexOf("|");
-  if (sep != -1) {
-    anchor.href = anchor.innerText.substring(sep + 1, anchor.innerText.length);
-    anchor.innerText = anchor.innerText.substring(0, sep);
-  }
-});
+//Change Link to IzODA Home
+var homeLink = document.getElementsByClassName("icon-home")[0];
+homeLink.href = "https://izoda.github.io";
+homeLink.innerText = "IzODA Home Page";
 
 var latestText = [];
 var latestReleaseName = "LATEST";
