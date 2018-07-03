@@ -1,14 +1,9 @@
 {
     "docs": [
         {
-            "location": "/a/",
-            "text": "",
-            "title": "Overview/Home Page|https://izoda.github.io/"
-        },
-        {
             "location": "/",
             "text": "Welcome to IzODA's Documentation and Guides\n\n\n\nSections are organized by components (Apache Spark, Optimized Data Layer/MDS, Anaconda, and Ecosystem). Documentation, Guides, and Demos can be found within their corresponding sections. Thank you for using IBM Open Data Analytics on Z/OS!",
-            "title": "About"
+            "title": "Overview/Home Page|https://izoda.github.io/"
         },
         {
             "location": "/spark/spark/",
