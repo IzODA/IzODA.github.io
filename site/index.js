@@ -1,3 +1,8 @@
+var url = window.location.href
+var captured = /ifl=([^&]+)/.exec(url)[1];
+var result = captured ? captured : 'myDefaultValue';
+console.log(result);
+
 var latestText = [];
 var latestReleaseName = "LATEST";
 var packageFileDir = "https://izoda.github.io/";
