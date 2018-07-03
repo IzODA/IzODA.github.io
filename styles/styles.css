@@ -34,22 +34,27 @@ h6 {
 
 p {
   text-align: center;
-  margin-left: 9em;
-  margin-right: 9em;
 }
 
 #bannertextdiv {
-  position: absolute;
-  top: 28%;
   width: 100%;
-  text-align: center;
 }
 
 #bannertext1 {
+  position: relative;
+  top: 35%;
   color: white;
   font-size: 3.5em;
+  text-align: center;
 }
 
 .externalLink {
   color: #0a9577;
+}
+
+footer {
+  width: 100%;
+  text-align: center;
+  background-color: #dfe3e6;
+  padding: 10px;
 }
