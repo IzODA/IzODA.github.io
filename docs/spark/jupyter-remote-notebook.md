@@ -1,4 +1,4 @@
-<h1>Jupyter with Remote Notebook on the Mainframe</h1>
+#Jupyter with Remote Notebook on the Mainframe
 
 When <a href="http://spark.apache.org/releases/spark-release-2-0-0.html" target="_blank" rel="noopener noreferrer">Spark 2.0</a> was released to the public, it presented a major problem for people who use it in the mainframe environment. Spark 2.0 fully incorporates <a href="https://databricks.com/blog/2015/04/28/project-tungsten-bringing-spark-closer-to-bare-metal.html" target="_blank" rel="noopener noreferrer">Project Tungsten</a>, a key initiative that focuses on improving memory and CPU efficiency. One of the main features of Project Tungsten is to operate directly against binary data in order to eliminate the overhead of JVM objects and garbage collection. This new feature, however, introduced byte-order dependencies and caused issues to Spark applications running in a mixed-endian environment. For example, a Spark driver running inside a <a href="http://jupyter.org/" target="_blank" rel="noopener noreferrer">Jupyter Notebook</a> on x86 (little-endian) talking to a Spark cluster running on z/OS (big-endian) would encounter some nasty data integrity problem.
 
@@ -16,7 +16,7 @@ The diagram above shows how this process works. An end user would connect to a J
 
 ###Setup the Kernel Gateway and Apache Toree on z/OS
 
-Given that this example revolves around the mainframe, a lot of the work will be done on a z/OS host. The following instructions are for an iPython Kernel: To install and run the Jupyter Kernel Gateway with Apache Toree solution on z/OS, the base instructions can be found <a href="../anaconda/ivp-jupyter-notebook/">here.</a> The steps found within the <a href="https://jupyter-kernel-gateway.readthedocs.io/en/latest/" target="_blank" rel="noopener noreferrer">JKG2AT README</a> will detail how to setup a Toree Kernel.
+Given that this example revolves around the mainframe, a lot of the work will be done on a z/OS host. The following instructions are for an iPython Kernel: To install and run the Jupyter Kernel Gateway with Apache Toree solution on z/OS, the base instructions can be found <a href="../../anaconda/ivp-jupyter-notebook">here.</a> The steps found within the <a href="https://jupyter-kernel-gateway.readthedocs.io/en/latest/" target="_blank" rel="noopener noreferrer">JKG2AT README</a> will detail how to setup a Toree Kernel.
 
 ###Setup the Jupyter Notebook Server with nb2kg Extension
 

@@ -1,6 +1,8 @@
 site_name: IzODA Documentation
 pages:
   - 'About': 'index.md'
+  - 'IzODA Best Practices':
+    - 'Jupyter Notebook Usage': 'best-practices/jupyter-notebook-usage.md'
   - 'Apache Spark':
     - 'Overview': 'spark/spark.md'
     - 'Jupyter with Remote Notebook on the Mainframe': 'spark/jupyter-remote-notebook.md'
