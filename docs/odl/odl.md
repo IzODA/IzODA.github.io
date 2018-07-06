@@ -26,13 +26,13 @@ ODL includes a workstation based interface called the Data Service Studio (DSS) 
 
 For more details about the z/OS and workstation-based components of ODL and how they relate to one another, as well as details about alternative methods for virtualizing database views, please see:
 <ul>
-    <li>Chapter 2 of the <a href="https://www-304.ibm.com/servers/resourcelink/svc00100.nsf/pages/izodav110sc279035/$file/azk1c100.pdf" target="_blank">IzODA Administrator's Guide</a></li>
-    <li>Chapter 3 of the <a href="http://www.redbooks.ibm.com/redbooks/pdfs/sg248325.pdf" target="_blank">Apache Spark Redbook</a></li>
+    <li>Chapter 2 of the <a href="https://www-304.ibm.com/servers/resourcelink/svc00100.nsf/pages/izodav110sc279035/$file/azk1c100.pdf" target="_blank" rel="noopener noreferrer">IzODA Administrator's Guide</a></li>
+    <li>Chapter 3 of the <a href="http://www.redbooks.ibm.com/redbooks/pdfs/sg248325.pdf" target="_blank" rel="noopener noreferrer">Apache Spark Redbook</a></li>
 </ul>
 
 #Installation and Customization
 
-Instructions about how to install and customize the various components of ODL are in the chapters of <a href="https://www-304.ibm.com/servers/resourcelink/svc00100.nsf/pages/izodav110sc279033/$file/azk1a100.pdf" target="_blank">IzODA Installation and Customization Guide</a> that reference <em>MDS</em> and the <em>Data Service Studio.</em>
+Instructions about how to install and customize the various components of ODL are in the chapters of <a href="https://www-304.ibm.com/servers/resourcelink/svc00100.nsf/pages/izodav110sc279033/$file/azk1a100.pdf" target="_blank" rel="noopener noreferrer">IzODA Installation and Customization Guide</a> that reference <em>MDS</em> and the <em>Data Service Studio.</em>
 
 #Verify Your Installation
 
@@ -40,6 +40,6 @@ ODL is intended to be used together with one or both of the analytics stacks of 
 
 ##Reference Material
 
-A library of documentation is available for the <em>IBM Open Data Analytics for z/OS</em> offering. This can be found at the <a href="https://www.ibm.com/support/knowledgecenter/SS3H8V_1.1.0/com.ibm.izoda.v1r1.izodalp/izoda.htm" target="_blank">IBM Knowledge Center.</a>
+A library of documentation is available for the <em>IBM Open Data Analytics for z/OS</em> offering. This can be found at the <a href="https://www.ibm.com/support/knowledgecenter/SS3H8V_1.1.0/com.ibm.izoda.v1r1.izodalp/izoda.htm" target="_blank" rel="noopener noreferrer">IBM Knowledge Center.</a>
 
-The <a href="http://www.redbooks.ibm.com/abstracts/sg248325.html" target="_blank">Apache Spark Implementation on IBM z/OS</a> is another good source of information about both Spark and ODL.
+The <a href="http://www.redbooks.ibm.com/abstracts/sg248325.html" target="_blank" rel="noopener noreferrer">Apache Spark Implementation on IBM z/OS</a> is another good source of information about both Spark and ODL.

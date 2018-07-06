@@ -13,13 +13,11 @@ pages:
     - 'Packages': 'anaconda/packages.md'
     - 'Installation and Configuration': 'anaconda/install-config.md'
     - 'Anaconda/ODL Installation Verification with Jupyter Notebook': 'anaconda/ivp-jupyter-notebook.md'
-    - 'Anaconda/ODL Installation Verification with PySpark': 'anaconda/ivp-pyspark.md'
+    - 'IzODA Installation Verification with PySpark': 'anaconda/ivp-pyspark.md'
   - 'Ecosystem': 'ecosystem.md'
 extra_css: [extra.css]
 extra_javascript: [index.js]
 theme:
   name: readthedocs
-repo_url: https://github.com/IzODA
 site_description: IzODA Documentation, Guides, and Examples
 site_author: Stephen Stone
-copyright: IBM

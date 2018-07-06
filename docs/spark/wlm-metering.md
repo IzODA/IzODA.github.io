@@ -23,7 +23,7 @@
        <li>The <em>executor</em> performs the actual computation and data processing for the application.</li>
        <li>The <em>driver</em> program runs the main function of the application and creates a <em>SparkContext</em>.</li>
   </ul>
-   The master and worker processes are generally lightweight. By contrast, the executors attempt to use all available system resources by default. You can use the spark-defaults.conf file, spark-env.sh file, and command line parameters to constrain the number of CPU cores and amount of memory that each executor can consume. These parameters, however, are static and require that the Spark processes be restarted for changes to take effect. (For more information about the Apache Spark configuration options, see <a href="https://spark.apache.org/docs/2.1.1/configuration.html" target="_blank">Spark Configuration.</a> For more information about tuning the Apache Spark cluster, see <a href="https://spark.apache.org/docs/2.1.1/tuning.html" target="_blank">Tuning Spark.</a>
+   The master and worker processes are generally lightweight. By contrast, the executors attempt to use all available system resources by default. You can use the spark-defaults.conf file, spark-env.sh file, and command line parameters to constrain the number of CPU cores and amount of memory that each executor can consume. These parameters, however, are static and require that the Spark processes be restarted for changes to take effect. (For more information about the Apache Spark configuration options, see <a href="https://spark.apache.org/docs/2.1.1/configuration.html" target="_blank" rel="noopener noreferrer">Spark Configuration.</a> For more information about tuning the Apache Spark cluster, see <a href="https://spark.apache.org/docs/2.1.1/tuning.html" target="_blank" rel="noopener noreferrer">Tuning Spark.</a>
 
    WLM provides a more dynamic way to manage the performance of your Spark workloads.
 
@@ -33,7 +33,7 @@
 
    WLM uses classification rules to map work coming into the system to a specific service class and report class. The classification is based on work qualifiers. The first qualifier is the subsystem type that receives the work request. The subsystem type for work that is processed in z/OS UNIX (which IzODA Spark workloads are) is OMVS. You can then use the Spark process job names and/or user IDs as the secondary qualifiers to classify your Spark work. Based on your service (PTF) level, there are different ways to assign job names to your Spark processes.
 
-   For more information about configuring WLM for IzODA Spark, see “Configuring z/OS workload manager for Apache Spark” in <a href="https://www.ibm.com/support/knowledgecenter/SS3H8V_1.1.0/com.ibm.izoda.v1r1.azka100/toc.html" target="_blank">IBM Open Data Analytics for z/OS Installation and Customization Guide.</a>
+   For more information about configuring WLM for IzODA Spark, see “Configuring z/OS workload manager for Apache Spark” in <a href="https://www.ibm.com/support/knowledgecenter/SS3H8V_1.1.0/com.ibm.izoda.v1r1.azka100/toc.html" target="_blank" rel="noopener noreferrer">IBM Open Data Analytics for z/OS Installation and Customization Guide.</a>
 
 
    ![Sample WLM policy](../img/wlm-mc-spark.png)
@@ -60,6 +60,7 @@
    <strong>Example:</strong> The following figure shows an example of creating a resource group called ODASRG with a maximum capacity of 10 percent of the LPAR share in the general processor pool and a memory limit of 20 GB:
 
    ![WLM Resource Group example](../img/wlm-resource-group.png)
+
    Figure 2. Example of creating a resource group
 
 
@@ -67,7 +68,7 @@
 
    Spark executors are generally good candidates to have their physical memory usage capped, since they typically consume a lot of memory. However, you might see performance degradation or even termination of your Spark applications if they reach their memory limit. In the case of termination, Spark applications usually observe an ABEND SEC6. Another situation that may occur is if an executor is not executing or responding for an extended period of time, such as in a heavy paging situation initiated by approaching a resource group’s memory limit, the executor may be declared lost by the driver. This may prompt the spawning of a new replacement executor, and it becomes possible to have two or more executors running in the same resource group performing the same computation. In a highly competitive resource situation, the driver may declare that it cannot finish successfully and terminates.
 
-   To ensure that the Spark cluster stays alive even if the system terminates executors, we recommend that you avoid placing the Spark master and worker daemons in a memory-limited resource group. We also recommend that you consider your Spark configuration when using WLM to limit resources available to Spark processes. The SPARK_WORKER_MEMORY parameter, for example, should be set to a value less than or equal to the memory limit defined for the executors' resource group. Setting appropriate values for these parameters helps Spark to dispatch work within its limits and help reduce unintended consequences. For more information about the Apache Spark configuration options for standalone mode, see <a href="https://spark.apache.org/docs/2.1.1/spark-standalone.html" target="_blank">Spark Standalone Mode.</a>
+   To ensure that the Spark cluster stays alive even if the system terminates executors, we recommend that you avoid placing the Spark master and worker daemons in a memory-limited resource group. We also recommend that you consider your Spark configuration when using WLM to limit resources available to Spark processes. The SPARK_WORKER_MEMORY parameter, for example, should be set to a value less than or equal to the memory limit defined for the executors' resource group. Setting appropriate values for these parameters helps Spark to dispatch work within its limits and help reduce unintended consequences. For more information about the Apache Spark configuration options for standalone mode, see <a href="https://spark.apache.org/docs/2.1.1/spark-standalone.html" target="_blank" rel="noopener noreferrer">Spark Standalone Mode.</a>
 
 ####Specifying Honor Priority for a service class
 
@@ -78,6 +79,6 @@
 
    Setting the honor priority attribute to NO might also change the goals for your workload. For instance, if a Spark service class has high velocity goals and is set to use only zIIPs, these two settings might interfere with each other under certain conditions and cause an undesired state for the Spark applications and their workload priorities.
 
-   See the WLM APAR OA52611 text for more information on the WLM Metering and Capping support.
+   See the <a href="http://www-01.ibm.com/support/docview.wss?uid=isg1OA52611" target="_blank" ref="noopener noreferrer">WLM APAR OA52611 text</a> for more information on the WLM Metering and Capping support.
 
 Authors: Jessie Yu (jessieyu@us.ibm.com), Michael Gildein (megildei@us.ibm.com), Kevin Carr (kgcarr@us.ibm.com).    Date: November 27th, 2017

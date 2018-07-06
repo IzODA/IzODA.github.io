@@ -1,71 +1,60 @@
-body{
-  background-color:##efefef;
+body {
+  background-color: ##efefef;
 }
 
-html, body{
-  height:100%;
+html, body {
+  height: 100%;
 }
 
-nav{
+nav {
   background-color: #efefef;
 }
 
-ul{
-  margin:auto;
+ul {
+  margin: auto;
 }
 
-#githublogo{
-  height:20px;
-  width:20px;
+#githublogo {
+  padding-bottom: 5px;
+}
+
+h1 {
+  text-align: center;
+}
+
+h6 {
+  text-align: center;
+}
+
+.centerImage {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+p {
+  text-align: center;
+}
+
+#bannertextdiv {
+  width: 100%;
+}
+
+#bannertext1 {
+  position: relative;
+  top: 35%;
+  color: white;
+  font-size: 3.5em;
+  text-align: center;
+}
+
+.externalLink {
+  color: #0a9577;
 }
 
 footer {
   width: 100%;
   text-align: center;
   background-color: #dfe3e6;
-  padding: 7px;
-}
-
-iframe {
-  object-position: center top
-}
-
-.embed-responsive {
-  height:77.5%;
-}
-
-h1{
-  text-align: center;
-}
-
-h6{
-  text-align:center;
-}
-
-.centerImage{
-  margin-left:auto;
-  margin-right:auto;
-  display:block;
-}
-
-p{
-  text-align:center;
-  margin-left:9em;
-  margin-right:9em;
-}
-
-#bannertextdiv{
-  position: absolute;
-   top: 28%;
-   width: 100%;
-   text-align: center;
-}
-
-#bannertext1{
-  color:white;
-  font-size: 3.5em;
-}
-
-.externalLink{
-  color: #0a9577;
+  padding: 10px;
 }

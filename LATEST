@@ -1,4 +1,4 @@
-"BSD","Configurable, Python 2+3 compatible Sphinx theme.","alabaster","v0.7.10","/IzODA/alabaster/0.7.10/download/zos-z/alabaster-0.7.10-py36_0.tar.bz2","main,blob,abc,def,ghi"
+"BSD","Configurable, Python 2+3 compatible Sphinx theme.","alabaster","v0.7.10","/IzODA/alabaster/0.7.10/download/zos-z/alabaster-0.7.10-py36_0.tar.bz2","main"
 "MIT","A database migration tool for SQLAlchemy.","alembic","v0.9.1","/IzODA/alembic/0.9.1/download/zos-z/alembic-0.9.1-py36_0.tar.bz2","main"
 "BSD 3-clause","tool for (passively) verifying conda recipes and conda packages ","anaconda","v1.1.0","/IzODA/anaconda/1.1.0/download/zos-z/anaconda-1.1.0-6.tar.bz2","main"
 "BSD","anaconda.org command line client library","anaconda-client","v1.2.2","/IzODA/anaconda-client/1.2.2/download/zos-z/anaconda-client-1.2.2-py36_0.tar.bz2","main"
@@ -236,4 +236,4 @@
 "Public-Domain","Data compression software with high compression ratio","xz","v5.2.3","/IzODA/xz/5.2.3/download/zos-z/xz-5.2.3-0.tar.bz2","main"
 "MIT","Human-readable data serialization language","yaml","v0.1.6","/IzODA/yaml/0.1.6/download/zos-z/yaml-0.1.6-1.tar.bz2","main"
 "LGPL","A high-performance asynchronous messaging library.","zeromq","v4.2.1","/IzODA/zeromq/4.2.1/download/zos-z/zeromq-4.2.1-2.tar.bz2","main"
-"zlib","Massively spiffy yet delicately unobtrusive compression library","zlib","v1.2.11","/IzODA/zlib/1.2.11/download/zos-z/zlib-1.2.11-1.tar.bz2","main,abc,def"
+"zlib","Massively spiffy yet delicately unobtrusive compression library","zlib","v1.2.11","/IzODA/zlib/1.2.11/download/zos-z/zlib-1.2.11-1.tar.bz2","main"
