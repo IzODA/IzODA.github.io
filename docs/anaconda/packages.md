@@ -17,7 +17,7 @@ The following are the packages provided by the <a href="https://anaconda.org/izo
             class="search-box"></input>
         </td>
         <td>
-          <button id="generateButton" onclick="loadPackageTable(); generateInstallScript();" class="btn btn-light btn-outline-dark">Generate Environment Script</button>
+          <button id="generateButton" onclick="generateInstallScript();" class="btn btn-light btn-outline-dark">Generate Environment Script</button>
         </td>
       </tr>
     </thead>
