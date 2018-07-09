@@ -40,7 +40,7 @@ Several additional capabilities ship with Anaconda that have not yet been fully 
 <ul>
    <li>Package installation from platform agnostic channels at anaconda.org</li>
    <li>Package installation using the Python Packaging Authority Installer (PIP)</li>
-   <li>Jupyter notebook server on z/OS. We recommend continued use of our current Kernel Gateway/Apache Toree offering in concert with a Linux-based Jupyter notebook server.</li>
+   <li>Jupyter notebook server on Z/OS. We recommend continued use of our current Kernel Gateway/Apache Toree offering in concert with a Linux-based Jupyter notebook server.</li>
    <li>Anaconda users should run bash version 4.3.48 or later. <strong>Note: Apache Spark requires version 4.2.53.</strong> Recommended use is to make this the user's top level shell through the PROGRAM setting in the OMVS segment of their RACF profile. Using conda from arbitrarily nested shell sessions is not recommended.</li>
    <li>Some operations with the Dask package may result in error messages about broken pipes</li>
 </ul>

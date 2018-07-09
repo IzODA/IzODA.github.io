@@ -2,13 +2,13 @@
 
 ##Introduction
 
-   One of the strengths of the z Systems platform and the z/OS operating system is the option to run multiple workloads at the same time within one z/OS image or across a Parallel Sysplex. Workloads usually have different, often competing, performance and resource requirements that must be balanced to make the best use of an installation's resources, maintain the highest possible throughput, and achieve the best possible system responsiveness. The function that makes this possible is dynamic workload management, which is implemented in the workload management component of z/OS.
+   One of the strengths of the z Systems platform and the Z/OS operating system is the option to run multiple workloads at the same time within one Z/OS image or across a Parallel Sysplex. Workloads usually have different, often competing, performance and resource requirements that must be balanced to make the best use of an installation's resources, maintain the highest possible throughput, and achieve the best possible system responsiveness. The function that makes this possible is dynamic workload management, which is implemented in the workload management component of Z/OS.
 
-   With z/OS workload management (WLM), you define performance goals and assign a business importance to each goal. You define the goals for work in business terms, and the system decides how much resource, such as CPU or memory, to assign so as to meet the goal. WLM constantly monitors the system and adapts processing to meet the goals.
+   With Z/OS workload management (WLM), you define performance goals and assign a business importance to each goal. You define the goals for work in business terms, and the system decides how much resource, such as CPU or memory, to assign so as to meet the goal. WLM constantly monitors the system and adapts processing to meet the goals.
 
-   In October 2016, IBM announced the intent to stage support for new capabilities in z/OS for metering and capping workloads over CPU and memory consumption. This support provides additional WLM controls that enable the system capacity planner to specify that the resource consumption of selected workloads should not exceed the specified limits. You can, for example, use WLM to ensure that all the applications or jobs submitted to a Spark cluster do not consume more than a specified real memory limit, and that they do not receive help from standard processors when the zIIP capacity is exceeded.
+   In October 2016, IBM announced the intent to stage support for new capabilities in Z/OS for metering and capping workloads over CPU and memory consumption. This support provides additional WLM controls that enable the system capacity planner to specify that the resource consumption of selected workloads should not exceed the specified limits. You can, for example, use WLM to ensure that all the applications or jobs submitted to a Spark cluster do not consume more than a specified real memory limit, and that they do not receive help from standard processors when the zIIP capacity is exceeded.
 
-   This paper provides an overview of using WLM Metering and Capping for IBM Open Data Analytics for z/OS Spark (IzODA Spark, FMID HSPK120), and its associated considerations.
+   This paper provides an overview of using WLM Metering and Capping for IBM Open Data Analytics for Z/OS Spark (IzODA Spark, FMID HSPK120), and its associated considerations.
 
    <strong>Note:</strong> The IBM.Function.MemoryCapping fix category and the MEMCAP/K keyword in RETAIN identify the PTFs that enable the Metering and Capping functions.
 
@@ -29,11 +29,11 @@
 
 ##Overview of WLM classification for IzODA Spark
 
-   You specify goals for the WLM services for IzODA Spark work in the same manner as for other z/OS workloads, by associating the work with a service class. In the service class, you assign goals to the work, along with the relative importance of each goal. You can also assign limits for CPU and memory capacity to be available to a service class. To associate incoming work with a particular service class, you must also define classification rules.
+   You specify goals for the WLM services for IzODA Spark work in the same manner as for other Z/OS workloads, by associating the work with a service class. In the service class, you assign goals to the work, along with the relative importance of each goal. You can also assign limits for CPU and memory capacity to be available to a service class. To associate incoming work with a particular service class, you must also define classification rules.
 
-   WLM uses classification rules to map work coming into the system to a specific service class and report class. The classification is based on work qualifiers. The first qualifier is the subsystem type that receives the work request. The subsystem type for work that is processed in z/OS UNIX (which IzODA Spark workloads are) is OMVS. You can then use the Spark process job names and/or user IDs as the secondary qualifiers to classify your Spark work. Based on your service (PTF) level, there are different ways to assign job names to your Spark processes.
+   WLM uses classification rules to map work coming into the system to a specific service class and report class. The classification is based on work qualifiers. The first qualifier is the subsystem type that receives the work request. The subsystem type for work that is processed in Z/OS UNIX (which IzODA Spark workloads are) is OMVS. You can then use the Spark process job names and/or user IDs as the secondary qualifiers to classify your Spark work. Based on your service (PTF) level, there are different ways to assign job names to your Spark processes.
 
-   For more information about configuring WLM for IzODA Spark, see “Configuring z/OS workload manager for Apache Spark” in <a href="https://www.ibm.com/support/knowledgecenter/SS3H8V_1.1.0/com.ibm.izoda.v1r1.azka100/toc.html" target="_blank" rel="noopener noreferrer">IBM Open Data Analytics for z/OS Installation and Customization Guide.</a>
+   For more information about configuring WLM for IzODA Spark, see “Configuring Z/OS workload manager for Apache Spark” in <a href="https://www.ibm.com/support/knowledgecenter/SS3H8V_1.1.0/com.ibm.izoda.v1r1.azka100/toc.html" target="_blank" rel="noopener noreferrer">IBM Open Data Analytics for Z/OS Installation and Customization Guide.</a>
 
 
    ![Sample WLM policy](../img/wlm-mc-spark.png)

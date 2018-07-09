@@ -4,15 +4,15 @@
 
 ![Spark stack](../img/spark-stack.png)
 
-Spark was originally released through the IBM z/OS Platform for Apache Spark offering in March of 2016.
+Spark was originally released through the IBM Z/OS Platform for Apache Spark offering in March of 2016.
 
 ##Spark and Anaconda
 
-Apache Spark has no dependencies on Anaconda. However, Anaconda's package management capabilities have allowed for all of Spark's dependencies to be included in the IzODA Anaconda package library. This means that IzODA is a self-contained offering with no pre-requisites other than z/OS and Java at the proper service levels. It also means that Spark and Anaconda are effectively co-requisites, and should always be installed along with the ODL (MDS) FMID.
+Apache Spark has no dependencies on Anaconda. However, Anaconda's package management capabilities have allowed for all of Spark's dependencies to be included in the IzODA Anaconda package library. This means that IzODA is a self-contained offering with no pre-requisites other than Z/OS and Java at the proper service levels. It also means that Spark and Anaconda are effectively co-requisites, and should always be installed along with the ODL (MDS) FMID.
 
 ![Spark Architecture](../img/IzODA_SparkArchitecture.png)
 
-Along with Spark's pre-requisites, those parts of the Jupyter ecosystem that run on z/OS can now be installed via conda from the <a href="https://anaconda.org/izoda/jkg2at" target="_blank" rel="noopener noreferrer">JKG2AT package.</a> Setup information about JKG2AT can be <a href="../jupyter-remote-notebook/">found here.</a>
+Along with Spark's pre-requisites, those parts of the Jupyter ecosystem that run on Z/OS can now be installed via conda from the <a href="https://anaconda.org/izoda/jkg2at" target="_blank" rel="noopener noreferrer">JKG2AT package.</a> Setup information about JKG2AT can be <a href="../jupyter-remote-notebook/">found here.</a>
 
 ##Installation and Customization
 
@@ -24,6 +24,6 @@ We have created a collection of small sample applications which you can run to v
 
 ##Reference Material
 
-A library of documentation is available for the IBM Open Data Analytics for z/OS offering. This can be found at the <a href="https://www.ibm.com/support/knowledgecenter/SS3H8V_1.1.0/com.ibm.izoda.v1r1.izodalp/izoda.htm" target="_blank" rel="noopener noreferrer">IBM Knowledge Center.</a>
+A library of documentation is available for the IBM Open Data Analytics for Z/OS offering. This can be found at the <a href="https://www.ibm.com/support/knowledgecenter/SS3H8V_1.1.0/com.ibm.izoda.v1r1.izodalp/izoda.htm" target="_blank" rel="noopener noreferrer">IBM Knowledge Center.</a>
 
-The <a href="http://www.redbooks.ibm.com/abstracts/sg248325.html" target="_blank" rel="noopener noreferrer">Apache Spark Implementation on IBM z/OS</a> is another good source of information about both Spark and ODL.
+The <a href="http://www.redbooks.ibm.com/abstracts/sg248325.html" target="_blank" rel="noopener noreferrer">Apache Spark Implementation on IBM Z/OS</a> is another good source of information about both Spark and ODL.

@@ -22,7 +22,7 @@ If you would like to use Jupyter Notebook with Z/OS authentication you should ha
 c.NotebookApp.open_browser = False
 c.NotebookApp.ip = '<IP>'
 c.NotebookApp.port = <Port>
-c.NotebookApp.username = '<z/OS User ID>
+c.NotebookApp.username = '<Z/OS User ID>
 ```
 
 <ul>FAQ:
