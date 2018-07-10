@@ -2,7 +2,7 @@
 
 This Installation Verification Program (IVP) is provided by IBM to get started with the Anaconda and PySpark stacks of IzODA. Upon completion of this IVP, it ensures Anaconda and PySpark have been installed successfully and users are able to run simple data analysis on Mainframe data sources using Spark dataframes.
 
-The following IVP utilizes IBM Open Data Analytics for Z/OS Anaconda and PySpark stack. If you have not yet installed Anaconda including Python 3.6 for Z/OS please do so using our <a href="../install-config/">installation and configuration page</a> before proceeding.
+The following IVP utilizes IBM Open Data Analytics for z/OS Anaconda and PySpark stack. If you have not yet installed Anaconda including Python 3.6 for z/OS please do so using our <a href="../install-config/">installation and configuration page</a> before proceeding.
 
 ###Running the Program
 

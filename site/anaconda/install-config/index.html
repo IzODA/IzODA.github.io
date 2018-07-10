@@ -204,12 +204,12 @@
               
                 <h1>Anaconda Installation and Configuration</h1>
 
-<p>This process installs all of the components of a fully a functional Anaconda deployment. There are some key characteristics of the Z/OS environment to be aware of:</p>
+<p>This process installs all of the components of a fully a functional Anaconda deployment. There are some key characteristics of the z/OS environment to be aware of:</p>
 <ul>   
   <li>All Anaconda components are 64-bit ASCII applications.</li>
   <li>Since Anaconda is an ASCII environment running on a platform with a default EBCDIC code page, file tagging is used extensively. Be aware that newly created files in this environment must be properly tagged for everything to run smoothly.
   </li>
-  <li>These instructions are for a system administrator running in a Z/OS shell. They are tailored for a bash shell instance. If you are using the default <em>tcsh</em> that comes with Z/OS, substitute the <em>setenv</em> command for <em>export</em>.</li>
+  <li>These instructions are for a system administrator running in a z/OS shell. They are tailored for a bash shell instance. If you are using the default <em>tcsh</em> that comes with z/OS, substitute the <em>setenv</em> command for <em>export</em>.</li>
   <li>Proper WLM classification of Python workloads depends on how the tasks and processes associated with the application are named. By default, all such tasks will be associated with the name of the invoking user. However, this gives no indication to WLM that the given task is part of a Python workload. See the environmental setup section below for an explanation about how to associate a job name with the tasks of your Python application that WLM can recognize.</li>
 </ul>
 
@@ -217,7 +217,7 @@
 <p><ul>
    <li>IzODA installs Anaconda from a local archive shipped as part of the SMP/E offering. Because of this, the install process requires room for the archive, plus about the same amount of space in the target file system that contains the Anaconda home directory - usually <em>/usr/lpp/IBM/izoda/anaconda</em>. Since Anaconda ships with approximately 230 packages, a finished install consumes between 2.5 and 3 GB.</p>
 <p>In addition to the disk space required during the IzODA install, it's important to remember that Anaconda keeps all package versions that have been installed from the IzODA channel through the conda command. This allows previous versions of an installed package to be referenced in addition to the latest version. Be sure to give Anaconda enough room to operate. The minimum disk space for an Anaconda installation is 6 GB, and the recommended amount is 20 GB.</li>
-   <li>Python makes use of the <em>/dev/urandom</em> character special file to read pseudo-random values for use in a variety of applications. The <em>Integrated Cryptographic Service Facility (ICSF)</em> service of Z/OS must be started for <em>/dev/urandom</em> to function properly. Failures will occur if ICSF is not active when Anaconda is installed.</li></p>
+   <li>Python makes use of the <em>/dev/urandom</em> character special file to read pseudo-random values for use in a variety of applications. The <em>Integrated Cryptographic Service Facility (ICSF)</em> service of z/OS must be started for <em>/dev/urandom</em> to function properly. Failures will occur if ICSF is not active when Anaconda is installed.</li></p>
 <pre><code> head -c40 /dev/urandom
  head: /dev/urandom: EDC5157I An internal error has occurred.
 </code></pre>
@@ -237,11 +237,11 @@
 <p><code>export ANACONDA_ROOT="/usr/lpp/IBM/izoda/anaconda"</code></p>
 <p><code>export PATH=$ANACONDA_ROOT/bin:$PATH</code></p>
 <p><li>The Anaconda bin directory doesn't have to be first in your PATH, but if there are other shells or versions of bash installed on the system, the Anaconda bin directory has to preceed them in the PATH. Note: substitute the actual path to the Anaconda root from your environment when exporting ANACONDA_ROOT.</li>
-   <li>Most Python applications will use the Optimized Data Layer to access data sources on Z/OS and from remote servers. These call to ODL through the dsdbc api. Set up your STEPLIB to include the load library for this interface in .bashrc:</p>
+   <li>Most Python applications will use the Optimized Data Layer to access data sources on z/OS and from remote servers. These call to ODL through the dsdbc api. Set up your STEPLIB to include the load library for this interface in .bashrc:</p>
 <pre><code> export STEPLIB=hlq.SAZKLOAD:$STEPLIB
 </code></pre>
 <p>where hlq is the high-level qualifier of the ODL (MDS) installation.</li>
-   <li>Grant users running Python applications READ permission to the BPX.JOBNAME facility class profile so that they can assign jobnames to their workload. Please see the <a href="https://www.ibm.com/support/knowledgecenter/SSLTBW_2.1.0/com.ibm.zos.v2r1.bpxb200/bpxenv.htm" target="_blank" rel="noopener noreferrer">_BPX environment variables section</a> of the Z/OS UNIX System Services Planning guide for more information. Note: superusers are allowed to set jobnames regardless of their access to BPX.JOBNAME. <strong>In general, we recommend against Python users having superuser privileges.</strong></li>
+   <li>Grant users running Python applications READ permission to the BPX.JOBNAME facility class profile so that they can assign jobnames to their workload. Please see the <a href="https://www.ibm.com/support/knowledgecenter/SSLTBW_2.1.0/com.ibm.zos.v2r1.bpxb200/bpxenv.htm" target="_blank" rel="noopener noreferrer">_BPX environment variables section</a> of the z/OS UNIX System Services Planning guide for more information. Note: superusers are allowed to set jobnames regardless of their access to BPX.JOBNAME. <strong>In general, we recommend against Python users having superuser privileges.</strong></li>
 </ul></p>
 <h3 id="download-and-unpack">Download and Unpack</h3>
 <p>IzODA installs using SMP/E. Instructions are in the <a href="https://www-304.ibm.com/servers/resourcelink/svc00100.nsf/pages/izodav110gi134348/$file/azk1e100.pdf" target="_blank" rel="noopener noreferrer">Program Directory.</a> The PSP bucket for Anaconda 1.1.0 should be reviewed prior to installation; see also the <a href="#latebreaking-news">Latebreaking News</a> section of this page.</p>
@@ -260,7 +260,7 @@
 <pre><code> install_set_shared_anaconda_admin groupname
 </code></pre>
 <p>where groupname is the name of the administrators group.</li>
-   <li>If you plan to run Python code in a server (as a daemon), you should run the <em>install_set_program_control</em> tool. For more information, refer to the <a href="https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.1.0/com.ibm.zos.v2r1.bpxb200/progcontr.htm" target="_blank" rel="noopener noreferrer">Defining programs in UNIX files to program control</a> section of the <em>Z/OS Unix System Services Planning guide.</em></li>
+   <li>If you plan to run Python code in a server (as a daemon), you should run the <em>install_set_program_control</em> tool. For more information, refer to the <a href="https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.1.0/com.ibm.zos.v2r1.bpxb200/progcontr.htm" target="_blank" rel="noopener noreferrer">Defining programs in UNIX files to program control</a> section of the <em>z/OS Unix System Services Planning guide.</em></li>
 </ul>
 There is one mandatory last step - run the <em>conda</em> command to pull all updates to the Anaconda environment from the IzODA channel on the Anaconda cloud.</p>
 <p><code>conda update</code></p>
@@ -297,7 +297,7 @@ There is one mandatory last step - run the <em>conda</em> command to pull all up
 <p><strong>root</strong></p>
 <p>The term "root" has one of three meanings, in the context of Anaconda:
 <ul>
-   <li>root can mean the <em>root userid</em>. This user has uid 0. However, in Z/OS, there are other ways to get all privileges, and the use of uid of 0 is less common.</li>
+   <li>root can mean the <em>root userid</em>. This user has uid 0. However, in z/OS, there are other ways to get all privileges, and the use of uid of 0 is less common.</li>
    <li>root can mean the <em>Anaconda root directory</em>. This is usually /usr/lpp/IBM/izoda/anaconda. It can be changed at installation time, and will often be temporarily different while service is being applied.</li>
    <li>root can mean the <em>root conda environment</em>. When you run the script named activate to activate a conda environment, it sets an environment variable that causes bash to print the environment name in parenthesis. The default environment is named root.</li>
 </ul></p>
