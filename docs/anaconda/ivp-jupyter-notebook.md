@@ -4,22 +4,22 @@ This Installation Verification Program (IVP) is provided by IBM to get started w
 
 ###Background
 
-The following shows step-by-step instructions on how to run IBM Open Data Analytics for z/OS Anaconda and ODL stacks. If you have not yet installed Anaconda including Python 3.6 for z/OS please do so using our <a href="../install-config/">installation and configuration page</a> before proceeding.
+The following shows step-by-step instructions on how to run IBM Open Data Analytics for Z/OS Anaconda and ODL stacks. If you have not yet installed Anaconda including Python 3.6 for Z/OS please do so using our <a href="../install-config/">installation and configuration page</a> before proceeding.
 
-Anaconda for z/OS provides a "conda" command for managing packages and environments. It is similar to Anaconda for other platforms with the exception that it includes a different list of packages. However, many of the popular data science packages are included with this distribution, for instance, pandas, numpy, scipy, scikit-learn, matplotlib, seaborn, and more. In this IVP, you will create and run a Jupyter Notebook on an x86 platform with a Jupyter kernel on z/OS executing Python code using the <a href="https://www.anaconda.org/izoda/JKG2AT" target="_blank" rel="noopener noreferrer">JKG2AT</a> package and <a href="https://github.com/jupyter-incubator/nb2kg" target="_blank" rel="noopener noreferrer">NB2KG's</a> x86 install instructions. The Jupyter Notebook will demonstrate simple usage of data science packages by performing exploratory analysis on credit risk data retrieved from ODL. After completion of this IVP you will have learned the following:
+Anaconda for Z/OS provides a "conda" command for managing packages and environments. It is similar to Anaconda for other platforms with the exception that it includes a different list of packages. However, many of the popular data science packages are included with this distribution, for instance, pandas, numpy, scipy, scikit-learn, matplotlib, seaborn, and more. In this IVP, you will create and run a Jupyter Notebook on an x86 platform with a Jupyter kernel on Z/OS executing Python code using the <a href="https://www.anaconda.org/izoda/JKG2AT" target="_blank" rel="noopener noreferrer">JKG2AT</a> package and <a href="https://github.com/jupyter-incubator/nb2kg" target="_blank" rel="noopener noreferrer">NB2KG's</a> x86 install instructions. The Jupyter Notebook will demonstrate simple usage of data science packages by performing exploratory analysis on credit risk data retrieved from ODL. After completion of this IVP you will have learned the following:
 <ul>
 <li>Basic conda commands</li>
 <li>NB2KG and JKG2AT setup</li>
 <li>Steps for executing code in a Jupyter Notebook</li>
 <li>Ingesting data sources into ODL</li>
 <li>Retrieve data via the Python-ODL API (dsdbc)</li>
-<li>Simple data analysis on z/OS</li>
+<li>Simple data analysis on Z/OS</li>
 </ul>
 ###Ingesting data into the Optimized Data Layer (ODL)
 
 The data source we will be using is the <a href="https://archive.ics.uci.edu/ml/datasets/statlog+(german+credit+data)" target="_blank" rel="noopener noreferrer">German Credit Data</a> from the UCI Machine Learning Repository. Please download the csv file titled "ivp-german-data.csv" <a href="https://github.com/IzODA/examples/tree/master/python/data" target="_blank" rel="noopener noreferrer">here.</a> This data source is manipulated to avoid pre-processing such as, converting the input data into human-readable format, for the purpose of the IVP.
 
-First, we will convert the CSV data file into a mainframe data source and store it in ODL. ODL enables data from multiple, disconnected sources on z/OS to be virtually integrated into a single, logical data source, which can then be imported into a dataframe for further analysis. Note that previously, ODL was called Mainframe Data Services (MDS). We choose this setup as opposed to reading directly from csv to ensure that we can retrieve a data source from ODL via the ODL-Python module, dsdbc.
+First, we will convert the CSV data file into a mainframe data source and store it in ODL. ODL enables data from multiple, disconnected sources on Z/OS to be virtually integrated into a single, logical data source, which can then be imported into a dataframe for further analysis. Note that previously, ODL was called Mainframe Data Services (MDS). We choose this setup as opposed to reading directly from csv to ensure that we can retrieve a data source from ODL via the ODL-Python module, dsdbc.
 <ol>
    <li>Create a copybook to describe the data layout. Please use the copybook <a href="https://github.com/IzODA/examples/blob/master/python/data/ivp-german-credit-data.cpy" target="_blank" rel="noopener noreferrer">here.</a></li>
    <li>Allocate an empty data set on the host. For simplicity, create a physical sequential file with a record length that is wide enough to accommodate each record and call it <strong>"CREDIT_DATA"</strong>.</li>
@@ -29,7 +29,7 @@ First, we will convert the CSV data file into a mainframe data source and store 
 
 Once the script is done running, we now have the CSV data in ODL.
 
-For more information on ODL please refer to the <a href="http://www.redbooks.ibm.com/redbooks/pdfs/sg248325.pdf" target="_blank" rel="noopener noreferrer">Apache Spark Implementation on IBM z/OS</a>
+For more information on ODL please refer to the <a href="http://www.redbooks.ibm.com/redbooks/pdfs/sg248325.pdf" target="_blank" rel="noopener noreferrer">Apache Spark Implementation on IBM Z/OS</a>
 <strong>Note:</strong> ODL is referred to as MDSS or Mainframe Data Service in the redbook. Since writing the redbook, it has changed names to Optimized Data Layer (ODL).
 
 ###JKG2AT and NB2KG Setup
@@ -58,9 +58,9 @@ You should see JKG2AT listed as one of the installed conda packages:
 
 ```JKG2AT       1.0.0      6    izoda```
 
-The JKG2AT install will also install its dependencies, apache toree and kernel-gateway among some others. Note for this IVP, we will only be using Jupyter's ipython kernel for python 3. Apache Toree kernel is used to interact with Apache Spark which will not be included in this IVP. After JKG2AT is installed, please follow the instructions under <strong>/Path/To/Anaconda/lib/python3.6/site-packages/jkg2at/README.md (If you are in a conda environment /Path/To/Anaconda/envs/<envName>lib/python3.6/site-packages/jkg2at/README.md)</strong> to setup Jupyter Kernel Gateway and the iPython kernel for Python 3 on z/OS. Again, you can ignore the Apache Toree setup explained in the instructions.
+The JKG2AT install will also install its dependencies, apache toree and kernel-gateway among some others. Note for this IVP, we will only be using Jupyter's ipython kernel for python 3. Apache Toree kernel is used to interact with Apache Spark which will not be included in this IVP. After JKG2AT is installed, please follow the instructions under <strong>/Path/To/Anaconda/lib/python3.6/site-packages/jkg2at/README.md (If you are in a conda environment /Path/To/Anaconda/envs/<envName>lib/python3.6/site-packages/jkg2at/README.md)</strong> to setup Jupyter Kernel Gateway and the iPython kernel for Python 3 on Z/OS. Again, you can ignore the Apache Toree setup explained in the instructions.
 
-Once you have setup the z/OS side, you will now need to set up Jupyter Notebook Server on the x86 side. Please follow the instructions here.
+Once you have setup the Z/OS side, you will now need to set up Jupyter Notebook Server on the x86 side. Please follow the instructions here.
 
 When both sides of the solution are setup, you should be able to start up jupyter kernel gateway using the following command:
 
