@@ -8,7 +8,7 @@
   
   <meta name="author" content="Stephen Stone">
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>IzODA Installation Verification with PySpark - IzODA Documentation</title>
+  <title>Jupyter Notebook Usage - IzODA Documentation</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -18,9 +18,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "IzODA Installation Verification with PySpark";
-    var mkdocs_page_input_path = "anaconda/ivp-pyspark.md";
-    var mkdocs_page_url = "/anaconda/ivp-pyspark/";
+    var mkdocs_page_name = "Jupyter Notebook Usage";
+    var mkdocs_page_input_path = "best-practices/jupyter-notebook-usage.md";
+    var mkdocs_page_url = "/best-practices/jupyter-notebook-usage/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -57,9 +57,15 @@
 		
     <span class="caption-text">IzODA Best Practices</span>
     <ul class="subnav">
-                <li class="">
+                <li class=" current">
                     
-    <a class="" href="../../best-practices/jupyter-notebook-usage/">Jupyter Notebook Usage</a>
+    <a class="current" href="./">Jupyter Notebook Usage</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#jupyter-notebook-usage">Jupyter Notebook Usage</a></li>
+    
+
+    </ul>
                 </li>
     </ul>
 	    </li>
@@ -104,29 +110,23 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../anaconda/">Overview</a>
+    <a class="" href="../../anaconda/anaconda/">Overview</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../packages/">Packages</a>
+    <a class="" href="../../anaconda/packages/">Packages</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../install-config/">Installation and Configuration</a>
+    <a class="" href="../../anaconda/install-config/">Installation and Configuration</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../ivp-jupyter-notebook/">Anaconda/ODL Installation Verification with Jupyter Notebook</a>
+    <a class="" href="../../anaconda/ivp-jupyter-notebook/">Anaconda/ODL Installation Verification with Jupyter Notebook</a>
                 </li>
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">IzODA Installation Verification with PySpark</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#running-the-program">Running the Program</a></li>
-    
-
-    </ul>
+    <a class="" href="../../anaconda/ivp-pyspark/">IzODA Installation Verification with PySpark</a>
                 </li>
     </ul>
 	    </li>
@@ -158,11 +158,11 @@
     
       
         
-          <li>Anaconda &raquo;</li>
+          <li>IzODA Best Practices &raquo;</li>
         
       
     
-    <li>IzODA Installation Verification with PySpark</li>
+    <li>Jupyter Notebook Usage</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -172,16 +172,34 @@
           <div role="main">
             <div class="section">
               
-                <h1>IzODA Installation Verification Program (IVP) with PySpark</h1>
+                <h1 id="jupyter-notebook-usage">Jupyter Notebook Usage</h1>
+<p>When using Jupyter Notebook on z/OS you should generate a config file with the command</p>
+<p><code>jupyter –generate-config</code></p>
+<p>This will create a notebook config file in <em>~/.jupyter/jupyter_notebook_config.py.</em></p>
+<p>If you want a basic Jupyter Notebook config file you can start with this</p>
+<pre><code>c.NotebookApp.open_browser = False
+c.NotebookApp.ip = '&lt;IP&gt;'
+c.NotebookApp.port = &lt;Port&gt;
+</code></pre>
 
-<p>This Installation Verification Program (IVP) is provided by IBM to get started with the Anaconda and PySpark stacks of IzODA. Upon completion of this IVP, it ensures Anaconda and PySpark have been installed successfully and users are able to run simple data analysis on Mainframe data sources using Spark dataframes.</p>
-<p>The following IVP utilizes IBM Open Data Analytics for z/OS Anaconda and PySpark stack. If you have not yet installed Anaconda including Python 3.6 for z/OS please do so using our <a href="../install-config/">installation and configuration page</a> before proceeding.</p>
-<h3 id="running-the-program">Running the Program</h3>
-<p>Please download the python source code <a href="https://github.com/IzODA/examples/blob/master/python/anaconda-pyspark-ivp.py" target="_blank" rel="noopener noreferrer">here.</a> To run the script please execute the following command:</p>
-<p><code>$SPARK_HOME/bin/spark-submit anaconda-pyspark-ivp.py [mdsURL] [user] [password]</code></p>
-<p>If PySpark is not found, you need to export Python path as follows:</p>
-<p><code>export PYTHONPATH="$SPARK_HOME/python:$SPARK_HOME/python/lib/py4j-0.10.4-src.zip:$PYTHONPATH"</code></p>
-<p>Authors: Michael Gildein, Yunli Tang    Date: September 6th, 2017</p>
+<p>If you would like to use Jupyter Notebook with z/OS authentication you should have a config file that looks like the one below. One more step is required to enable z/OS authentication. You will need to navigate to your anaconda root directory and run</p>
+<p><code>install_set_program_control</code>.</p>
+<pre><code>c.NotebookApp.open_browser = False
+c.NotebookApp.ip = '&lt;IP&gt;'
+c.NotebookApp.port = &lt;Port&gt;
+c.NotebookApp.username = '&lt;z/OS User ID&gt;
+</code></pre>
+
+<ul>FAQ:
+  <li>Without specifying the IP address in the config file Jupyter will default to use localhost.</li>
+  <li>The IP you set is where Jupyter will accept requests from
+    <ul>
+      <li>An IP of 0.0.0.0 will accept requests from everywhere.
+      </li>
+    </ul>
+  </li>
+  <li>Jupyter Notebook will default to token authentication.</li>
+</ul>
               
             </div>
           </div>
@@ -189,10 +207,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../ecosystem/" class="btn btn-neutral float-right" title="Ecosystem">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../spark/spark/" class="btn btn-neutral float-right" title="Overview">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../ivp-jupyter-notebook/" class="btn btn-neutral" title="Anaconda/ODL Installation Verification with Jupyter Notebook"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../.." class="btn btn-neutral" title="About"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -218,10 +236,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../ivp-jupyter-notebook/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../.." style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../../ecosystem/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../../spark/spark/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
