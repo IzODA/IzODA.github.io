@@ -2,7 +2,7 @@
 
 When using Jupyter Notebook on z/OS you should generate a config file with the command
 
-`jupyter –generate-config`
+`jupyter notebook --generate-config`
 
 This will create a notebook config file in <em>~/.jupyter/jupyter_notebook_config.py.</em>
 
