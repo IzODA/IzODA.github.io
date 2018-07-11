@@ -174,7 +174,9 @@
               
                 <h1 id="jupyter-notebook-usage">Jupyter Notebook Usage</h1>
 <p>When using Jupyter Notebook on z/OS you should generate a config file with the command</p>
-<p><code>jupyter –generate-config</code></p>
+
+<p><code>jupyter notebook --generate-config</code></p>
+
 <p>This will create a notebook config file in <em>~/.jupyter/jupyter_notebook_config.py.</em></p>
 <p>If you want a basic Jupyter Notebook config file you can start with this</p>
 <pre><code>c.NotebookApp.open_browser = False
