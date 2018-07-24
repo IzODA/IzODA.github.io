@@ -68,7 +68,7 @@ function loadPackageTableFromFile(file) {
 }
 
 function getPackageTableEntry(packageArray) {
-  return "<tr><td><a href=\"" + packageArray[5] + "\">" + packageArray[0] + "</a></td><td>" + packageArray[1] +
+  return "<tr><td><a href=\"https://anaconda.org" + packageArray[5] + "\">" + packageArray[0] + "</a></td><td>" + packageArray[1] +
     "</td><td>" + packageArray[2] + "</td><td>" + packageArray[3] + "</td><td>" + packageArray[4] + "</td></tr>";
 }
 
