@@ -116,6 +116,10 @@
                 </li>
                 <li class="">
                     
+    <a class="" href="../apar-notes/">APAR Notes</a>
+                </li>
+                <li class="">
+                    
     <a class="" href="../ivp-jupyter-notebook/">Anaconda/ODL Installation Verification with Jupyter Notebook</a>
                 </li>
                 <li class=" current">
@@ -123,7 +127,13 @@
     <a class="current" href="./">IzODA Installation Verification with PySpark</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#running-the-program">Running the Program</a></li>
+    <li class="toctree-l3"><a href="#izoda-installation-verification-program-ivp-with-pyspark">IzODA Installation Verification Program (IVP) with PySpark</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#running-the-program">Running the Program</a></li>
+        
+        </ul>
     
 
     </ul>
@@ -172,15 +182,18 @@
           <div role="main">
             <div class="section">
               
-                <h1>IzODA Installation Verification Program (IVP) with PySpark</h1>
-
+                <h1 id="izoda-installation-verification-program-ivp-with-pyspark">IzODA Installation Verification Program (IVP) with PySpark</h1>
 <p>This Installation Verification Program (IVP) is provided by IBM to get started with the Anaconda and PySpark stacks of IzODA. Upon completion of this IVP, it ensures Anaconda and PySpark have been installed successfully and users are able to run simple data analysis on Mainframe data sources using Spark dataframes.</p>
 <p>The following IVP utilizes IBM Open Data Analytics for z/OS Anaconda and PySpark stack. If you have not yet installed Anaconda including Python 3.6 for z/OS please do so using our <a href="../install-config/">installation and configuration page</a> before proceeding.</p>
-<h3 id="running-the-program">Running the Program</h3>
-<p>Please download the python source code <a href="https://github.com/IzODA/examples/blob/master/python/anaconda-pyspark-ivp.py" target="_blank" rel="noopener noreferrer">here.</a> To run the script please execute the following command:</p>
-<p><code>$SPARK_HOME/bin/spark-submit anaconda-pyspark-ivp.py [mdsURL] [user] [password]</code></p>
+<h2 id="running-the-program">Running the Program</h2>
+<p>Please download the python source code <a href="https://github.com/IzODA/examples/blob/master/python/anaconda-pyspark-ivp.py">here.</a> To run the script please execute the following command:</p>
+<pre><code>$SPARK_HOME/bin/spark-submit anaconda-pyspark-ivp.py [mdsURL] [user] [password]
+</code></pre>
+
 <p>If PySpark is not found, you need to export Python path as follows:</p>
-<p><code>export PYTHONPATH="$SPARK_HOME/python:$SPARK_HOME/python/lib/py4j-0.10.4-src.zip:$PYTHONPATH"</code></p>
+<pre><code>export PYTHONPATH=&quot;$SPARK_HOME/python:$SPARK_HOME/python/lib/py4j-0.10.4-src.zip:$PYTHONPATH&quot;
+</code></pre>
+
 <p>Authors: Michael Gildein, Yunli Tang    Date: September 6th, 2017</p>
               
             </div>

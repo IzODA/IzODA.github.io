@@ -73,16 +73,19 @@
     <a class="current" href="./">Overview</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#spark-and-anaconda">Spark and Anaconda</a></li>
+    <li class="toctree-l3"><a href="#apache-spark">Apache Spark</a></li>
     
-
-    <li class="toctree-l3"><a href="#installation-and-customization">Installation and Customization</a></li>
-    
-
-    <li class="toctree-l3"><a href="#verify-your-installation">Verify Your Installation</a></li>
-    
-
-    <li class="toctree-l3"><a href="#reference-material">Reference Material</a></li>
+        <ul>
+        
+            <li><a class="toctree-l4" href="#spark-and-anaconda">Spark and Anaconda</a></li>
+        
+            <li><a class="toctree-l4" href="#installation-and-customization">Installation and Customization</a></li>
+        
+            <li><a class="toctree-l4" href="#verify-your-installation">Verify Your Installation</a></li>
+        
+            <li><a class="toctree-l4" href="#reference-material">Reference Material</a></li>
+        
+        </ul>
     
 
     </ul>
@@ -128,6 +131,10 @@
                 <li class="">
                     
     <a class="" href="../../anaconda/install-config/">Installation and Configuration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../anaconda/apar-notes/">APAR Notes</a>
                 </li>
                 <li class="">
                     
@@ -181,22 +188,21 @@
           <div role="main">
             <div class="section">
               
-                <h1>Apache Spark</h1>
-
-<p><a href="https://spark.apache.org/" target="_blank" rel="noopener noreferrer">Apache Spark</a> is a general purpose, high performance clustering analytics engine that allocates resources and distributes work across a set of processes and tasks. It is organized as a set core functions that underpin a collection of functional libraries.</p>
+                <h1 id="apache-spark">Apache Spark</h1>
+<p><a href="https://spark.apache.org/">Apache Spark</a> is a general purpose, high performance clustering analytics engine that allocates resources and distributes work across a set of processes and tasks. It is organized as a set core functions that underpin a collection of functional libraries.</p>
 <p><img alt="Spark stack" src="../../img/spark-stack.png" /></p>
 <p>Spark was originally released through the IBM z/OS Platform for Apache Spark offering in March of 2016.</p>
 <h2 id="spark-and-anaconda">Spark and Anaconda</h2>
 <p>Apache Spark has no dependencies on Anaconda. However, Anaconda's package management capabilities have allowed for all of Spark's dependencies to be included in the IzODA Anaconda package library. This means that IzODA is a self-contained offering with no pre-requisites other than z/OS and Java at the proper service levels. It also means that Spark and Anaconda are effectively co-requisites, and should always be installed along with the ODL (MDS) FMID.</p>
 <p><img alt="Spark Architecture" src="../../img/IzODA_SparkArchitecture.png" /></p>
-<p>Along with Spark's pre-requisites, those parts of the Jupyter ecosystem that run on z/OS can now be installed via conda from the <a href="https://anaconda.org/izoda/jkg2at" target="_blank" rel="noopener noreferrer">JKG2AT package.</a> Setup information about JKG2AT can be <a href="../jupyter-remote-notebook/">found here.</a></p>
+<p>Along with Spark's pre-requisites, those parts of the Jupyter ecosystem that run on z/OS can now be installed via conda from the <a href="https://anaconda.org/izoda/jkg2at">JKG2AT package.</a> Setup information about JKG2AT can be <a href="../jupyter-remote-notebook/">found here.</a></p>
 <h2 id="installation-and-customization">Installation and Customization</h2>
-<p>Refer to the <a href="https://www.ibm.com/support/knowledgecenter/" target="_blank" rel="noopener noreferrer">IBM Knowledge Center</a> for installation and customization instructions. The guides can be downloaded via <a href="https://www.ibm.com/support/knowledgecenter/SS3H8V_1.1.0/com.ibm.izoda.v1r1.izodalp/izoda.htm" target="_blank" rel="noopener noreferrer">PDF or TOC here.</a> Further instructions about how to install and customize Apache Spark are in chapters 2 and 3 of the <a href="https://www-304.ibm.com/servers/resourcelink/svc00100.nsf/pages/izodav110sc279033/$file/azk1a100.pdf" target="_blank" rel="noopener noreferrer">IzODA Installation and Customization Guide.</a></p>
+<p>Refer to the <a href="https://www.ibm.com/support/knowledgecenter/">IBM Knowledge Center</a> for installation and customization instructions. The guides can be downloaded via <a href="https://www.ibm.com/support/knowledgecenter/SS3H8V_1.1.0/com.ibm.izoda.v1r1.izodalp/izoda.htm">PDF or TOC here.</a> Further instructions about how to install and customize Apache Spark are in chapters 2 and 3 of the <a href="https://www-304.ibm.com/servers/resourcelink/svc00100.nsf/pages/izodav110sc279033/$file/azk1a100.pdf">IzODA Installation and Customization Guide.</a></p>
 <h2 id="verify-your-installation">Verify Your Installation</h2>
-<p>We have created a collection of small sample applications which you can run to verify that Spark is installed and configured properly, and works with the other components of IzODA. Please choose one of the Install Verification Programs (IVPs) from the <a href="https://www.ibm.com/support/knowledgecenter/en/SS3H8V_1.1.0/com.ibm.izoda.v1r1.azka100/topics/azkic_c_partverify.htm" target="_blank" rel="noopener noreferrer">IBM Knowledge Center.</a></p>
+<p>We have created a collection of small sample applications which you can run to verify that Spark is installed and configured properly, and works with the other components of IzODA. Please choose one of the Install Verification Programs (IVPs) from the <a href="https://www.ibm.com/support/knowledgecenter/en/SS3H8V_1.1.0/com.ibm.izoda.v1r1.azka100/topics/azkic_c_partverify.htm">IBM Knowledge Center.</a></p>
 <h2 id="reference-material">Reference Material</h2>
-<p>A library of documentation is available for the IBM Open Data Analytics for z/OS offering. This can be found at the <a href="https://www.ibm.com/support/knowledgecenter/SS3H8V_1.1.0/com.ibm.izoda.v1r1.izodalp/izoda.htm" target="_blank" rel="noopener noreferrer">IBM Knowledge Center.</a></p>
-<p>The <a href="http://www.redbooks.ibm.com/abstracts/sg248325.html" target="_blank" rel="noopener noreferrer">Apache Spark Implementation on IBM z/OS</a> is another good source of information about both Spark and ODL.</p>
+<p>A library of documentation is available for the IBM Open Data Analytics for z/OS offering. This can be found at the <a href="https://www.ibm.com/support/knowledgecenter/">IBM Knowledge Center.</a></p>
+<p>The <a href="http://www.redbooks.ibm.com/abstracts/sg248325.html">Apache Spark Implementation on IBM z/OS</a> is another good source of information about both Spark and ODL.</p>
               
             </div>
           </div>

@@ -1,3 +1,3 @@
-<h1>Credit Risk Demonstration</h1>
+# Credit Risk Demonstration
 
-Please see the <a href="https://github.com/IzODA/examples/blob/master/python/Credit-Risk-Assessment-via-ODL.ipynb" target="_blank" rel="noopener noreferrer">Credit Risk Example on our Github</a> for further information.
+Please see the [Credit Risk Example on our Github](https://github.com/IzODA/examples/blob/master/python/Credit-Risk-Assessment-via-ODL.ipynb) for further information.
