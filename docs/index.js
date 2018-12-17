@@ -1,7 +1,7 @@
-//Change Link to IzODA Home
+// Change top-left Home Link to IzODA Home
 var homeLink = document.getElementsByClassName("icon-home")[0];
 homeLink.href = "https://izoda.github.io";
-homeLink.innerText = "IzODA Home Page";
+homeLink.innerText = " IzODA Home Page";
 
 var latestText = [];
 var latestReleaseName = "LATEST";
@@ -9,8 +9,8 @@ var packageFileDir = "https://izoda.github.io/";
 var labelArray = ["main"];
 var table = document.getElementById("packageTable");
 
-//This function iterates through the labels of each package
-//and adds each label as an option to the labelSelect
+// This function iterates through the labels of each package and adds each label as 
+// an option to the labelSelect
 function addLabelOptions() {
   var labelSelect = document.getElementById("packageSelect");
   var labelArrayLength = labelArray.length;
@@ -21,7 +21,7 @@ function addLabelOptions() {
   }
 }
 
-//This function loads the package table from https://izoda.github.io/LATEST
+// This function loads the package table from https://izoda.github.io/LATEST
 function loadPackageTableFromFile(file) {
   var rawFile = new XMLHttpRequest();
   rawFile.open("GET", file);
@@ -30,18 +30,18 @@ function loadPackageTableFromFile(file) {
       if (rawFile.status === 200 || rawFile.status == 0) {
         var allText = rawFile.responseText;
         var splitLines = allText.split("\n");
-        var parsedText = [];
 
         allText = getPackageTableHeader();
 
+        // Table headers and index of position in LATEST file
         var packageName = 5;
+        var url = 9;
         var version = 7;
         var license = 1;
         var description = 3;
         var label = 11;
-        var url = 9;
 
-        //LATEST gets split by each "," which is then pushed into an array
+        // LATEST gets split by each "," which is then pushed into an array
         for (var lineIdx = 0; lineIdx < splitLines.length; lineIdx++) {
           if (splitLines[lineIdx].length == 0)
             continue;
@@ -80,7 +80,7 @@ function getPackageHeaderRow() {
   return "<tr><th>Package</th><th>Version</th><th>License</th><th>Description</th><th>Label</th>";
 }
 
-//This function allows users to search for package names
+// This function allows users to search for package names
 function searchBoxChange() {
   var table = document.getElementById("packageTable");
   var searchText = document.getElementById("searchBox").value.toLowerCase();
@@ -98,7 +98,7 @@ function searchBoxChange() {
   }
 }
 
-//This allows users to sort packages by labels
+// This allows users to sort packages by labels
 function labelChange() {
   var table = document.getElementById("packageTable");
   var searchText = document.getElementById("packageSelect").value.toLowerCase();
@@ -116,7 +116,7 @@ function labelChange() {
   }
 }
 
-//Generate a conda install script using the packageName and version
+// Generate a conda install script using the packageName and version
 function generateInstallScript() {
   var tr = table.tBodies[0].getElementsByTagName("tr");
   var script = "";
@@ -143,17 +143,14 @@ function generateInstallScript() {
   download("condaInstall" + latestReleaseName + ".sh", script);
 }
 
-//Downloads the conda install script
+// Downloads the conda install script
 function download(filename, text) {
   var element = document.createElement('a');
   element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
   element.setAttribute('download', filename);
-
   element.style.display = 'none';
   document.body.appendChild(element);
-
   element.click();
-
   document.body.removeChild(element);
 }
 
