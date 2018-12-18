@@ -18,6 +18,7 @@
 7. Push/Merge changes to master branch
 
 8. Review updates
+
 Note: Updates to Github Pages sometimes take up to 10 minutes
 
 Refer to https://www.mkdocs.org/#building-the-site for further information
