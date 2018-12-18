@@ -8,7 +8,7 @@
   
   <meta name="author" content="Stephen Stone">
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Credit Risk Assessment Example - IzODA Documentation</title>
+  <title>APAR Notes - IzODA Documentation</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -18,9 +18,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Credit Risk Assessment Example";
-    var mkdocs_page_input_path = "odl/credit-risk-odl.md";
-    var mkdocs_page_url = "/odl/credit-risk-odl/";
+    var mkdocs_page_name = "APAR Notes";
+    var mkdocs_page_input_path = "anaconda/apar-notes.md";
+    var mkdocs_page_url = "/anaconda/apar-notes/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -89,17 +89,11 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../odl/">Overview</a>
+    <a class="" href="../../odl/odl/">Overview</a>
                 </li>
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">Credit Risk Assessment Example</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#credit-risk-demonstration">Credit Risk Demonstration</a></li>
-    
-
-    </ul>
+    <a class="" href="../../odl/credit-risk-odl/">Credit Risk Assessment Example</a>
                 </li>
     </ul>
 	    </li>
@@ -110,27 +104,39 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../anaconda/anaconda/">Overview</a>
+    <a class="" href="../anaconda/">Overview</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../anaconda/packages/">Packages</a>
+    <a class="" href="../packages/">Packages</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../anaconda/install-config/">Installation and Configuration</a>
+    <a class="" href="../install-config/">Installation and Configuration</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">APAR Notes</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#apar-notes">APAR Notes</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#latest">Latest</a></li>
+        
+        </ul>
+    
+
+    </ul>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../anaconda/apar-notes/">APAR Notes</a>
+    <a class="" href="../ivp-jupyter-notebook/">Anaconda/ODL Installation Verification with Jupyter Notebook</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../anaconda/ivp-jupyter-notebook/">Anaconda/ODL Installation Verification with Jupyter Notebook</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../anaconda/ivp-pyspark/">IzODA Installation Verification with PySpark</a>
+    <a class="" href="../ivp-pyspark/">IzODA Installation Verification with PySpark</a>
                 </li>
     </ul>
 	    </li>
@@ -162,11 +168,11 @@
     
       
         
-          <li>Optimized Data Layer / MDS &raquo;</li>
+          <li>Anaconda &raquo;</li>
         
       
     
-    <li>Credit Risk Assessment Example</li>
+    <li>APAR Notes</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -176,8 +182,12 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="credit-risk-demonstration">Credit Risk Demonstration</h1>
-<p>Please see the <a href="https://github.com/IzODA/examples/blob/master/python/Credit-Risk-Assessment-via-ODL.ipynb">Credit Risk Example on our Github</a> for further information.</p>
+                <h1 id="apar-notes">APAR Notes</h1>
+<h2 id="latest">Latest</h2>
+<p>There are two new settings available for Jupyter to configure a port range:</p>
+<p><code>c.ConnectionFileMixin.starting_port</code> and <code>c.ConnectionFileMixin.max_kernels</code>. </p>
+<p>Each kernel requires 5 consecutive ports so if you want to use 5 kernels you would need 25 consecutive ports. These two options are set in your Jupyter Notebook and Jupyter Kernel Gateway configuration files.  The configuration files are located by default in <code>~/.jupyter</code>. If you do not have configuration files, they can be generated with the following commands: </p>
+<p><code>jupyter notebook --generate-config</code> and <code>jupyter kernelgateway  --generate-config</code></p>
               
             </div>
           </div>
@@ -185,10 +195,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../anaconda/anaconda/" class="btn btn-neutral float-right" title="Overview">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../ivp-jupyter-notebook/" class="btn btn-neutral float-right" title="Anaconda/ODL Installation Verification with Jupyter Notebook">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../odl/" class="btn btn-neutral" title="Overview"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../install-config/" class="btn btn-neutral" title="Installation and Configuration"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -214,10 +224,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../odl/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../install-config/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../../anaconda/anaconda/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../ivp-jupyter-notebook/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

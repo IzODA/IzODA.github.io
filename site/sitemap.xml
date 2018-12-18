@@ -4,7 +4,7 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2018-07-24</lastmod>
+     <lastmod>2018-12-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -13,7 +13,7 @@
         
     <url>
      <loc>/best-practices/jupyter-notebook-usage/</loc>
-     <lastmod>2018-07-24</lastmod>
+     <lastmod>2018-12-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -23,19 +23,19 @@
         
     <url>
      <loc>/spark/spark/</loc>
-     <lastmod>2018-07-24</lastmod>
+     <lastmod>2018-12-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/spark/jupyter-remote-notebook/</loc>
-     <lastmod>2018-07-24</lastmod>
+     <lastmod>2018-12-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/spark/wlm-metering/</loc>
-     <lastmod>2018-07-24</lastmod>
+     <lastmod>2018-12-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -45,13 +45,13 @@
         
     <url>
      <loc>/odl/odl/</loc>
-     <lastmod>2018-07-24</lastmod>
+     <lastmod>2018-12-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/odl/credit-risk-odl/</loc>
-     <lastmod>2018-07-24</lastmod>
+     <lastmod>2018-12-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -61,31 +61,37 @@
         
     <url>
      <loc>/anaconda/anaconda/</loc>
-     <lastmod>2018-07-24</lastmod>
+     <lastmod>2018-12-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/anaconda/packages/</loc>
-     <lastmod>2018-07-24</lastmod>
+     <lastmod>2018-12-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/anaconda/install-config/</loc>
-     <lastmod>2018-07-24</lastmod>
+     <lastmod>2018-12-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/anaconda/apar-notes/</loc>
+     <lastmod>2018-12-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/anaconda/ivp-jupyter-notebook/</loc>
-     <lastmod>2018-07-24</lastmod>
+     <lastmod>2018-12-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/anaconda/ivp-pyspark/</loc>
-     <lastmod>2018-07-24</lastmod>
+     <lastmod>2018-12-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -94,7 +100,7 @@
     
     <url>
      <loc>/ecosystem/</loc>
-     <lastmod>2018-07-24</lastmod>
+     <lastmod>2018-12-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
     

@@ -122,6 +122,10 @@
                 </li>
                 <li class="">
                     
+    <a class="" href="../../anaconda/apar-notes/">APAR Notes</a>
+                </li>
+                <li class="">
+                    
     <a class="" href="../../anaconda/ivp-jupyter-notebook/">Anaconda/ODL Installation Verification with Jupyter Notebook</a>
                 </li>
                 <li class="">
@@ -174,8 +178,10 @@
               
                 <h1 id="jupyter-notebook-usage">Jupyter Notebook Usage</h1>
 <p>When using Jupyter Notebook on z/OS you should generate a config file with the command</p>
-<p><code>jupyter notebook --generate-config</code></p>
-<p>This will create a notebook config file in <em>~/.jupyter/jupyter_notebook_config.py.</em></p>
+<pre><code>jupyter notebook --generate-config
+</code></pre>
+
+<p>This will create a notebook config file in <em>~/.jupyter/jupyter_notebook_config.py</em>.</p>
 <p>If you want a basic Jupyter Notebook config file you can start with this</p>
 <pre><code>c.NotebookApp.open_browser = False
 c.NotebookApp.ip = '&lt;IP&gt;'
@@ -183,22 +189,21 @@ c.NotebookApp.port = &lt;Port&gt;
 </code></pre>
 
 <p>If you would like to use Jupyter Notebook with z/OS authentication you should have a config file that looks like the one below. One more step is required to enable z/OS authentication. You will need to navigate to your anaconda root directory and run</p>
-<p><code>install_set_program_control</code>.</p>
-<pre><code>c.NotebookApp.open_browser = False
+<pre><code>install_set_program_control
+c.NotebookApp.open_browser = False
 c.NotebookApp.ip = '&lt;IP&gt;'
 c.NotebookApp.port = &lt;Port&gt;
 c.NotebookApp.username = '&lt;z/OS User ID&gt;
 </code></pre>
 
-<ul>FAQ:
-  <li>Without specifying the IP address in the config file Jupyter will default to use localhost.</li>
-  <li>The IP you set is where Jupyter will accept requests from
-    <ul>
-      <li>An IP of 0.0.0.0 will accept requests from everywhere.
-      </li>
-    </ul>
-  </li>
-  <li>Jupyter Notebook will default to token authentication.</li>
+<p>FAQ:</p>
+<ul>
+<li>Without specifying the IP address in the config file Jupyter will default to use localhost</li>
+<li>The IP you set is where Jupyter will accept requests from<ul>
+<li>An IP of 0.0.0.0 will accept requests from everywhere</li>
+</ul>
+</li>
+<li>Jupyter Notebook will default to token authentication</li>
 </ul>
               
             </div>

@@ -14,6 +14,7 @@ pages:
     - 'Overview': 'anaconda/anaconda.md'
     - 'Packages': 'anaconda/packages.md'
     - 'Installation and Configuration': 'anaconda/install-config.md'
+    - 'APAR Notes': 'anaconda/apar-notes.md'
     - 'Anaconda/ODL Installation Verification with Jupyter Notebook': 'anaconda/ivp-jupyter-notebook.md'
     - 'IzODA Installation Verification with PySpark': 'anaconda/ivp-pyspark.md'
   - 'Ecosystem': 'ecosystem.md'
