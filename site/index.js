@@ -5,8 +5,8 @@ homeLink.innerText = "IzODA Home Page";
 
 var latestText = [];
 const latestReleaseName = "LATEST";
-//const packageFileDir = "https://izoda.github.io/";
-const packageFileDir = "https://github.ibm.com/IzODA/Website-Scrape-Automation/";
+const packageFileDir = "https://izoda.github.io/";
+//const packageFileDir = "https://github.ibm.com/IzODA/Website-Scrape-Automation/";
 var labelArray = ["main"];
 var table = document.getElementById("packageTable");
 
