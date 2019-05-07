@@ -6,6 +6,7 @@ homeLink.innerText = "IzODA Home Page";
 var latestText = [];
 const latestReleaseName = "LATEST";
 const packageFileDir = "https://izoda.github.io/";
+//const packageFileDir = "https://github.ibm.com/IzODA/Website-Scrape-Automation/";
 var labelArray = ["main"];
 var table = document.getElementById("packageTable");
 
@@ -44,13 +45,14 @@ function loadPackageTableFromFile(file) {
         var description = 3;
         var label = 11;
         var url = 9;
-        console.log(splitLines);
+        //console.log(splitLines);
         // LATEST gets split by each "," which is then pushed into an array
         for (var lineIdx = 0; lineIdx < splitLines.length; lineIdx++) {
           if (splitLines[lineIdx].length == 0)
             continue;
 
           var splitVals = splitLines[lineIdx].split("\"", );
+          console.log(splitVals);
           
           var packageArray = [splitVals[packageName], splitVals[version], splitVals[license], splitVals[description], splitVals[label], splitVals[url]];
           var labelSplit = splitVals[label].split(',');
