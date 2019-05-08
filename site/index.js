@@ -39,22 +39,31 @@ function loadPackageTableFromFile(file) {
 
         allText = getPackageTableHeader();
 
-        var packageName = 5;
-        var version = 7;
-        var license = 1;
-        var description = 3;
-        var label = 11;
-        var url = 9;
-        //console.log(splitLines);
+        const packageName = 5;
+        const version = 7;
+        const license = 1;
+        const description = 3;
+        const label = 11;
+        const url = 9;
         // LATEST gets split by each "," which is then pushed into an array
         for (var lineIdx = 0; lineIdx < splitLines.length; lineIdx++) {
           if (splitLines[lineIdx].length == 0)
             continue;
 
-          var splitVals = splitLines[lineIdx].split("\"", );
-          console.log(splitVals);
+          var finalVersion;
           
-          var packageArray = [splitVals[packageName], splitVals[version], splitVals[license], splitVals[description], splitVals[label], splitVals[url]];
+          var splitVals = splitLines[lineIdx].split("\"", );
+          if (splitVals[version].includes(",")) {
+            var splitVersions = splitVals[version].split(",");
+            var finalVersion = splitVersions[0];
+            for (var i = 1; i < splitVersions.length; i++) {
+              finalVersion += ", " + splitVersions[i];
+            }
+          } else {
+            finalVersion = splitVals[version];
+          }
+
+          var packageArray = [splitVals[packageName], finalVersion, splitVals[license], splitVals[description], splitVals[label], splitVals[url]];
           var labelSplit = splitVals[label].split(',');
 
           for (var i = 0; i < labelSplit.length; i++) {
