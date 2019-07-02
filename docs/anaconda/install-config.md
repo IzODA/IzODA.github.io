@@ -95,7 +95,7 @@ In order to exit the root environment and return to you original shell, use the 
 (root) /home/condausr> source deactivate root
 /home/condausr>
 ```
-A complete description of conda and its functions is available in the [conda User Guide](https://conda.io/docs/user-guide/index.html).
+A complete description of conda and its functions is available in the [conda User Guide](https://docs.conda.io/projects/conda/en/latest/user-guide/index.html).
 
 ### Latebreaking News
 
