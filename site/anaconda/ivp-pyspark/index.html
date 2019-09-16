@@ -55,17 +55,6 @@
           
             <li class="toctree-l1">
 		
-    <span class="caption-text">IzODA Best Practices</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../best-practices/jupyter-notebook-usage/">Jupyter Notebook Usage</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
     <span class="caption-text">Apache Spark</span>
     <ul class="subnav">
                 <li class="">
@@ -91,10 +80,6 @@
                     
     <a class="" href="../../odl/odl/">Overview</a>
                 </li>
-                <li class="">
-                    
-    <a class="" href="../../odl/credit-risk-odl/">Credit Risk Assessment Example</a>
-                </li>
     </ul>
 	    </li>
           
@@ -108,15 +93,31 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../packages/">Packages</a>
-                </li>
-                <li class="">
-                    
     <a class="" href="../install-config/">Installation and Configuration</a>
                 </li>
                 <li class="">
                     
+    <a class="" href="../packages/">Available Packages</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../r-jupyter-notebook/">Using R in Jupyter Notebook</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../optional-packages/">Optional Package Guides</a>
+                </li>
+                <li class="">
+                    
     <a class="" href="../apar-notes/">APAR Notes</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../izoda-extras/">izoda-extras</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../jkg2at-migration/">JKG2AT Migration</a>
                 </li>
                 <li class="">
                     
@@ -144,6 +145,29 @@
             <li class="toctree-l1">
 		
     <a class="" href="../../ecosystem/">Ecosystem</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Best Practices</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../best-practices/jupyter-notebook-usage/">Jupyter Notebook Usage</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../best-practices/hlq-c-libraries/">HLQ xlc for C Libraries</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../best-practices/vegas-support/">Vegas Support</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../best-practices/modify-base-env/">Modifying the Base Environment</a>
+                </li>
+    </ul>
 	    </li>
           
         </ul>
@@ -187,14 +211,17 @@
 <p>The following IVP utilizes IBM Open Data Analytics for z/OS Anaconda and PySpark stack. If you have not yet installed Anaconda including Python 3.6 for z/OS please do so using our <a href="../install-config/">installation and configuration page</a> before proceeding.</p>
 <h2 id="running-the-program">Running the Program</h2>
 <p>Please download the python source code <a href="https://github.com/IzODA/examples/blob/master/python/anaconda-pyspark-ivp.py">here.</a> To run the script please execute the following command:</p>
-<pre><code>$SPARK_HOME/bin/spark-submit anaconda-pyspark-ivp.py [mdsURL] [user] [password]
+<pre><code>$SPARK_HOME/bin/spark-submit anaconda-pyspark-ivp.py [mdsURL] 
 </code></pre>
 
+<p><em>Two things to note:</em>
+  * In order for this file to run successfully it must be in ASCII encoding.
+  * <code>mdsURL</code> should look similar to <code>jdbc:rs:dv://$HOST:$PORT;DBTY=DVS</code>, where <code>$HOST:$PORT</code> is the url for your MDS server.</p>
 <p>If PySpark is not found, you need to export Python path as follows:</p>
-<pre><code>export PYTHONPATH=&quot;$SPARK_HOME/python:$SPARK_HOME/python/lib/py4j-0.10.4-src.zip:$PYTHONPATH&quot;
+<pre><code>export PYTHONPATH=&quot;$SPARK_HOME/python:$SPARK_HOME/python/lib/py4j-0.10.7-src.zip:$PYTHONPATH&quot;
 </code></pre>
 
-<p>Authors: Michael Gildein, Yunli Tang    Date: September 6th, 2017</p>
+<p>Authors: Michael Gildein, Yunli Tang, Connor Hayes    Date: September 11th, 2019</p>
               
             </div>
           </div>
@@ -240,7 +267,7 @@
 </div>
     <script>var base_url = '../..';</script>
     <script src="../../js/theme.js"></script>
-      <script src="../../index.js"></script>
+      <script src="../../create-package-table.js"></script>
       <script src="../../search/require.js"></script>
       <script src="../../search/search.js"></script>
 

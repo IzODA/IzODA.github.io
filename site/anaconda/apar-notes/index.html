@@ -55,17 +55,6 @@
           
             <li class="toctree-l1">
 		
-    <span class="caption-text">IzODA Best Practices</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../best-practices/jupyter-notebook-usage/">Jupyter Notebook Usage</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
     <span class="caption-text">Apache Spark</span>
     <ul class="subnav">
                 <li class="">
@@ -91,10 +80,6 @@
                     
     <a class="" href="../../odl/odl/">Overview</a>
                 </li>
-                <li class="">
-                    
-    <a class="" href="../../odl/credit-risk-odl/">Credit Risk Assessment Example</a>
-                </li>
     </ul>
 	    </li>
           
@@ -108,11 +93,19 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../packages/">Packages</a>
+    <a class="" href="../install-config/">Installation and Configuration</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../install-config/">Installation and Configuration</a>
+    <a class="" href="../packages/">Available Packages</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../r-jupyter-notebook/">Using R in Jupyter Notebook</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../optional-packages/">Optional Package Guides</a>
                 </li>
                 <li class=" current">
                     
@@ -123,12 +116,20 @@
     
         <ul>
         
-            <li><a class="toctree-l4" href="#latest">Latest</a></li>
+            <li><a class="toctree-l4" href="#q3-2018-apar-ui59973-jupyter">Q3 2018 - APAR # UI59973 Jupyter</a></li>
         
         </ul>
     
 
     </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../izoda-extras/">izoda-extras</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../jkg2at-migration/">JKG2AT Migration</a>
                 </li>
                 <li class="">
                     
@@ -144,6 +145,29 @@
             <li class="toctree-l1">
 		
     <a class="" href="../../ecosystem/">Ecosystem</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Best Practices</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../best-practices/jupyter-notebook-usage/">Jupyter Notebook Usage</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../best-practices/hlq-c-libraries/">HLQ xlc for C Libraries</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../best-practices/vegas-support/">Vegas Support</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../best-practices/modify-base-env/">Modifying the Base Environment</a>
+                </li>
+    </ul>
 	    </li>
           
         </ul>
@@ -183,7 +207,7 @@
             <div class="section">
               
                 <h1 id="apar-notes">APAR Notes</h1>
-<h2 id="latest">Latest</h2>
+<h2 id="q3-2018-apar-ui59973-jupyter">Q3 2018 - APAR # UI59973 Jupyter</h2>
 <p>There are two new settings available for Jupyter to configure a port range:</p>
 <p><code>c.ConnectionFileMixin.starting_port</code> and <code>c.ConnectionFileMixin.max_kernels</code>. </p>
 <p>Each kernel requires 5 consecutive ports so if you want to use 5 kernels you would need 25 consecutive ports. These two options are set in your Jupyter Notebook and Jupyter Kernel Gateway configuration files.  The configuration files are located by default in <code>~/.jupyter</code>. If you do not have configuration files, they can be generated with the following commands: </p>
@@ -195,10 +219,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../ivp-jupyter-notebook/" class="btn btn-neutral float-right" title="Anaconda/ODL Installation Verification with Jupyter Notebook">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../izoda-extras/" class="btn btn-neutral float-right" title="izoda-extras">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../install-config/" class="btn btn-neutral" title="Installation and Configuration"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../optional-packages/" class="btn btn-neutral" title="Optional Package Guides"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -224,16 +248,16 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../install-config/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../optional-packages/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../ivp-jupyter-notebook/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../izoda-extras/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
     <script>var base_url = '../..';</script>
     <script src="../../js/theme.js"></script>
-      <script src="../../index.js"></script>
+      <script src="../../create-package-table.js"></script>
       <script src="../../search/require.js"></script>
       <script src="../../search/search.js"></script>
 

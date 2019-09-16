@@ -2,7 +2,7 @@
 
 [Anaconda](https://www.anaconda.com/) is an assembly of parts that implement a Python-based analytics stack. It consists of multiple components:
 
-- Python 3.6.1
+- Python 3.7.0 / Python 3.6.1
 - The conda package manager
 - A library of locally installed open source packages
 - A [channel, or reference repository](https://anaconda.org/IzODA/repo) located on the [Anaconda Cloud](https://anaconda.org/)
@@ -29,7 +29,7 @@ There are some known issues with the Anaconda environment of IzODA. To avoid the
 | Restrictions | Mitigations
 | ------------ | -----------
 The interactive backend packages for Matplotlib is not currently supported. This includes, GTK, WX, Cairo, etc. The user has the option instead, to use a non-interactive backend, capable of writing to a file. | Use  Matplotlib with the Seaborn backend, or use Bokeh for graphical visualization.
-The conda and python package levels must be kept in sync. Arbitrary combinations of conda and python package levels may result in errors. | The supported conda and python version combinations are: <ul><li>conda (version 4.3.14, build py36_4) and python (version 3.6.1, build 13)</li><li>conda (version 4.3.17, build py36_6) and python (version 3.6.1, build 24)</li></ul>
+The conda and python package levels must be kept in sync. Arbitrary combinations of conda and python package levels may result in errors. | The supported conda and python version combinations are: <ul><li>conda (version 4.5.8, py37_5) and python (version 3.7.0, build 11)</li><li>conda (version 4.5.8, build py36_5) and python (version 3.6.1, build 29)</li></ul>
 Distributed Dask capabilities are not yet supported. “Big Data” Dask collections can be used, and distributed capabilities will be made in beta form through the IzODA channel. |
 Cannot write to HDF5 files using Dask’s APIs. |
 When creating an "empty" conda environment, be sure to include the Python package. Failing to do so can result in Python being unable to find its main shared library (libpython3.6m.so). If you have an environment active and install a new package into it, please exit and re-enter the environment using source deactivate/activate to ensure that all path variables in the environment are set properly. |
@@ -44,3 +44,8 @@ Several additional capabilities ship with Anaconda that have not yet been fully 
 - Some operations with the Dask package may result in error messages about broken pipes
 
 Work is continuing to resolve the problems underlying the restriction set. We will remove restrictions as they are resolved, and fully support the beta functions above as verification is completed.
+
+## Migration Guides
+As more packages are updated, there can be intrusive changes to existing Anaconda environments that may require changes. 
+
+Two of the known package migration changes are [Apache Maven](maven-migration/) and [JupyterHub to Jupyter Enterprise Gateway](jeg-migration/).

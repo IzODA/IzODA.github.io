@@ -10,4 +10,4 @@ The IzODA team has created a set of configurations based on Jupyterhub and Jupyt
 
 ![Jupyter Architecture](/img/IzODA_JupyterArchitecture.png)
 
-See the [IzODA Jupyterhub](https://github.com/IzODA/jupyterhub) github repo for downloads and a detailed description of this configuration.
+Visit the [IzODA Jupyterhub](https://github.com/IzODA/jupyterhub#jupyterhub-and-jkg2at) Github repository for downloads and scroll down to the README for a detailed description of this configuration.

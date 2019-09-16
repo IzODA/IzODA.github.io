@@ -1,77 +1,63 @@
 # Anaconda/ODL Installation Verification Program (IVP) with Jupyter Notebook
 
-This Installation Verification Program (IVP) is provided by IBM to get started with Anaconda and Optimized Data Layer (ODL) stacks of IzODA. Upon completion of this IVP, it ensures Anaconda and ODL have been installed successfully and users are able to run data visualizations and analysis on Mainframe data sources.
+## Jupyter Kernel Gateway with NB2KG 
+To execute and run a Jupyter Notebook server, the current solution is to use our Jupyter Kernelgateway(JKG) on z/OS and [NB2KG's](https://github.com/jupyter/nb2kg#jupyter-notebook-extension-to-kernel-gateway-nb2kg) install process on x86.
 
-## Background
+In general, we highly recommend users creating their own Conda Environments. This allows each user to have full access to the packages they intend to use. 
 
-The following shows step-by-step instructions on how to run IBM Open Data Analytics for z/OS Anaconda and ODL stacks. If you have not yet installed Anaconda including Python 3.6 for z/OS please do so using our [installation and configuration page](install-config/) before proceeding.
+To create a conda environment you can use the following command
 
-Anaconda for z/OS provides a *conda* command for managing packages and environments. It is similar to Anaconda for other platforms with the exception that it includes a different list of packages. However, many of the popular data science packages are included with this distribution, for instance, pandas, numpy, scipy, scikit-learn, matplotlib, seaborn, and more. In this IVP, you will create and run a Jupyter Notebook on an x86 platform with a Jupyter kernel on z/OS executing Python code using the [JKG2AT](https://www.anaconda.org/izoda/JKG2AT) package and [NB2KG's](https://github.com/jupyter-incubator/nb2kg) x86 install instructions. The Jupyter Notebook will demonstrate simple usage of data science packages by performing exploratory analysis on credit risk data retrieved from ODL. After completion of this IVP you will have learned the following:
-
-- Basic conda commands
-- NB2KG and JKG2AT setup
-- Steps for executing code in a Jupyter Notebook
-- Ingesting data sources into ODL
-- Retrieve data via the Python-ODL API (dsdbc)
-- Simple data analysis on z/OS
-
-## Ingesting data into the Optimized Data Layer (ODL)
-
-The data source we will be using is the [German Credit Data](https://archive.ics.uci.edu/ml/datasets/statlog+(german+credit+data) from the UCI Machine Learning Repository. Please download the csv file titled *ivp-german-data.csv* [here.](https://github.com/IzODA/examples/tree/master/python/data) This data source is manipulated to avoid pre-processing such as, converting the input data into human-readable format, for the purpose of the IVP.
-
-First, we will convert the CSV data file into a mainframe data source and store it in ODL. ODL enables data from multiple, disconnected sources on z/OS to be virtually integrated into a single, logical data source, which can then be imported into a dataframe for further analysis. Note that previously, ODL was called Mainframe Data Services (MDS). We choose this setup as opposed to reading directly from csv to ensure that we can retrieve a data source from ODL via the ODL-Python module, dsdbc.
-
-1. Create a copybook to describe the data layout. Please use the copybook [here](https://github.com/IzODA/examples/blob/master/python/data/ivp-german-credit-data.cpy)
-2. Allocate an empty data set on the host. For simplicity, create a physical sequential file with a record length that is wide enough to accommodate each record and call it **CREDIT_DATA**
-3. In Data Server Studio, create a sequential virtual table using the copybook given above and the empty physical sequential dataset. We will use this dataset to insert our csv data
-4. Use the [ivp-load.py](https://github.com/IzODA/examples/blob/master/python/data/ivp-load.py) script to load the csv data into the PS dataset. The script uses pandas to read the csv data into a dataframe and dsdbc to insert the values in the dataframe into the physical dataset. Please change the ivp-load.py variable ssid to the subsystem id of the local data service server.
-
-Once the script is done running, we now have the CSV data in ODL.
-
-For more information on ODL please refer to the [Apache Spark Implementation on IBM z/OS](http://www.redbooks.ibm.com/redbooks/pdfs/sg248325.pdf)
-**Note:** ODL is referred to as MDSS or Mainframe Data Service in the redbook. Since writing the redbook, it has changed names to Optimized Data Layer (ODL).
-
-## JKG2AT and NB2KG Setup
-
-To execute and run a Jupyter Notebook server, the current solution is to use our [JKG2AT](https://www.anaconda.org/izoda/JKG2AT) conda package and [NB2KG's](https://github.com/jupyter-incubator/nb2kg) install process on x86.
-
-JKG2AT isn't included as part of the SMPE Anaconda install so you will need to run the command given in the IzODA channel:
 ```
-conda install -c izoda JKG2AT
-```
-**Note:** Unless the system administrator set permissions for everyone to be able to administer Anaconda or if you want to install JKG2AT in your own conda environment you will need to first make a clone of the environment:
-```
-conda create -n <name-of-env> --clone="<path-to-anaconda-home>"
-```
-When the clone is complete, you will need to activate the new environment:
-```
-source activate <name-of-env>
-```
-Notice that when you activate the new environment you will see the environment name in parenthesis before the prompt. After the clone is complete, please run the conda install command given above.
-
-When the install is complete, please run the following to ensure JKG2AT is in the environment:
-```
-conda list
-```
-You should see JKG2AT listed as one of the installed conda packages:
-```
-JKG2AT       1.0.0      6    izoda
+conda create -n <environment name> python
 ```
 
-The JKG2AT install will also install its dependencies, apache toree and kernel-gateway among some others. Note for this IVP, we will only be using Jupyter's ipython kernel for python 3. Apache Toree kernel is used to interact with Apache Spark which will not be included in this IVP. After JKG2AT is installed, please follow the instructions under **/Path/To/Anaconda/lib/python3.6/site-packages/jkg2at/README.md (If you are in a conda environment /Path/To/Anaconda/envs/<envName>lib/python3.6/site-packages/jkg2at/README.md)** to setup Jupyter Kernel Gateway and the iPython kernel for Python 3 on z/OS. Again, you can ignore the Apache Toree setup explained in the instructions.
+This will create a new environment with python and its dependencies in ~/.conda/envs. This environment can then be activated with one of the following commands
+```
+source activate <environment name>
+```
+Or
+```
+conda activate <environment name>
+```
 
-Once you have setup the z/OS side, you will now need to set up Jupyter Notebook Server on the x86 side. Please follow the instructions here.
+You can confirm the environment has been activated with one of two ways, if you run `conda info –envs` all of your environments will be listed, and the current active one will have a “*” next to it. Or if you look at your shell you will see your environments name in parenthesis preceding your input.
+
+Once you have your environment activated we will need to install a few packages through the conda package manager, mainly the dependencies for creating a python kernel and running JKG or JEG. The command to perform any install with conda is `conda install`. So in this case lets do
+```
+conda install jupyter-kernel-gateway
+```
+
+From here we will need to create a python 3 kernel for jupyter to use. This can be accomplished with the following command
+```
+python -m ipykernel install –user
+```
+
+After this point you should configure JKG. You can generate a config file with the following command
+```
+jupyter kernelgateway --generate-config
+```
+There are a few values that will need to be edited and uncommented. 
+They are the following
+```
+#c.KernelGatewayApp.allow_origin = '*'
+#c.JupyterWebsocketPersonality.list_kernels = True
+#c.KernelGatewayApp.ip = '<ip>'
+#c.KernelGatewayApp.port = <port>
+```
+
+This will conclude the configuration on z/OS and you should move onto configuring NB2KG on an x86 system. It’s instructions can be found in the NB2KG link above or [here](https://github.com/jupyter/nb2kg#jupyter-notebook-extension-to-kernel-gateway-nb2kg).
 
 When both sides of the solution are setup, you should be able to start up jupyter kernel gateway using the following command:
 ```
 jupyter kernelgateway
 ```
-**Note:** This is if the optional jupyter_kernel_gateway_config.py is setup. If not please run with --ip and --port options.
 
+Note: This is if the optional jupyter_kernel_gateway_config.py is setup. If not please run with --ip and --port options.
 And you should also be able to start up the notebook server on x86 in the container via the following run command:
 ```
 ./start.sh <optional-config-file>
 ```
+
 You will know the setup is successful if you see the jupyter notebook dashboard in your web browser:
 
 ![Jupyter Notebook](../img/jupyter-notebook.png)

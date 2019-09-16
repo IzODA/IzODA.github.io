@@ -1,25 +1,32 @@
 site_name: IzODA Documentation
 pages:
   - 'About': 'index.md'
-  - 'IzODA Best Practices':
-    - 'Jupyter Notebook Usage': 'best-practices/jupyter-notebook-usage.md'
   - 'Apache Spark':
     - 'Overview': 'spark/spark.md'
     - 'Jupyter with Remote Notebook on the Mainframe': 'spark/jupyter-remote-notebook.md'
     - 'WLM Metering and Capping for IzODA Spark': 'spark/wlm-metering.md'
   - 'Optimized Data Layer / MDS':
     - 'Overview': 'odl/odl.md'
-    - 'Credit Risk Assessment Example': 'odl/credit-risk-odl.md'
+    # - 'Credit Risk Assessment Example': 'odl/credit-risk-odl.md' ---- Archived until it can be tested fully
   - 'Anaconda':
     - 'Overview': 'anaconda/anaconda.md'
-    - 'Packages': 'anaconda/packages.md'
     - 'Installation and Configuration': 'anaconda/install-config.md'
+    - 'Available Packages': 'anaconda/packages.md'
+    - 'Using R in Jupyter Notebook': 'anaconda/r-jupyter-notebook.md'
+    - 'Optional Package Guides': 'anaconda/optional-packages.md'
     - 'APAR Notes': 'anaconda/apar-notes.md'
+    - 'izoda-extras': 'anaconda/izoda-extras.md'
+    - 'JKG2AT Migration': 'anaconda/jkg2at-migration.md'
     - 'Anaconda/ODL Installation Verification with Jupyter Notebook': 'anaconda/ivp-jupyter-notebook.md'
     - 'IzODA Installation Verification with PySpark': 'anaconda/ivp-pyspark.md'
   - 'Ecosystem': 'ecosystem.md'
+  - 'Best Practices':
+    - 'Jupyter Notebook Usage': 'best-practices/jupyter-notebook-usage.md'
+    - 'HLQ xlc for C Libraries': 'best-practices/hlq-c-libraries.md'
+    - 'Vegas Support': 'best-practices/vegas-support.md'
+    - 'Modifying the Base Environment': 'best-practices/modify-base-env.md'
 extra_css: [extra.css]
-extra_javascript: [index.js]
+extra_javascript: [create-package-table.js]
 theme:
   name: readthedocs
 site_description: IzODA Documentation, Guides, and Examples
