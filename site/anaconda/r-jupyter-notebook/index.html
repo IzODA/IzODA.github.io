@@ -8,7 +8,7 @@
   
   <meta name="author" content="Stephen Stone">
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Overview - IzODA Documentation</title>
+  <title>Using R in Jupyter Notebook - IzODA Documentation</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -18,9 +18,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Overview";
-    var mkdocs_page_input_path = "spark/spark.md";
-    var mkdocs_page_url = "/spark/spark/";
+    var mkdocs_page_name = "Using R in Jupyter Notebook";
+    var mkdocs_page_input_path = "anaconda/r-jupyter-notebook.md";
+    var mkdocs_page_url = "/anaconda/r-jupyter-notebook/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -57,35 +57,17 @@
 		
     <span class="caption-text">Apache Spark</span>
     <ul class="subnav">
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">Overview</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#apache-spark">Apache Spark</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#spark-and-anaconda">Spark and Anaconda</a></li>
-        
-            <li><a class="toctree-l4" href="#installation-and-customization">Installation and Customization</a></li>
-        
-            <li><a class="toctree-l4" href="#verify-your-installation">Verify Your Installation</a></li>
-        
-            <li><a class="toctree-l4" href="#reference-material">Reference Material</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../../spark/spark/">Overview</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../jupyter-remote-notebook/">Jupyter with Remote Notebook on the Mainframe</a>
+    <a class="" href="../../spark/jupyter-remote-notebook/">Jupyter with Remote Notebook on the Mainframe</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../wlm-metering/">WLM Metering and Capping for IzODA Spark</a>
+    <a class="" href="../../spark/wlm-metering/">WLM Metering and Capping for IzODA Spark</a>
                 </li>
     </ul>
 	    </li>
@@ -107,43 +89,49 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../anaconda/anaconda/">Overview</a>
+    <a class="" href="../anaconda/">Overview</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../anaconda/install-config/">Installation and Configuration</a>
+    <a class="" href="../install-config/">Installation and Configuration</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../anaconda/packages/">Available Packages</a>
+    <a class="" href="../packages/">Available Packages</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Using R in Jupyter Notebook</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#using-r-in-a-jupyter-notebook">Using R in a Jupyter Notebook</a></li>
+    
+
+    </ul>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../anaconda/r-jupyter-notebook/">Using R in Jupyter Notebook</a>
+    <a class="" href="../optional-packages/">Optional Package Guides</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../anaconda/optional-packages/">Optional Package Guides</a>
+    <a class="" href="../apar-notes/">APAR Notes</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../anaconda/apar-notes/">APAR Notes</a>
+    <a class="" href="../izoda-extras/">izoda-extras</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../anaconda/izoda-extras/">izoda-extras</a>
+    <a class="" href="../jkg2at-migration/">JKG2AT Migration</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../anaconda/jkg2at-migration/">JKG2AT Migration</a>
+    <a class="" href="../ivp-jupyter-notebook/">Anaconda/ODL Installation Verification with Jupyter Notebook</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../anaconda/ivp-jupyter-notebook/">Anaconda/ODL Installation Verification with Jupyter Notebook</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../anaconda/ivp-pyspark/">IzODA Installation Verification with PySpark</a>
+    <a class="" href="../ivp-pyspark/">IzODA Installation Verification with PySpark</a>
                 </li>
     </ul>
 	    </li>
@@ -198,11 +186,11 @@
     
       
         
-          <li>Apache Spark &raquo;</li>
+          <li>Anaconda &raquo;</li>
         
       
     
-    <li>Overview</li>
+    <li>Using R in Jupyter Notebook</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -212,21 +200,44 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="apache-spark">Apache Spark</h1>
-<p><a href="https://spark.apache.org/">Apache Spark</a> is a general purpose, high performance clustering analytics engine that allocates resources and distributes work across a set of processes and tasks. It is organized as a set core functions that underpin a collection of functional libraries.</p>
-<p><img alt="Spark stack" src="../../img/spark-stack.png" /></p>
-<p>Spark was originally released through the IBM z/OS Platform for Apache Spark offering in March of 2016.</p>
-<h2 id="spark-and-anaconda">Spark and Anaconda</h2>
-<p>Apache Spark has no dependencies on Anaconda. However, Anaconda's package management capabilities have allowed for all of Spark's dependencies to be included in the IzODA Anaconda package library. This means that IzODA is a self-contained offering with no pre-requisites other than z/OS and Java at the proper service levels. It also means that Spark and Anaconda are effectively co-requisites, and should always be installed along with the ODL (MDS) FMID.</p>
-<p><img alt="Spark Architecture" src="../../img/IzODA_SparkArchitecture.png" /></p>
-<p>Along with Spark's pre-requisites, those parts of the Jupyter ecosystem that run on z/OS can now be installed via conda from the <a href="https://anaconda.org/izoda/jkg2at">JKG2AT package.</a> Setup information about JKG2AT can be <a href="../jupyter-remote-notebook/">found here.</a></p>
-<h2 id="installation-and-customization">Installation and Customization</h2>
-<p>Refer to the <a href="https://www.ibm.com/support/knowledgecenter/">IBM Knowledge Center</a> for installation and customization instructions. The guides can be downloaded via <a href="https://www.ibm.com/support/knowledgecenter/SS3H8V_1.1.0/com.ibm.izoda.v1r1.izodalp/izoda.htm">PDF or TOC here.</a> Further instructions about how to install and customize Apache Spark are in chapters 2 and 3 of the <a href="https://www-304.ibm.com/servers/resourcelink/svc00100.nsf/pages/izodav110sc279033/$file/azk1a100.pdf">IzODA Installation and Customization Guide.</a></p>
-<h2 id="verify-your-installation">Verify Your Installation</h2>
-<p>We have created a collection of small sample applications which you can run to verify that Spark is installed and configured properly, and works with the other components of IzODA. Please choose one of the Install Verification Programs (IVPs) from the <a href="https://www.ibm.com/support/knowledgecenter/en/SS3H8V_1.1.0/com.ibm.izoda.v1r1.azka100/topics/azkic_c_partverify.htm">IBM Knowledge Center.</a></p>
-<h2 id="reference-material">Reference Material</h2>
-<p>A library of documentation is available for the IBM Open Data Analytics for z/OS offering. This can be found at the <a href="https://www.ibm.com/support/knowledgecenter/">IBM Knowledge Center.</a></p>
-<p>The <a href="http://www.redbooks.ibm.com/abstracts/sg248325.html">Apache Spark Implementation on IBM z/OS</a> is another good source of information about both Spark and ODL.</p>
+                <h1 id="using-r-in-a-jupyter-notebook">Using R in a Jupyter Notebook</h1>
+<p>To run a Jupyter Notebook with R, you need to create a conda environment and activate the kernel so Jupyter can recognize it. Then you can work with the R language in a notebook. </p>
+<ol>
+<li>Create a new conda environment:  </li>
+</ol>
+<pre><code>conda create -n r-kernel
+</code></pre>
+
+<ol>
+<li>Activate the environment:</li>
+</ol>
+<pre><code>conda activate r-kernel
+</code></pre>
+
+<ol>
+<li>Install the R-kernel and Jupyter packages:  </li>
+</ol>
+<pre><code>conda install r-recommended r-irkernel
+conda install Jupyter
+</code></pre>
+
+<ol>
+<li>Add the R-kernel to Jupyter by installing a kernel spec. This allows Jupyter to recognize the kernel and work with it interactively: </li>
+</ol>
+<pre><code>R -e 'IRkernel::installspec()'
+</code></pre>
+
+<ol>
+<li>Run the Jupyter notebook:</li>
+</ol>
+<pre><code>jupyter-notebook
+</code></pre>
+
+<ol>
+<li>Copy the generated URL and paste it into a browser. Be careful to leave the appropriate machine name.  </li>
+<li>Click the <strong>New</strong> drop-down button and select <strong>R</strong>.  </li>
+<li>When the notebook launches, enter and run your code.</li>
+</ol>
               
             </div>
           </div>
@@ -234,10 +245,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../jupyter-remote-notebook/" class="btn btn-neutral float-right" title="Jupyter with Remote Notebook on the Mainframe">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../optional-packages/" class="btn btn-neutral float-right" title="Optional Package Guides">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../.." class="btn btn-neutral" title="About"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../packages/" class="btn btn-neutral" title="Available Packages"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -263,10 +274,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../.." style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../packages/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../jupyter-remote-notebook/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../optional-packages/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

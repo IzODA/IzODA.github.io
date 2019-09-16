@@ -1,6 +1,6 @@
 # Anaconda Installation and Configuration
 
-This process installs all of the components of a fully a functional Anaconda deployment. There are some key characteristics of the z/OS environment to be aware of:
+This process installs all of the components of a fully functional Anaconda deployment. There are some key characteristics of the z/OS environment to be aware of:
 
 - All Anaconda components are 64-bit ASCII applications.
 - Since Anaconda is an ASCII environment running on a platform with a default EBCDIC code page, file tagging is used extensively. Be aware that newly created files in this environment must be properly tagged for everything to run smoothly.
@@ -9,14 +9,15 @@ This process installs all of the components of a fully a functional Anaconda dep
 
 ## Prerequisites
 
-- IzODA installs Anaconda from a local archive shipped as part of the SMP/E offering. Because of this, the install process requires room for the archive, plus about the same amount of space in the target file system that contains the Anaconda home directory - usually */usr/lpp/IBM/izoda/anaconda*. Since Anaconda ships with approximately 230 packages, a finished install consumes between 2.5 and 3 GB.
+- The [PSP bucket for Anaconda 1.1.0](http://www-01.ibm.com/support/docview.wss?uid=isg1_ZODAV1R1_HANA110) should be reviewed prior to installation; see also the [Latebreaking News](#latebreaking-news) section of this page.
+- IzODA installs Anaconda from a local archive shipped as part of the SMP/E offering. Because of this, the install process requires room for the archive, plus about the same amount of space in the target file system that contains the Anaconda home directory - usually */usr/lpp/IBM/izoda/anaconda*. Since Anaconda ships with approximately 295 packages, a finished install consumes between 2.5 and 3 GB.
 - In addition to the disk space required during the IzODA install, it's important to remember that Anaconda keeps all package versions that have been installed from the IzODA channel through the conda command. This allows previous versions of an installed package to be referenced in addition to the latest version. Be sure to give Anaconda enough room to operate. The minimum disk space for an Anaconda installation is 6 GB, and the recommended amount is 20 GB.
 - Python makes use of the */dev/urandom* character special file to read pseudo-random values for use in a variety of applications. The *Integrated Cryptographic Service Facility (ICSF)* service of z/OS must be started for */dev/urandom* to function properly. Failures will occur if ICSF is not active when Anaconda is installed.
 ```
      head -c40 /dev/urandom
      head: /dev/urandom: EDC5157I An internal error has occurred.
 ```
-- The pre-requisite level of bash is 4.2.53. This is the version installed as the default during Anaconda installation. A 4.3.46 version of bash is also included as an Anaconda package that can be installed via conda. This is a functional version of the shell, but this is not officially supported with either Spark or Anaconda.
+- The pre-requisite level of bash is 4.2.53. This is the version installed as the default during Anaconda installation. A 4.3.46 version of bash is also included as an Anaconda package that can be installed via conda.
 
 ## Environmental Setup
 
@@ -45,7 +46,7 @@ where hlq is the high-level qualifier of the ODL (MDS) installation.
 
 ### Download and Unpack
 
-IzODA installs using SMP/E. Instructions are in the [Program Directory.](https://www-304.ibm.com/servers/resourcelink/svc00100.nsf/pages/izodav110gi134348/$file/azk1e100.pdf) The PSP bucket for Anaconda 1.1.0 should be reviewed prior to installation; see also the [Latebreaking News](#latebreaking-news) section of this page.
+IzODA installs using SMP/E. Instructions are in the [Program Directory.](https://www-304.ibm.com/servers/resourcelink/svc00100.nsf/pages/izodav110gi134348/$file/azk1e100.pdf) The [PSP bucket for Anaconda 1.1.0](http://www-01.ibm.com/support/docview.wss?uid=isg1_ZODAV1R1_HANA110) should be reviewed prior to installation; see also the [Latebreaking News](#latebreaking-news) section of this page.
 
 ### Install
 
@@ -53,28 +54,35 @@ The SMP/E jobs need to be run in order. Each job includes its own instructions a
 
 ### Post-SMP/E Installation Instructions
 
-There are several additional steps that a system administrator may wish to perform, depending on the runtime configuration they intend to create. Before running any of the following steps, cd to the root directory of the of the Anaconda installation. Note that all of the tools below are in the bin directory under the Anaconda root directory.
+Anaconda requires a post-install script be run after the SMP/e installation has been completed. This script known as the Anaconda configuration script, must be run after service is applied to Anaconda via SMP/e. The script does the following:
 
-- A common method of installing service involves mounting the filesystem containing Anaconda at a different location from normal, and in read_write mode. After installing service, the filesystem is re-mounted at is usual location, and may be in read-only mode. If you use this method, you must run change-prefix to fix the pathnames that are imbedded in many of the scripts. change-prefix takes two arguments, old-prefix and new-prefix. For example:
-```
-change-prefix /service/usr/lpp/IBM/izoda/anaconda /usr/lpp/IBM/izoda/anaconda
-```
-Please note that change-prefix is not included in the GA release of IzODA, but is included in the first PTF. You can [download change-prefix here](https://izoda.github.io/change-prefix.pax), then upload it to your system (in binary mode), then cd to the Anaconda root directory and unpack it with `pax -r -f change-prefix.pax`
-- Bash 4.2 requires shell scripts to be encoded in EBCDIC, even though all Python scripts in Anaconda are ASCII, and are file tagged to indicate this. The *install_ensure_scripts_are_in_ebcdic* tool can be used to guarantee all shell scripts in the Anaconda installation have the proper encoding
-- A good practice is to install Anaconda read-only for all users except an owning administrator. You can use the *install_set_single_anaconda_admin* tool to set the group and other permissions for All Anaconda parts to read-only.
-- If you wish to set up Anaconda to be managed by a group of administrators, use the *install_set_shared_anaconda_admin* tool. Run the command like this:
-```
-install_set_shared_anaconda_admin groupname
-```
-where groupname is the name of the administrators group
-- If you plan to run Python code in a server (as a daemon), you should run the *install_set_program_control* tool. For more information, refer to the [Defining programs in UNIX files to program control](https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.1.0/com.ibm.zos.v2r1.bpxb200/progcontr.htm) section of the *z/OS Unix System Services Planning guide*
+- Creates a "local file channel" in the Anaconda root directory (if it does not already exist). This channel will contain all of the Anaconda packages delivered via SMP/E.
+- Updates the local file channel to contain the most recently delivered Anaconda packages.
+- Ensures that the file ownership and permission attributes are correct for all of the installed Anaconda packages.
+- Updates the Anaconda "root environment" to contain the most recently delivered Anaconda packages. 
+- Creates an alternative environment in the Anaconda root directory the corresponds to the updated Anaconda root environment. The first time the script is run, it also creates alternative environments that correspond to the previously delivered service levels. These alternative environments can be used by Anaconda users to run their code using packages that correspond to service levels other than the default ("root") level.
+- Performs any other release-specific actions necessary to keep the Anaconda system functioning properly.
 
-There is one mandatory last step - run the *conda* command to pull all updates to the Anaconda environment from the IzODA channel on the Anaconda cloud.
-```
-conda update
-conda install bash=4.2
-```
-This step is necessary because updates are frequently made to the packages of the Anaconda root environment. The PID version of IzODA will usually be downlevel from the version that exists in the IzODA Anaconda channel. If you use Spark, you should also run the *conda install* to restore the version of bash that has been tested with Spark.
+The following steps must be followed before running the script:
+
+1. Log into Unix System Services with a Userid with "superuser" authority and become the superuser by typing the `su` command. 
+
+2. Navigate to the Anaconda root directory. i.e. `/usr/lpp/IBM/izoda/anaconda`
+     ```
+     cd  /usr/lpp/IBM/izoda/anaconda
+     ```
+
+3. Create a deployment_prefix file by issuing the following command:
+     ```
+     ./configure-anaconda --set-prefix  /usr/lpp/IBM/izoda/anaconda
+     ```
+
+4. Configure Anaconda and install packages delivered by SMP/e:
+     ```
+     ./configure-anaconda
+     ```
+
+Note, depending on how many maintenance releases were installed, this step may take an hour or two.
 
 ### Activate an Environment
 
@@ -113,7 +121,7 @@ The preferred means of installing new code into the conda root environment is by
 
 However, not all installations will choose to install maintenance via the Internet. For such installations, IBM will provide regular PTFs for use with SMP/E.
 
-Note, however, that installing maintenance via PTF will disable default access to the IzODA channel, under the presumption that subsequent maintenance will also be applied via SMP/E. Access can be restored by [altering the conda configuration file.](ttps://conda.io/docs/user-guide/configuration/use-condarc.html#channel-locations-channels)
+Note, however, that installing maintenance via PTF will disable default access to the IzODA channel, under the presumption that subsequent maintenance will also be applied via SMP/E. Access can be restored by [altering the conda configuration file.](https://docs.conda.io/projects/conda/en/latest/user-guide/configuration/use-condarc.html#channel-locations-channels)
 
 ### Maintaining the correct file ownership
 

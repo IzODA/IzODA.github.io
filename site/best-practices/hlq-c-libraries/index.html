@@ -8,7 +8,7 @@
   
   <meta name="author" content="Stephen Stone">
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Overview - IzODA Documentation</title>
+  <title>HLQ xlc for C Libraries - IzODA Documentation</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -18,9 +18,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Overview";
-    var mkdocs_page_input_path = "spark/spark.md";
-    var mkdocs_page_url = "/spark/spark/";
+    var mkdocs_page_name = "HLQ xlc for C Libraries";
+    var mkdocs_page_input_path = "best-practices/hlq-c-libraries.md";
+    var mkdocs_page_url = "/best-practices/hlq-c-libraries/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -57,35 +57,17 @@
 		
     <span class="caption-text">Apache Spark</span>
     <ul class="subnav">
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">Overview</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#apache-spark">Apache Spark</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#spark-and-anaconda">Spark and Anaconda</a></li>
-        
-            <li><a class="toctree-l4" href="#installation-and-customization">Installation and Customization</a></li>
-        
-            <li><a class="toctree-l4" href="#verify-your-installation">Verify Your Installation</a></li>
-        
-            <li><a class="toctree-l4" href="#reference-material">Reference Material</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../../spark/spark/">Overview</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../jupyter-remote-notebook/">Jupyter with Remote Notebook on the Mainframe</a>
+    <a class="" href="../../spark/jupyter-remote-notebook/">Jupyter with Remote Notebook on the Mainframe</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../wlm-metering/">WLM Metering and Capping for IzODA Spark</a>
+    <a class="" href="../../spark/wlm-metering/">WLM Metering and Capping for IzODA Spark</a>
                 </li>
     </ul>
 	    </li>
@@ -159,19 +141,31 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../best-practices/jupyter-notebook-usage/">Jupyter Notebook Usage</a>
+    <a class="" href="../jupyter-notebook-usage/">Jupyter Notebook Usage</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">HLQ xlc for C Libraries</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#pyan-1432-hlq-for-c-libraries-issue">PYAN-1432 HLQ for C Libraries Issue</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#08062019">08/06/2019</a></li>
+        
+        </ul>
+    
+
+    </ul>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../best-practices/hlq-c-libraries/">HLQ xlc for C Libraries</a>
+    <a class="" href="../vegas-support/">Vegas Support</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../best-practices/vegas-support/">Vegas Support</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../best-practices/modify-base-env/">Modifying the Base Environment</a>
+    <a class="" href="../modify-base-env/">Modifying the Base Environment</a>
                 </li>
     </ul>
 	    </li>
@@ -198,11 +192,11 @@
     
       
         
-          <li>Apache Spark &raquo;</li>
+          <li>Best Practices &raquo;</li>
         
       
     
-    <li>Overview</li>
+    <li>HLQ xlc for C Libraries</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -212,21 +206,16 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="apache-spark">Apache Spark</h1>
-<p><a href="https://spark.apache.org/">Apache Spark</a> is a general purpose, high performance clustering analytics engine that allocates resources and distributes work across a set of processes and tasks. It is organized as a set core functions that underpin a collection of functional libraries.</p>
-<p><img alt="Spark stack" src="../../img/spark-stack.png" /></p>
-<p>Spark was originally released through the IBM z/OS Platform for Apache Spark offering in March of 2016.</p>
-<h2 id="spark-and-anaconda">Spark and Anaconda</h2>
-<p>Apache Spark has no dependencies on Anaconda. However, Anaconda's package management capabilities have allowed for all of Spark's dependencies to be included in the IzODA Anaconda package library. This means that IzODA is a self-contained offering with no pre-requisites other than z/OS and Java at the proper service levels. It also means that Spark and Anaconda are effectively co-requisites, and should always be installed along with the ODL (MDS) FMID.</p>
-<p><img alt="Spark Architecture" src="../../img/IzODA_SparkArchitecture.png" /></p>
-<p>Along with Spark's pre-requisites, those parts of the Jupyter ecosystem that run on z/OS can now be installed via conda from the <a href="https://anaconda.org/izoda/jkg2at">JKG2AT package.</a> Setup information about JKG2AT can be <a href="../jupyter-remote-notebook/">found here.</a></p>
-<h2 id="installation-and-customization">Installation and Customization</h2>
-<p>Refer to the <a href="https://www.ibm.com/support/knowledgecenter/">IBM Knowledge Center</a> for installation and customization instructions. The guides can be downloaded via <a href="https://www.ibm.com/support/knowledgecenter/SS3H8V_1.1.0/com.ibm.izoda.v1r1.izodalp/izoda.htm">PDF or TOC here.</a> Further instructions about how to install and customize Apache Spark are in chapters 2 and 3 of the <a href="https://www-304.ibm.com/servers/resourcelink/svc00100.nsf/pages/izodav110sc279033/$file/azk1a100.pdf">IzODA Installation and Customization Guide.</a></p>
-<h2 id="verify-your-installation">Verify Your Installation</h2>
-<p>We have created a collection of small sample applications which you can run to verify that Spark is installed and configured properly, and works with the other components of IzODA. Please choose one of the Install Verification Programs (IVPs) from the <a href="https://www.ibm.com/support/knowledgecenter/en/SS3H8V_1.1.0/com.ibm.izoda.v1r1.azka100/topics/azkic_c_partverify.htm">IBM Knowledge Center.</a></p>
-<h2 id="reference-material">Reference Material</h2>
-<p>A library of documentation is available for the IBM Open Data Analytics for z/OS offering. This can be found at the <a href="https://www.ibm.com/support/knowledgecenter/">IBM Knowledge Center.</a></p>
-<p>The <a href="http://www.redbooks.ibm.com/abstracts/sg248325.html">Apache Spark Implementation on IBM z/OS</a> is another good source of information about both Spark and ODL.</p>
+                <h1 id="pyan-1432-hlq-for-c-libraries-issue">PYAN-1432 HLQ for C Libraries Issue</h1>
+<h2 id="08062019">08/06/2019</h2>
+<p><em>Note</em>: This is an issue that is currently being worked on.</p>
+<p>Using anaconda in <code>anaconda/bin/xlc</code> and <code>anaconda/bin/xlc.cfg</code>, there is a specific HLQ for C libraries.</p>
+<p>If a user does not have the same HLQ, xlc will fail with an error similar to this:</p>
+<pre><code>IKJ56228I DATA SET CEE.SCEELKEX NOT IN CATALOG OR CATALOG CAN NOT BE ACCESSED
+FSUM3052 The data definition name SYSLIB cannot be resolved. The data set was not found. Ensure that data set name CEE.SCEELKEX is specified correctly.
+</code></pre>
+
+<p>Ideally something like this should be handled by a system programmer and should be made visible to them in the hold data and other forms of documentation such as IzODA's github pages.</p>
               
             </div>
           </div>
@@ -234,10 +223,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../jupyter-remote-notebook/" class="btn btn-neutral float-right" title="Jupyter with Remote Notebook on the Mainframe">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../vegas-support/" class="btn btn-neutral float-right" title="Vegas Support">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../.." class="btn btn-neutral" title="About"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../jupyter-notebook-usage/" class="btn btn-neutral" title="Jupyter Notebook Usage"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -263,10 +252,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../.." style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../jupyter-notebook-usage/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../jupyter-remote-notebook/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../vegas-support/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

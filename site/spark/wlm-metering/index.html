@@ -55,17 +55,6 @@
           
             <li class="toctree-l1">
 		
-    <span class="caption-text">IzODA Best Practices</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../best-practices/jupyter-notebook-usage/">Jupyter Notebook Usage</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
     <span class="caption-text">Apache Spark</span>
     <ul class="subnav">
                 <li class="">
@@ -109,10 +98,6 @@
                     
     <a class="" href="../../odl/odl/">Overview</a>
                 </li>
-                <li class="">
-                    
-    <a class="" href="../../odl/credit-risk-odl/">Credit Risk Assessment Example</a>
-                </li>
     </ul>
 	    </li>
           
@@ -126,15 +111,31 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../../anaconda/packages/">Packages</a>
-                </li>
-                <li class="">
-                    
     <a class="" href="../../anaconda/install-config/">Installation and Configuration</a>
                 </li>
                 <li class="">
                     
+    <a class="" href="../../anaconda/packages/">Available Packages</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../anaconda/r-jupyter-notebook/">Using R in Jupyter Notebook</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../anaconda/optional-packages/">Optional Package Guides</a>
+                </li>
+                <li class="">
+                    
     <a class="" href="../../anaconda/apar-notes/">APAR Notes</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../anaconda/izoda-extras/">izoda-extras</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../anaconda/jkg2at-migration/">JKG2AT Migration</a>
                 </li>
                 <li class="">
                     
@@ -150,6 +151,29 @@
             <li class="toctree-l1">
 		
     <a class="" href="../../ecosystem/">Ecosystem</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Best Practices</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../best-practices/jupyter-notebook-usage/">Jupyter Notebook Usage</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../best-practices/hlq-c-libraries/">HLQ xlc for C Libraries</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../best-practices/vegas-support/">Vegas Support</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../best-practices/modify-base-env/">Modifying the Base Environment</a>
+                </li>
+    </ul>
 	    </li>
           
         </ul>
@@ -204,7 +228,7 @@
 <li>The <em>executor</em> performs the actual computation and data processing for the application.</li>
 <li>The <em>driver</em> program runs the main function of the application and creates a <em>SparkContext</em>.</li>
 </ul>
-<p>The master and worker processes are generally lightweight. By contrast, the executors attempt to use all available system resources by default. You can use the spark-defaults.conf file, spark-env.sh file, and command line parameters to constrain the number of CPU cores and amount of memory that each executor can consume. These parameters, however, are static and require that the Spark processes be restarted for changes to take effect. (For more information about the Apache Spark configuration options, see <a href="https://spark.apache.org/docs/2.1.1/configuration.html">Spark Configuration.</a> For more information about tuning the Apache Spark cluster, see <a href="https://spark.apache.org/docs/2.1.1/tuning.html">Tuning Spark.</a></p>
+<p>The master and worker processes are generally lightweight. By contrast, the executors attempt to use all available system resources by default. You can use the spark-defaults.conf file, spark-env.sh file, and command line parameters to constrain the number of CPU cores and amount of memory that each executor can consume. These parameters, however, are static and require that the Spark processes be restarted for changes to take effect. (For more information about the Apache Spark configuration options, see <a href="https://spark.apache.org/docs/2.1.1/configuration.html">Spark Configuration.</a> For more information about tuning the Apache Spark cluster, see <a href="https://spark.apache.org/docs/2.1.1/tuning.html">Tuning Spark.</a>)</p>
 <p>WLM provides a more dynamic way to manage the performance of your Spark workloads.</p>
 <h2 id="overview-of-wlm-classification-for-izoda-spark">Overview of WLM classification for IzODA Spark</h2>
 <p>You specify goals for the WLM services for IzODA Spark work in the same manner as for other z/OS workloads, by associating the work with a service class. In the service class, you assign goals to the work, along with the relative importance of each goal. You can also assign limits for CPU and memory capacity to be available to a service class. To associate incoming work with a particular service class, you must also define classification rules.</p>
@@ -225,8 +249,9 @@ Figure 1. Example of WLM classification configuration</p>
 <li>The executor for user Bob in Spark cluster 2 has a job name of ODASX003 and is classified into the ODAS2SCD service class.</li>
 </ul>
 <h2 id="considerations-for-using-wlm-metering-and-capping">Considerations for using WLM Metering and Capping</h2>
+<p>As a general rule, it is a good idea to define WLM classification rules such that Spark workload (including the MDS and Spark started procs) does not fall into the SYSOTHER service class.  SYSOTHER service class work is considered discrentionary, and may suffer unexpected performance degradation. </p>
 <h3 id="specifying-memory-limit-for-a-resource-group">Specifying Memory Limit for a resource group</h3>
-<p>A WLM resource group is a way of limiting or guaranteeing the system resource availability to one or more service classes. WLM APAR OA52611 provides the ability to limit the physical memory, at a system level, consumed by all address spaces that belong to a resource group.</p>
+<p>A WLM resource group is a way of limiting or guaranteeing the system resource availability to one or more service classes. z/OS V2.4 (or releases with WLM APAR OA52611 applied) provides the ability to limit the physical memory, at a system level, consumed by all address spaces that belong to a resource group.</p>
 <p><strong>Example:</strong> The following figure shows an example of creating a resource group called ODASRG with a maximum capacity of 10 percent of the LPAR share in the general processor pool and a memory limit of 20 GB:</p>
 <p><img alt="WLM Resource Group example" src="../../img/wlm-resource-group.png" /></p>
 <p>Figure 2. Example of creating a resource group</p>
@@ -238,7 +263,7 @@ Figure 1. Example of WLM classification configuration</p>
 <p>You can set the honor priority attribute to NO if you want to minimize the amount of Spark work processed by the GPs. However, give careful consideration to setting honor priority attributes to NO on service classes, especially in the case of highly utilized specialty processors. For instance, a Spark service class restricted to zIIPs may consume much of the zIIP capacity and cause other zIIP-eligible workloads, such as IBM DB2, to overflow to GPs. In addition, Spark applications, by default, fall into the default OMVS service class. If the default OMVS service class is restricted to specialty engines, other processes in the same service class, such as terminals or ssh sessions, might become unresponsive. Spark applications might also experience timeouts during driver and executor communication if they are waiting for CPU time for too long. Monitor these timeouts and adjust the timeout values in the Spark configuration accordingly.</p>
 <p>As with memory limit, we recommend you consider your Spark configuration when using WLM to limit resources available to Spark processes. The SPARK_WORKER_CORES parameter, for example, should be set to a value less than or equal to the number of processors available to the Spark executors after WLM-imposed limits.</p>
 <p>Setting the honor priority attribute to NO might also change the goals for your workload. For instance, if a Spark service class has high velocity goals and is set to use only zIIPs, these two settings might interfere with each other under certain conditions and cause an undesired state for the Spark applications and their workload priorities.</p>
-<p>See the <a href="http://www-01.ibm.com/support/docview.wss?uid=isg1OA52611">WLM APAR OA52611 text</a> for more information on the WLM Metering and Capping support.</p>
+<p>See the <a href="https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.1.0/com.ibm.zos.v2r1.ieaw100/rgr.htm">Defining Resouce Groups section of z/OS MVS Planning: Workload Management</a> for more information on the WLM Metering and Capping support.</p>
 <p>Authors: Jessie Yu (jessieyu@us.ibm.com), Michael Gildein (megildei@us.ibm.com), Kevin Carr (kgcarr@us.ibm.com).    Date: November 27th, 2017</p>
               
             </div>
@@ -285,7 +310,7 @@ Figure 1. Example of WLM classification configuration</p>
 </div>
     <script>var base_url = '../..';</script>
     <script src="../../js/theme.js"></script>
-      <script src="../../index.js"></script>
+      <script src="../../create-package-table.js"></script>
       <script src="../../search/require.js"></script>
       <script src="../../search/search.js"></script>
 

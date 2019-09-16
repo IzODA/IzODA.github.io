@@ -8,7 +8,7 @@
   
   <meta name="author" content="Stephen Stone">
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Overview - IzODA Documentation</title>
+  <title>Optional Package Guides - IzODA Documentation</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -18,9 +18,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Overview";
-    var mkdocs_page_input_path = "spark/spark.md";
-    var mkdocs_page_url = "/spark/spark/";
+    var mkdocs_page_name = "Optional Package Guides";
+    var mkdocs_page_input_path = "anaconda/optional-packages.md";
+    var mkdocs_page_url = "/anaconda/optional-packages/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -57,35 +57,17 @@
 		
     <span class="caption-text">Apache Spark</span>
     <ul class="subnav">
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">Overview</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#apache-spark">Apache Spark</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#spark-and-anaconda">Spark and Anaconda</a></li>
-        
-            <li><a class="toctree-l4" href="#installation-and-customization">Installation and Customization</a></li>
-        
-            <li><a class="toctree-l4" href="#verify-your-installation">Verify Your Installation</a></li>
-        
-            <li><a class="toctree-l4" href="#reference-material">Reference Material</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../../spark/spark/">Overview</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../jupyter-remote-notebook/">Jupyter with Remote Notebook on the Mainframe</a>
+    <a class="" href="../../spark/jupyter-remote-notebook/">Jupyter with Remote Notebook on the Mainframe</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../wlm-metering/">WLM Metering and Capping for IzODA Spark</a>
+    <a class="" href="../../spark/wlm-metering/">WLM Metering and Capping for IzODA Spark</a>
                 </li>
     </ul>
 	    </li>
@@ -107,43 +89,63 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../anaconda/anaconda/">Overview</a>
+    <a class="" href="../anaconda/">Overview</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../anaconda/install-config/">Installation and Configuration</a>
+    <a class="" href="../install-config/">Installation and Configuration</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../anaconda/packages/">Available Packages</a>
+    <a class="" href="../packages/">Available Packages</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../anaconda/r-jupyter-notebook/">Using R in Jupyter Notebook</a>
+    <a class="" href="../r-jupyter-notebook/">Using R in Jupyter Notebook</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Optional Package Guides</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#optional-package-installation-guides">Optional Package Installation Guides</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#izoda-extras">izoda-extras</a></li>
+        
+            <li><a class="toctree-l4" href="#installing-in-the-base-environment">Installing in the Base Environment</a></li>
+        
+            <li><a class="toctree-l4" href="#apache-maven">Apache Maven</a></li>
+        
+            <li><a class="toctree-l4" href="#apache-livy">Apache Livy</a></li>
+        
+            <li><a class="toctree-l4" href="#bash-43">Bash 4.3</a></li>
+        
+        </ul>
+    
+
+    </ul>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../anaconda/optional-packages/">Optional Package Guides</a>
+    <a class="" href="../apar-notes/">APAR Notes</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../anaconda/apar-notes/">APAR Notes</a>
+    <a class="" href="../izoda-extras/">izoda-extras</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../anaconda/izoda-extras/">izoda-extras</a>
+    <a class="" href="../jkg2at-migration/">JKG2AT Migration</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../anaconda/jkg2at-migration/">JKG2AT Migration</a>
+    <a class="" href="../ivp-jupyter-notebook/">Anaconda/ODL Installation Verification with Jupyter Notebook</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../anaconda/ivp-jupyter-notebook/">Anaconda/ODL Installation Verification with Jupyter Notebook</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../anaconda/ivp-pyspark/">IzODA Installation Verification with PySpark</a>
+    <a class="" href="../ivp-pyspark/">IzODA Installation Verification with PySpark</a>
                 </li>
     </ul>
 	    </li>
@@ -198,11 +200,11 @@
     
       
         
-          <li>Apache Spark &raquo;</li>
+          <li>Anaconda &raquo;</li>
         
       
     
-    <li>Overview</li>
+    <li>Optional Package Guides</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -212,21 +214,23 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="apache-spark">Apache Spark</h1>
-<p><a href="https://spark.apache.org/">Apache Spark</a> is a general purpose, high performance clustering analytics engine that allocates resources and distributes work across a set of processes and tasks. It is organized as a set core functions that underpin a collection of functional libraries.</p>
-<p><img alt="Spark stack" src="../../img/spark-stack.png" /></p>
-<p>Spark was originally released through the IBM z/OS Platform for Apache Spark offering in March of 2016.</p>
-<h2 id="spark-and-anaconda">Spark and Anaconda</h2>
-<p>Apache Spark has no dependencies on Anaconda. However, Anaconda's package management capabilities have allowed for all of Spark's dependencies to be included in the IzODA Anaconda package library. This means that IzODA is a self-contained offering with no pre-requisites other than z/OS and Java at the proper service levels. It also means that Spark and Anaconda are effectively co-requisites, and should always be installed along with the ODL (MDS) FMID.</p>
-<p><img alt="Spark Architecture" src="../../img/IzODA_SparkArchitecture.png" /></p>
-<p>Along with Spark's pre-requisites, those parts of the Jupyter ecosystem that run on z/OS can now be installed via conda from the <a href="https://anaconda.org/izoda/jkg2at">JKG2AT package.</a> Setup information about JKG2AT can be <a href="../jupyter-remote-notebook/">found here.</a></p>
-<h2 id="installation-and-customization">Installation and Customization</h2>
-<p>Refer to the <a href="https://www.ibm.com/support/knowledgecenter/">IBM Knowledge Center</a> for installation and customization instructions. The guides can be downloaded via <a href="https://www.ibm.com/support/knowledgecenter/SS3H8V_1.1.0/com.ibm.izoda.v1r1.izodalp/izoda.htm">PDF or TOC here.</a> Further instructions about how to install and customize Apache Spark are in chapters 2 and 3 of the <a href="https://www-304.ibm.com/servers/resourcelink/svc00100.nsf/pages/izodav110sc279033/$file/azk1a100.pdf">IzODA Installation and Customization Guide.</a></p>
-<h2 id="verify-your-installation">Verify Your Installation</h2>
-<p>We have created a collection of small sample applications which you can run to verify that Spark is installed and configured properly, and works with the other components of IzODA. Please choose one of the Install Verification Programs (IVPs) from the <a href="https://www.ibm.com/support/knowledgecenter/en/SS3H8V_1.1.0/com.ibm.izoda.v1r1.azka100/topics/azkic_c_partverify.htm">IBM Knowledge Center.</a></p>
-<h2 id="reference-material">Reference Material</h2>
-<p>A library of documentation is available for the IBM Open Data Analytics for z/OS offering. This can be found at the <a href="https://www.ibm.com/support/knowledgecenter/">IBM Knowledge Center.</a></p>
-<p>The <a href="http://www.redbooks.ibm.com/abstracts/sg248325.html">Apache Spark Implementation on IBM z/OS</a> is another good source of information about both Spark and ODL.</p>
+                <h1 id="optional-package-installation-guides">Optional Package Installation Guides</h1>
+<h2 id="izoda-extras">izoda-extras</h2>
+<p><code>izoda-extras</code> will create a new directory $CONDA_PREFIX/extras. Non-Python optional packages will install at <code>$CONDA_PREFIX/extras/$PACKAGE_NAME</code>. To use one of these packages at it's new location, it will need to be added to the PATH by adding <code>export PATH=$CONDA_PREFIX/extras/$PACKAGE_NAME/bin:$PATH</code> to the user's bash profile.</p>
+<p>For more information, see <a href="../izoda-extras">izoda-extras</a>.</p>
+<h2 id="installing-in-the-base-environment">Installing in the Base Environment</h2>
+<p>Please see <a href="../../best-practices/modify-base-env">Modifying the Base Anaconda Environment</a>.</p>
+<h2 id="apache-maven">Apache Maven</h2>
+<ol>
+<li><code>conda install apache-maven</code></li>
+<li><code>export PATH=$CONDA_PREFIX/extras/apache-maven/bin:$PATH</code></li>
+</ol>
+<h2 id="apache-livy">Apache Livy</h2>
+<p>Refer to the <a href="https://www.ibm.com/support/knowledgecenter/en/SS3H8V_1.1.0/com.ibm.izoda.v1r1.azka100/topics/azkic_c_inst_livy.htm">Installation and Customization Guide</a></p>
+<h2 id="bash-43">Bash 4.3</h2>
+<ol>
+<li><code>conda install bash=4.3</code></li>
+</ol>
               
             </div>
           </div>
@@ -234,10 +238,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../jupyter-remote-notebook/" class="btn btn-neutral float-right" title="Jupyter with Remote Notebook on the Mainframe">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../apar-notes/" class="btn btn-neutral float-right" title="APAR Notes">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../.." class="btn btn-neutral" title="About"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../r-jupyter-notebook/" class="btn btn-neutral" title="Using R in Jupyter Notebook"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -263,10 +267,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../.." style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../r-jupyter-notebook/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../jupyter-remote-notebook/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../apar-notes/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

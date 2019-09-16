@@ -1,6 +1,6 @@
 # WLM Metering and Capping for IzODA Spark
 
-##Introduction
+## Introduction
 
 One of the strengths of the z Systems platform and the z/OS operating system is the option to run multiple workloads at the same time within one z/OS image or across a Parallel Sysplex. Workloads usually have different, often competing, performance and resource requirements that must be balanced to make the best use of an installation's resources, maintain the highest possible throughput, and achieve the best possible system responsiveness. The function that makes this possible is dynamic workload management, which is implemented in the workload management component of z/OS.
 
@@ -23,7 +23,7 @@ The following list describes the most significant processes:
 - The *executor* performs the actual computation and data processing for the application.
 - The *driver* program runs the main function of the application and creates a *SparkContext*.
 
-The master and worker processes are generally lightweight. By contrast, the executors attempt to use all available system resources by default. You can use the spark-defaults.conf file, spark-env.sh file, and command line parameters to constrain the number of CPU cores and amount of memory that each executor can consume. These parameters, however, are static and require that the Spark processes be restarted for changes to take effect. (For more information about the Apache Spark configuration options, see [Spark Configuration.](https://spark.apache.org/docs/2.1.1/configuration.html) For more information about tuning the Apache Spark cluster, see [Tuning Spark.](https://spark.apache.org/docs/2.1.1/tuning.html)
+The master and worker processes are generally lightweight. By contrast, the executors attempt to use all available system resources by default. You can use the spark-defaults.conf file, spark-env.sh file, and command line parameters to constrain the number of CPU cores and amount of memory that each executor can consume. These parameters, however, are static and require that the Spark processes be restarted for changes to take effect. (For more information about the Apache Spark configuration options, see [Spark Configuration.](https://spark.apache.org/docs/2.1.1/configuration.html) For more information about tuning the Apache Spark cluster, see [Tuning Spark.](https://spark.apache.org/docs/2.1.1/tuning.html))
 
 WLM provides a more dynamic way to manage the performance of your Spark workloads.
 
@@ -53,9 +53,11 @@ Four classification rules are defined that classify work as follows:
 
 ## Considerations for using WLM Metering and Capping
 
+As a general rule, it is a good idea to define WLM classification rules such that Spark workload (including the MDS and Spark started procs) does not fall into the SYSOTHER service class.  SYSOTHER service class work is considered discrentionary, and may suffer unexpected performance degradation. 
+
 ### Specifying Memory Limit for a resource group
 
-A WLM resource group is a way of limiting or guaranteeing the system resource availability to one or more service classes. WLM APAR OA52611 provides the ability to limit the physical memory, at a system level, consumed by all address spaces that belong to a resource group.
+A WLM resource group is a way of limiting or guaranteeing the system resource availability to one or more service classes. z/OS V2.4 (or releases with WLM APAR OA52611 applied) provides the ability to limit the physical memory, at a system level, consumed by all address spaces that belong to a resource group.
 
 **Example:** The following figure shows an example of creating a resource group called ODASRG with a maximum capacity of 10 percent of the LPAR share in the general processor pool and a memory limit of 20 GB:
 
@@ -80,6 +82,6 @@ As with memory limit, we recommend you consider your Spark configuration when us
 
 Setting the honor priority attribute to NO might also change the goals for your workload. For instance, if a Spark service class has high velocity goals and is set to use only zIIPs, these two settings might interfere with each other under certain conditions and cause an undesired state for the Spark applications and their workload priorities.
 
-See the [WLM APAR OA52611 text](http://www-01.ibm.com/support/docview.wss?uid=isg1OA52611) for more information on the WLM Metering and Capping support.
+See the [Defining Resouce Groups section of z/OS MVS Planning: Workload Management](https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.1.0/com.ibm.zos.v2r1.ieaw100/rgr.htm) for more information on the WLM Metering and Capping support.
 
 Authors: Jessie Yu (jessieyu@us.ibm.com), Michael Gildein (megildei@us.ibm.com), Kevin Carr (kgcarr@us.ibm.com).    Date: November 27th, 2017

@@ -55,17 +55,6 @@
           
             <li class="toctree-l1">
 		
-    <span class="caption-text">IzODA Best Practices</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../best-practices/jupyter-notebook-usage/">Jupyter Notebook Usage</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
     <span class="caption-text">Apache Spark</span>
     <ul class="subnav">
                 <li class="">
@@ -91,10 +80,6 @@
                     
     <a class="" href="../../odl/odl/">Overview</a>
                 </li>
-                <li class="">
-                    
-    <a class="" href="../../odl/credit-risk-odl/">Credit Risk Assessment Example</a>
-                </li>
     </ul>
 	    </li>
           
@@ -105,10 +90,6 @@
                 <li class="">
                     
     <a class="" href="../anaconda/">Overview</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../packages/">Packages</a>
                 </li>
                 <li class=" current">
                     
@@ -130,7 +111,27 @@
                 </li>
                 <li class="">
                     
+    <a class="" href="../packages/">Available Packages</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../r-jupyter-notebook/">Using R in Jupyter Notebook</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../optional-packages/">Optional Package Guides</a>
+                </li>
+                <li class="">
+                    
     <a class="" href="../apar-notes/">APAR Notes</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../izoda-extras/">izoda-extras</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../jkg2at-migration/">JKG2AT Migration</a>
                 </li>
                 <li class="">
                     
@@ -146,6 +147,29 @@
             <li class="toctree-l1">
 		
     <a class="" href="../../ecosystem/">Ecosystem</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Best Practices</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../best-practices/jupyter-notebook-usage/">Jupyter Notebook Usage</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../best-practices/hlq-c-libraries/">HLQ xlc for C Libraries</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../best-practices/vegas-support/">Vegas Support</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../best-practices/modify-base-env/">Modifying the Base Environment</a>
+                </li>
+    </ul>
 	    </li>
           
         </ul>
@@ -185,7 +209,7 @@
             <div class="section">
               
                 <h1 id="anaconda-installation-and-configuration">Anaconda Installation and Configuration</h1>
-<p>This process installs all of the components of a fully a functional Anaconda deployment. There are some key characteristics of the z/OS environment to be aware of:</p>
+<p>This process installs all of the components of a fully functional Anaconda deployment. There are some key characteristics of the z/OS environment to be aware of:</p>
 <ul>
 <li>All Anaconda components are 64-bit ASCII applications.</li>
 <li>Since Anaconda is an ASCII environment running on a platform with a default EBCDIC code page, file tagging is used extensively. Be aware that newly created files in this environment must be properly tagged for everything to run smoothly.</li>
@@ -194,7 +218,8 @@
 </ul>
 <h2 id="prerequisites">Prerequisites</h2>
 <ul>
-<li>IzODA installs Anaconda from a local archive shipped as part of the SMP/E offering. Because of this, the install process requires room for the archive, plus about the same amount of space in the target file system that contains the Anaconda home directory - usually <em>/usr/lpp/IBM/izoda/anaconda</em>. Since Anaconda ships with approximately 230 packages, a finished install consumes between 2.5 and 3 GB.</li>
+<li>The <a href="http://www-01.ibm.com/support/docview.wss?uid=isg1_ZODAV1R1_HANA110">PSP bucket for Anaconda 1.1.0</a> should be reviewed prior to installation; see also the <a href="#latebreaking-news">Latebreaking News</a> section of this page.</li>
+<li>IzODA installs Anaconda from a local archive shipped as part of the SMP/E offering. Because of this, the install process requires room for the archive, plus about the same amount of space in the target file system that contains the Anaconda home directory - usually <em>/usr/lpp/IBM/izoda/anaconda</em>. Since Anaconda ships with approximately 295 packages, a finished install consumes between 2.5 and 3 GB.</li>
 <li>In addition to the disk space required during the IzODA install, it's important to remember that Anaconda keeps all package versions that have been installed from the IzODA channel through the conda command. This allows previous versions of an installed package to be referenced in addition to the latest version. Be sure to give Anaconda enough room to operate. The minimum disk space for an Anaconda installation is 6 GB, and the recommended amount is 20 GB.</li>
 <li>Python makes use of the <em>/dev/urandom</em> character special file to read pseudo-random values for use in a variety of applications. The <em>Integrated Cryptographic Service Facility (ICSF)</em> service of z/OS must be started for <em>/dev/urandom</em> to function properly. Failures will occur if ICSF is not active when Anaconda is installed.</li>
 </ul>
@@ -203,7 +228,7 @@
 </code></pre>
 
 <ul>
-<li>The pre-requisite level of bash is 4.2.53. This is the version installed as the default during Anaconda installation. A 4.3.46 version of bash is also included as an Anaconda package that can be installed via conda. This is a functional version of the shell, but this is not officially supported with either Spark or Anaconda.</li>
+<li>The pre-requisite level of bash is 4.2.53. This is the version installed as the default during Anaconda installation. A 4.3.46 version of bash is also included as an Anaconda package that can be installed via conda.</li>
 </ul>
 <h2 id="environmental-setup">Environmental Setup</h2>
 <p>This is the setup necessary for any user to run Python applications and make use of other Anaconda functions:</p>
@@ -234,32 +259,38 @@ export PATH=$ANACONDA_ROOT/bin:$PATH
 <p>where hlq is the high-level qualifier of the ODL (MDS) installation.
 - Grant users running Python applications READ permission to the BPX.JOBNAME facility class profile so that they can assign jobnames to their workload. Please see the <a href="https://www.ibm.com/support/knowledgecenter/SSLTBW_2.1.0/com.ibm.zos.v2r1.bpxb200/bpxenv.htm">_BPX environment variables section</a> of the z/OS UNIX System Services Planning guide for more information. Note: superusers are allowed to set jobnames regardless of their access to BPX.JOBNAME. <strong>In general, we recommend against Python users having superuser privileges.</strong></p>
 <h3 id="download-and-unpack">Download and Unpack</h3>
-<p>IzODA installs using SMP/E. Instructions are in the <a href="https://www-304.ibm.com/servers/resourcelink/svc00100.nsf/pages/izodav110gi134348/$file/azk1e100.pdf">Program Directory.</a> The PSP bucket for Anaconda 1.1.0 should be reviewed prior to installation; see also the <a href="#latebreaking-news">Latebreaking News</a> section of this page.</p>
+<p>IzODA installs using SMP/E. Instructions are in the <a href="https://www-304.ibm.com/servers/resourcelink/svc00100.nsf/pages/izodav110gi134348/$file/azk1e100.pdf">Program Directory.</a> The <a href="http://www-01.ibm.com/support/docview.wss?uid=isg1_ZODAV1R1_HANA110">PSP bucket for Anaconda 1.1.0</a> should be reviewed prior to installation; see also the <a href="#latebreaking-news">Latebreaking News</a> section of this page.</p>
 <h3 id="install">Install</h3>
 <p>The SMP/E jobs need to be run in order. Each job includes its own instructions at the top.</p>
 <h3 id="post-smpe-installation-instructions">Post-SMP/E Installation Instructions</h3>
-<p>There are several additional steps that a system administrator may wish to perform, depending on the runtime configuration they intend to create. Before running any of the following steps, cd to the root directory of the of the Anaconda installation. Note that all of the tools below are in the bin directory under the Anaconda root directory.</p>
+<p>Anaconda requires a post-install script be run after the SMP/e installation has been completed. This script known as the Anaconda configuration script, must be run after service is applied to Anaconda via SMP/e. The script does the following:</p>
 <ul>
-<li>A common method of installing service involves mounting the filesystem containing Anaconda at a different location from normal, and in read_write mode. After installing service, the filesystem is re-mounted at is usual location, and may be in read-only mode. If you use this method, you must run change-prefix to fix the pathnames that are imbedded in many of the scripts. change-prefix takes two arguments, old-prefix and new-prefix. For example:</li>
+<li>Creates a "local file channel" in the Anaconda root directory (if it does not already exist). This channel will contain all of the Anaconda packages delivered via SMP/E.</li>
+<li>Updates the local file channel to contain the most recently delivered Anaconda packages.</li>
+<li>Ensures that the file ownership and permission attributes are correct for all of the installed Anaconda packages.</li>
+<li>Updates the Anaconda "root environment" to contain the most recently delivered Anaconda packages. </li>
+<li>Creates an alternative environment in the Anaconda root directory the corresponds to the updated Anaconda root environment. The first time the script is run, it also creates alternative environments that correspond to the previously delivered service levels. These alternative environments can be used by Anaconda users to run their code using packages that correspond to service levels other than the default ("root") level.</li>
+<li>Performs any other release-specific actions necessary to keep the Anaconda system functioning properly.</li>
 </ul>
-<pre><code>change-prefix /service/usr/lpp/IBM/izoda/anaconda /usr/lpp/IBM/izoda/anaconda
-</code></pre>
-
-<p>Please note that change-prefix is not included in the GA release of IzODA, but is included in the first PTF. You can <a href="https://izoda.github.io/change-prefix.pax">download change-prefix here</a>, then upload it to your system (in binary mode), then cd to the Anaconda root directory and unpack it with <code>pax -r -f change-prefix.pax</code>
-- Bash 4.2 requires shell scripts to be encoded in EBCDIC, even though all Python scripts in Anaconda are ASCII, and are file tagged to indicate this. The <em>install_ensure_scripts_are_in_ebcdic</em> tool can be used to guarantee all shell scripts in the Anaconda installation have the proper encoding
-- A good practice is to install Anaconda read-only for all users except an owning administrator. You can use the <em>install_set_single_anaconda_admin</em> tool to set the group and other permissions for All Anaconda parts to read-only.
-- If you wish to set up Anaconda to be managed by a group of administrators, use the <em>install_set_shared_anaconda_admin</em> tool. Run the command like this:</p>
-<pre><code>install_set_shared_anaconda_admin groupname
-</code></pre>
-
-<p>where groupname is the name of the administrators group
-- If you plan to run Python code in a server (as a daemon), you should run the <em>install_set_program_control</em> tool. For more information, refer to the <a href="https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.1.0/com.ibm.zos.v2r1.bpxb200/progcontr.htm">Defining programs in UNIX files to program control</a> section of the <em>z/OS Unix System Services Planning guide</em></p>
-<p>There is one mandatory last step - run the <em>conda</em> command to pull all updates to the Anaconda environment from the IzODA channel on the Anaconda cloud.</p>
-<pre><code>conda update
-conda install bash=4.2
-</code></pre>
-
-<p>This step is necessary because updates are frequently made to the packages of the Anaconda root environment. The PID version of IzODA will usually be downlevel from the version that exists in the IzODA Anaconda channel. If you use Spark, you should also run the <em>conda install</em> to restore the version of bash that has been tested with Spark.</p>
+<p>The following steps must be followed before running the script:</p>
+<ol>
+<li>
+<p>Log into Unix System Services with a Userid with "superuser" authority and become the superuser by typing the <code>su</code> command. </p>
+</li>
+<li>
+<p>Navigate to the Anaconda root directory. i.e. <code>/usr/lpp/IBM/izoda/anaconda</code>
+     <code>cd  /usr/lpp/IBM/izoda/anaconda</code></p>
+</li>
+<li>
+<p>Create a deployment_prefix file by issuing the following command:
+     <code>./configure-anaconda --set-prefix  /usr/lpp/IBM/izoda/anaconda</code></p>
+</li>
+<li>
+<p>Configure Anaconda and install packages delivered by SMP/e:
+     <code>./configure-anaconda</code></p>
+</li>
+</ol>
+<p>Note, depending on how many maintenance releases were installed, this step may take an hour or two.</p>
 <h3 id="activate-an-environment">Activate an Environment</h3>
 <p>A successful Anaconda installation results in a root environment that includes all of the packages shipped with IzODA. The root environment can be activated with the Anaconda <em>activate</em> command.</p>
 <p><em>Note: as a temporary restriction, anaconda commands must be run from a bash sub-shell. If you have established a login with one bash session active, run bash again from the command line to create the necessary shell nesting before using Anaconda commands.</em></p>
@@ -284,7 +315,7 @@ conda install bash=4.2
 <p>That said, the <em>default</em> environment (also known as the <em>root</em> environment) is managed by the system administrator, and usually provides the most recent versions of tools.</p>
 <p>The preferred means of installing new code into the conda root environment is by using the <em>conda update</em> command. This will obtain the latest versions of packages and tools from a <em>channel</em>. IBM provides the <a href="https://anaconda.org/izoda/repo?type=conda&amp;label=main">IzODA channel on the Anaconda cloud</a>, which will be updated regularly with new packages, and new versions of existing packages. This channel is enabled by default when Anaconda is first installed.</p>
 <p>However, not all installations will choose to install maintenance via the Internet. For such installations, IBM will provide regular PTFs for use with SMP/E.</p>
-<p>Note, however, that installing maintenance via PTF will disable default access to the IzODA channel, under the presumption that subsequent maintenance will also be applied via SMP/E. Access can be restored by <a href="ttps://conda.io/docs/user-guide/configuration/use-condarc.html#channel-locations-channels">altering the conda configuration file.</a></p>
+<p>Note, however, that installing maintenance via PTF will disable default access to the IzODA channel, under the presumption that subsequent maintenance will also be applied via SMP/E. Access can be restored by <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/configuration/use-condarc.html#channel-locations-channels">altering the conda configuration file.</a></p>
 <h3 id="maintaining-the-correct-file-ownership">Maintaining the correct file ownership</h3>
 <p>If Anaconda is installed and maintained by a userid other than root, installation of maintenance will generally result in files in the Anaconda root directory having the owner and group IDs of that userid.</p>
 <p>If, on the other hand, Anaconda is installed and maintained by root, files created or modified by installing maintenance (either via conda update or SMP/E) may produce files whose user and owner IDs are determined by the system that created the package. This is not desirable. To avoid this situation, execute the following commands, as root after installing maintenance:</p>
@@ -308,10 +339,10 @@ chown -R 0:0
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../apar-notes/" class="btn btn-neutral float-right" title="APAR Notes">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../packages/" class="btn btn-neutral float-right" title="Available Packages">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../packages/" class="btn btn-neutral" title="Packages"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../anaconda/" class="btn btn-neutral" title="Overview"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -337,16 +368,16 @@ chown -R 0:0
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../packages/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../anaconda/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../apar-notes/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../packages/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
     <script>var base_url = '../..';</script>
     <script src="../../js/theme.js"></script>
-      <script src="../../index.js"></script>
+      <script src="../../create-package-table.js"></script>
       <script src="../../search/require.js"></script>
       <script src="../../search/search.js"></script>
 
