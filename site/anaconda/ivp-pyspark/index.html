@@ -211,12 +211,13 @@
 <p>The following IVP utilizes IBM Open Data Analytics for z/OS Anaconda and PySpark stack. If you have not yet installed Anaconda including Python 3.6 for z/OS please do so using our <a href="../install-config/">installation and configuration page</a> before proceeding.</p>
 <h2 id="running-the-program">Running the Program</h2>
 <p>Please download the python source code <a href="https://github.com/IzODA/examples/blob/master/python/anaconda-pyspark-ivp.py">here.</a> To run the script please execute the following command:</p>
-<pre><code>$SPARK_HOME/bin/spark-submit anaconda-pyspark-ivp.py [mdsURL] 
+<pre><code>$SPARK_HOME/bin/spark-submit anaconda-pyspark-ivp.py "[mdsURL]"
 </code></pre>
 
-<p><em>Two things to note:</em>
+<p><em>Few things to note:</em>
   * In order for this file to run successfully it must be in ASCII encoding.
-  * <code>mdsURL</code> should look similar to <code>jdbc:rs:dv://$HOST:$PORT;DBTY=DVS</code>, where <code>$HOST:$PORT</code> is the url for your MDS server.</p>
+  * <code>mdsURL</code> should look similar to <code>jdbc:rs:dv://$HOST:$PORT;DBTY=DVS</code>, where <code>$HOST:$PORT</code> is the url for your MDS server.
+  * Parameter should have double-quotes around it.</p>
 <p>If PySpark is not found, you need to export Python path as follows:</p>
 <pre><code>export PYTHONPATH=&quot;$SPARK_HOME/python:$SPARK_HOME/python/lib/py4j-0.10.7-src.zip:$PYTHONPATH&quot;
 </code></pre>

@@ -8,11 +8,12 @@ The following IVP utilizes IBM Open Data Analytics for z/OS Anaconda and PySpark
 
 Please download the python source code [here.](https://github.com/IzODA/examples/blob/master/python/anaconda-pyspark-ivp.py) To run the script please execute the following command:
 ```
-$SPARK_HOME/bin/spark-submit anaconda-pyspark-ivp.py [mdsURL] 
+$SPARK_HOME/bin/spark-submit anaconda-pyspark-ivp.py "[mdsURL]"
 ```
-*Two things to note:*
+*Few things to note:*
   * In order for this file to run successfully it must be in ASCII encoding.
   * `mdsURL` should look similar to `jdbc:rs:dv://$HOST:$PORT;DBTY=DVS`, where `$HOST:$PORT` is the url for your MDS server.
+  * Parameter should have double-quotes around it.
 
 If PySpark is not found, you need to export Python path as follows:
 ```
