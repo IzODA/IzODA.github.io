@@ -1,5 +1,5 @@
 site_name: IzODA Documentation
-pages:
+nav:
   - 'About': 'index.md'
   - 'Apache Spark':
     - 'Overview': 'spark/spark.md'
