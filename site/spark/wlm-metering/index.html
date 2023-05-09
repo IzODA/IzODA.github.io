@@ -1,216 +1,152 @@
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <meta name="author" content="Stephen Stone">
-  <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>WLM Metering and Capping for IzODA Spark - IzODA Documentation</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
-
-  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/highlight.css">
-  <link href="../../extra.css" rel="stylesheet">
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "WLM Metering and Capping for IzODA Spark";
-    var mkdocs_page_input_path = "spark/wlm-metering.md";
-    var mkdocs_page_url = "/spark/wlm-metering/";
-  </script>
-  
-  <script src="../../js/jquery-2.1.1.min.js"></script>
-  <script src="../../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
-  
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Stephen Stone" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>WLM Metering and Capping for IzODA Spark - IzODA Documentation</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link href="../../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "WLM Metering and Capping for IzODA Spark";
+        var mkdocs_page_input_path = "spark\\wlm-metering.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
 </head>
 
 <body class="wy-body-for-nav" role="document">
 
   <div class="wy-grid-for-nav">
-
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> IzODA Documentation</a>
-        <div role="search">
+          <a href="../.." class="icon icon-home"> IzODA Documentation
+        </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../..">About</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Apache Spark</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../spark/">Overview</a>
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">About</a>
                 </li>
-                <li class="">
-                    
-    <a class="" href="../jupyter-remote-notebook/">Jupyter with Remote Notebook on the Mainframe</a>
-                </li>
-                <li class=" current">
-                    
-    <a class="current" href="./">WLM Metering and Capping for IzODA Spark</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#wlm-metering-and-capping-for-izoda-spark">WLM Metering and Capping for IzODA Spark</a></li>
-    
+              </ul>
+              <p class="caption"><span class="caption-text">Migration to new offerings</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../migration/overview.md">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../migration/spark.md">Apache Spark</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../migration/ODL_mig.md">ODL/MDS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../migration/anaconda_mig.md">Anaconda</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Apache Spark</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../spark/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../jupyter-remote-notebook/">Jupyter with Remote Notebook on the Mainframe</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">WLM Metering and Capping for IzODA Spark</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#overview-of-apache-spark-processes">Overview of Apache Spark processes</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#overview-of-wlm-classification-for-izoda-spark">Overview of WLM classification for IzODA Spark</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#considerations-for-using-wlm-metering-and-capping">Considerations for using WLM Metering and Capping</a>
         <ul>
-        
-            <li><a class="toctree-l4" href="#introduction">Introduction</a></li>
-        
-            <li><a class="toctree-l4" href="#overview-of-apache-spark-processes">Overview of Apache Spark processes</a></li>
-        
-            <li><a class="toctree-l4" href="#overview-of-wlm-classification-for-izoda-spark">Overview of WLM classification for IzODA Spark</a></li>
-        
-            <li><a class="toctree-l4" href="#considerations-for-using-wlm-metering-and-capping">Considerations for using WLM Metering and Capping</a></li>
-        
+    <li class="toctree-l3"><a class="reference internal" href="#specifying-memory-limit-for-a-resource-group">Specifying Memory Limit for a resource group</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#specifying-honor-priority-for-a-service-class">Specifying Honor Priority for a service class</a>
+    </li>
         </ul>
-    
-
+    </li>
     </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Optimized Data Layer / MDS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../odl/odl/">Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Anaconda</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../anaconda/anaconda/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../anaconda/install-config/">Installation and Configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../anaconda/packages/">Available Packages</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../anaconda/r-jupyter-notebook/">Using R in Jupyter Notebook</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../anaconda/optional-packages/">Optional Package Guides</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../anaconda/apar-notes/">APAR Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../anaconda/izoda-extras/">izoda-extras</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../anaconda/jkg2at-migration/">JKG2AT Migration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../anaconda/ivp-jupyter-notebook/">Anaconda/ODL Installation Verification with Jupyter Notebook</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../anaconda/ivp-pyspark/">IzODA Installation Verification with PySpark</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../ecosystem/">Ecosystem</a>
                 </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Optimized Data Layer / MDS</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../odl/odl/">Overview</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Anaconda</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../anaconda/anaconda/">Overview</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../anaconda/install-config/">Installation and Configuration</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../anaconda/packages/">Available Packages</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../anaconda/r-jupyter-notebook/">Using R in Jupyter Notebook</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../anaconda/optional-packages/">Optional Package Guides</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../anaconda/apar-notes/">APAR Notes</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../anaconda/izoda-extras/">izoda-extras</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../anaconda/jkg2at-migration/">JKG2AT Migration</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../anaconda/ivp-jupyter-notebook/">Anaconda/ODL Installation Verification with Jupyter Notebook</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../anaconda/ivp-pyspark/">IzODA Installation Verification with PySpark</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../../ecosystem/">Ecosystem</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Best Practices</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../best-practices/jupyter-notebook-usage/">Jupyter Notebook Usage</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../best-practices/hlq-c-libraries/">HLQ xlc for C Libraries</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../best-practices/vegas-support/">Vegas Support</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../best-practices/modify-base-env/">Modifying the Base Environment</a>
-                </li>
-    </ul>
-	    </li>
-          
-        </ul>
+              </ul>
+              <p class="caption"><span class="caption-text">Best Practices</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../best-practices/jupyter-notebook-usage/">Jupyter Notebook Usage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../best-practices/hlq-c-libraries/">HLQ xlc for C Libraries</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../best-practices/vegas-support/">Vegas Support</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../best-practices/modify-base-env/">Modifying the Base Environment</a>
+                  </li>
+              </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">IzODA Documentation</a>
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">IzODA Documentation</a>
+        
       </nav>
-
-      
       <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../..">Docs</a> &raquo;</li>
-    
-      
-        
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
           <li>Apache Spark &raquo;</li>
-        
-      
-    
-    <li>WLM Metering and Capping for IzODA Spark</li>
+      <li>WLM Metering and Capping for IzODA Spark</li>
     <li class="wy-breadcrumbs-aside">
-      
     </li>
   </ul>
   <hr/>
 </div>
-          <div role="main">
-            <div class="section">
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
               
                 <h1 id="wlm-metering-and-capping-for-izoda-spark">WLM Metering and Capping for IzODA Spark</h1>
 <h2 id="introduction">Introduction</h2>
@@ -267,29 +203,21 @@ Figure 1. Example of WLM classification configuration</p>
 <p>Authors: Jessie Yu (jessieyu@us.ibm.com), Michael Gildein (megildei@us.ibm.com), Kevin Carr (kgcarr@us.ibm.com).    Date: November 27th, 2017</p>
               
             </div>
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../jupyter-remote-notebook/" class="btn btn-neutral float-left" title="Jupyter with Remote Notebook on the Mainframe"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../../odl/odl/" class="btn btn-neutral float-right" title="Overview">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../jupyter-remote-notebook/" class="btn btn-neutral" title="Jupyter with Remote Notebook on the Mainframe"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <!-- Copyright etc -->
-    
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-      
+          
         </div>
       </div>
 
@@ -297,22 +225,27 @@ Figure 1. Example of WLM classification configuration</p>
 
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
-    <span class="rst-current-version" data-toggle="rst-current-version">
-      
-      
-        <span><a href="../jupyter-remote-notebook/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="../../odl/odl/" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../jupyter-remote-notebook/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../odl/odl/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
 </div>
     <script>var base_url = '../..';</script>
-    <script src="../../js/theme.js"></script>
-      <script src="../../create-package-table.js"></script>
-      <script src="../../search/require.js"></script>
-      <script src="../../search/search.js"></script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../create-package-table.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>

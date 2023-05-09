@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Stephen Stone" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>Overview - IzODA Documentation</title>
+    <title>Credit Risk Demonstration - IzODA Documentation</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
@@ -13,8 +13,8 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Overview";
-        var mkdocs_page_input_path = "odl\\odl.md";
+        var mkdocs_page_name = "Credit Risk Demonstration";
+        var mkdocs_page_input_path = "odl\\credit-risk-odl.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -66,16 +66,8 @@
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Optimized Data Layer / MDS</span></p>
-              <ul class="current">
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Overview</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#installation-and-customization">Installation and Customization</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#verify-your-installation">Verify Your Installation</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#reference-material">Reference Material</a>
-    </li>
-    </ul>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../odl/">Overview</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Anaconda</span></p>
@@ -130,8 +122,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
-          <li>Optimized Data Layer / MDS &raquo;</li>
-      <li>Overview</li>
+      <li>Credit Risk Demonstration</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -140,47 +131,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="optimized-data-layer">Optimized Data Layer</h1>
-<p>The Optimized Data Layer is also known as the <em>IBM Mainframe Data Service for Apache Spark</em> (MDS, or MDSS). It is a started task in the z/OS address space that provides a common interface to several different mainframe and off-platform data sources. The kinds of data sources that can be accessed through ODL include:</p>
-<ul>
-<li>IBM DB2</li>
-<li>IBM Virtual Storage Access Method (VSAM)</li>
-<li>IBM Information Management System (IMS)</li>
-<li>Partitioned Data Sets (PDS)</li>
-<li>z/OS sequential files (including log files)</li>
-<li>ADABAS</li>
-<li>Data from other platforms:<ul>
-<li>Databases - SQL and NoSQL (e.g. MongoDB, Oracle, Teradata)</li>
-<li>Streaming feeds (e.g. Twitter, Facebook)</li>
-</ul>
-</li>
-</ul>
-<p>Access to these data sources is provided by:</p>
-<ul>
-<li>JDBC for Java and Scala applications - usually run from the Spark environment.</li>
-<li>dsdbc for Python applications running in the Anaconda environment</li>
-</ul>
-<p>Although ODL was originally developed to provide a JDBC interface to Scala and Java applications that use the Spark stack, it has been extended for IzODA to service Python applications through the dsdbc interface. Examples of both types of data access can be found in our <a href="https://github.com/IzODA/examples">Github repo.</a></p>
-<p>ODL includes a workstation based interface called the Data Service Studio (DSS) that is used to create, view, and change metadata describing the mapping from mainframe data sources to a relational view of the data on provided by ODL on z/OS. DSS is based on Eclipse. It can either be installed separately, or can be added to an existing Eclipse shell.</p>
-<p>For more details about the z/OS and workstation-based components of ODL and how they relate to one another, as well as details about alternative methods for virtualizing database views, please see:</p>
-<ul>
-<li>Chapter 2 of the <a href="https://www-304.ibm.com/servers/resourcelink/svc00100.nsf/pages/izodav110sc279035/$file/azk1c100.pdf">IzODA Administrator's Guide</a></li>
-<li>Chapter 3 of the <a href="http://www.redbooks.ibm.com/redbooks/pdfs/sg248325.pdf">Apache Spark Redbook</a></li>
-</ul>
-<h2 id="installation-and-customization">Installation and Customization</h2>
-<p>Instructions about how to install and customize the various components of ODL are in the chapters of <a href="https://www-304.ibm.com/servers/resourcelink/svc00100.nsf/pages/izodav110sc279033/$file/azk1a100.pdf">IzODA Installation and Customization Guide</a> that reference <em>MDS</em> and the <em>Data Service Studio.</em></p>
-<h2 id="verify-your-installation">Verify Your Installation</h2>
-<p>ODL is intended to be used together with one or both of the analytics stacks of IzODA. We have created a collection of small sample applications which you can run to verify that ODL and the IzODA analytics stack of your choice is installed and configured properly. Please choose one of the Install Verification Programs (IVPs) from our docs to ensure your configuration is correct.</p>
-<h2 id="reference-material">Reference Material</h2>
-<p>A library of documentation is available for the <em>IBM Open Data Analytics for z/OS</em> offering. This can be found at the <a href="https://www.ibm.com/support/knowledgecenter/SS3H8V_1.1.0/com.ibm.izoda.v1r1.izodalp/izoda.htm">IBM Knowledge Center.</a></p>
-<p>The <a href="http://www.redbooks.ibm.com/abstracts/sg248325.html">Apache Spark Implementation on IBM z/OS</a> is another good source of information about both Spark and ODL.</p>
+                <h1 id="credit-risk-demonstration">Credit Risk Demonstration</h1>
+<p>Please see the <a href="https://github.com/IzODA/examples/blob/master/python/Credit-Risk-Assessment-via-ODL.ipynb">Credit Risk Example on our Github</a> for further information.</p>
               
             </div>
           </div><footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../../spark/wlm-metering/" class="btn btn-neutral float-left" title="WLM Metering and Capping for IzODA Spark"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../../anaconda/anaconda/" class="btn btn-neutral float-right" title="Overview">Next <span class="icon icon-circle-arrow-right"></span></a>
-    </div>
 
   <hr/>
 
@@ -202,10 +157,6 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../../spark/wlm-metering/" style="color: #fcfcfc">&laquo; Previous</a></span>
-    
-    
-      <span><a href="../../anaconda/anaconda/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
