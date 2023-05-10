@@ -35,7 +35,8 @@ You can learn about these products [here](https://www.ibm.com/docs/en/dvm/1.1.0?
 
 ## Migration
 
-Instructions for migrating from IzODA ODL to full-license DVM can be found [here](https://ibm.ent.box.com/folder/206072801314).
+Instructions for migrating from IzODA ODL to full-license DVM can be found [here](https://ibm.ent.box.com/folder/206072801314) (internal).
+Instructions for migrating from IzODA ODL to full-license DVM can be found [here](https://www.ibm.com/support/pages/node/6986321) (external)
 
 ## Usage Notes
 
