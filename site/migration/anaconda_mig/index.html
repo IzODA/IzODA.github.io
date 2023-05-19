@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Stephen Stone" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>Overview - IzODA Documentation</title>
+    <title>Anaconda - IzODA Documentation</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
@@ -13,8 +13,8 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Overview";
-        var mkdocs_page_input_path = "spark\\spark.md";
+        var mkdocs_page_name = "Anaconda";
+        var mkdocs_page_input_path = "migration\\anaconda_mig.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -46,33 +46,31 @@
                 </li>
               </ul>
               <p class="caption"><span class="caption-text">Migration to new offerings</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="" href="../../migration/overview.md">Overview</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../migration/spark_mig/">Apache Spark</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../migration/ODL_mig/">ODL/MDS</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../migration/anaconda_mig/">Anaconda</a>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Apache Spark</span></p>
               <ul class="current">
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Overview</a>
+                  <li class="toctree-l1"><a class="" href="../overview.md">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../spark_mig/">Apache Spark</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ODL_mig/">ODL/MDS</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Anaconda</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#spark-and-anaconda">Spark and Anaconda</a>
+    <li class="toctree-l2"><a class="reference internal" href="#new-product">New Product</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#installation-and-customization">Installation and Customization</a>
+    <li class="toctree-l2"><a class="reference internal" href="#migration">Migration</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#verify-your-installation">Verify Your Installation</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#reference-material">Reference Material</a>
+    <li class="toctree-l2"><a class="reference internal" href="#usage-notes">Usage Notes</a>
     </li>
     </ul>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../jupyter-remote-notebook/">Jupyter with Remote Notebook on the Mainframe</a>
+              </ul>
+              <p class="caption"><span class="caption-text">Apache Spark</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../spark/spark/">Overview</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../wlm-metering/">WLM Metering and Capping for IzODA Spark</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../spark/jupyter-remote-notebook/">Jupyter with Remote Notebook on the Mainframe</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../spark/wlm-metering/">WLM Metering and Capping for IzODA Spark</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Optimized Data Layer / MDS</span></p>
@@ -132,8 +130,8 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
-          <li>Apache Spark &raquo;</li>
-      <li>Overview</li>
+          <li>Migration to new offerings &raquo;</li>
+      <li>Anaconda</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -142,27 +140,155 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="apache-spark">Apache Spark</h1>
-<p><a href="https://spark.apache.org/">Apache Spark</a> is a general purpose, high performance clustering analytics engine that allocates resources and distributes work across a set of processes and tasks. It is organized as a set core functions that underpin a collection of functional libraries.</p>
-<p><img alt="Spark stack" src="../../img/spark-stack.png" /></p>
-<p>Spark was originally released through the IBM z/OS Platform for Apache Spark offering in March of 2016.</p>
-<h2 id="spark-and-anaconda">Spark and Anaconda</h2>
-<p>Apache Spark has no dependencies on Anaconda. However, Anaconda's package management capabilities have allowed for all of Spark's dependencies to be included in the IzODA Anaconda package library. This means that IzODA is a self-contained offering with no pre-requisites other than z/OS and Java at the proper service levels. It also means that Spark and Anaconda are effectively co-requisites, and should always be installed along with the ODL (MDS) FMID.</p>
-<p><img alt="Spark Architecture" src="../../img/IzODA_SparkArchitecture.png" /></p>
-<p>Along with Spark's pre-requisites, those parts of the Jupyter ecosystem that run on z/OS can now be installed via conda from the <a href="https://anaconda.org/izoda/jkg2at">JKG2AT package.</a> Setup information about JKG2AT can be <a href="jupyter-remote-notebook/">found here.</a></p>
-<h2 id="installation-and-customization">Installation and Customization</h2>
-<p>Refer to the <a href="https://www.ibm.com/support/knowledgecenter/">IBM Knowledge Center</a> for installation and customization instructions. The guides can be downloaded via <a href="https://www.ibm.com/support/knowledgecenter/SS3H8V_1.1.0/com.ibm.izoda.v1r1.izodalp/izoda.htm">PDF or TOC here.</a> Further instructions about how to install and customize Apache Spark are in chapters 2 and 3 of the <a href="https://www-304.ibm.com/servers/resourcelink/svc00100.nsf/pages/izodav110sc279033/$file/azk1a100.pdf">IzODA Installation and Customization Guide.</a></p>
-<h2 id="verify-your-installation">Verify Your Installation</h2>
-<p>We have created a collection of small sample applications which you can run to verify that Spark is installed and configured properly, and works with the other components of IzODA. Please choose one of the Install Verification Programs (IVPs) from the <a href="https://www.ibm.com/support/knowledgecenter/en/SS3H8V_1.1.0/com.ibm.izoda.v1r1.azka100/topics/azkic_c_partverify.htm">IBM Knowledge Center.</a></p>
-<h2 id="reference-material">Reference Material</h2>
-<p>A library of documentation is available for the IBM Open Data Analytics for z/OS offering. This can be found at the <a href="https://www.ibm.com/support/knowledgecenter/">IBM Knowledge Center.</a></p>
-<p>The <a href="http://www.redbooks.ibm.com/abstracts/sg248325.html">Apache Spark Implementation on IBM z/OS</a> is another good source of information about both Spark and ODL.</p>
+                <h1 id="anaconda">Anaconda</h1>
+<p><a href="https://www.anaconda.com/">Anaconda</a> is an assembly of parts that implement a Python-based analytics stack. It consists of multiple components:</p>
+<ul>
+<li>Python 3.7.0 / Python 3.6.1</li>
+<li>The conda package manager</li>
+<li>A library of locally installed open source packages</li>
+<li>A <a href="https://anaconda.org/IzODA/repo">channel, or reference repository</a> located on the <a href="https://anaconda.org/">Anaconda Cloud</a></li>
+</ul>
+<h2 id="new-product">New Product</h2>
+<p>The replacement for IzODA Anaconda and Python is the IBM "IBM Enterprise Python" offering, with the Python AI Toolkit. You can
+learn about these products <a href="https://www.ibm.com/products/open-enterprise-python-zos">here</a>, <a href="https://ibm.biz/BdPnfS">here</a>
+and <a href="https://community.ibm.com/community/user/ibmz-and-linuxone/blogs/evan-rivera/2023/02/24/python-ai-toolkit-for-ibm-zos">here</a>.</p>
+<h2 id="migration">Migration</h2>
+<p>TBD<br />
+    Use xyz to print out packages installed on Anaconda
+    Delete all environments
+    Create a virtual environment using IBM Enterprise Python
+    Use PIP to install packages from Python and Python AI Toolkit.</p>
+<p>Steps to migrate from IzODA Anaconda to Enterprise Python and PAIT</p>
+<p>Friday, February 24, 2023</p>
+<p>2:16 PM</p>
+<ol>
+<li>
+<p>Install and configure IBM Enterprise Python according to documented
+    instructions</p>
+</li>
+<li>
+<p>Locate and install a copy of BASH. You may use the open source
+    version from Rocket to obtain Bash 4.3,<br />
+    the ZOSOpenTools version at
+    <a href="https://github.com/ZOSOpenTools/bashport/releases">https://github.com/ZOSOpenTools/bashport/releases</a> for Bash 5.2.
+    You can continue to use the bash in the IzODA directory, until
+    securing another copy.</p>
+</li>
+<li>
+<p>Make a note of packages used in your current Anaconda environment</p>
+<ol>
+<li>
+<p>Clean your conda environment with `conda clean --all`</p>
+</li>
+<li>
+<p>List environments created in conda</p>
+<ol>
+<li>cat \~/.conda/environments.txt</li>
+</ol>
+</li>
+<li>
+<p>For each environment, list the packages used:</p>
+<ol>
+<li>conda activate tempEnv1</li>
+</ol>
+<!-- -->
+<ol>
+<li>Conda list</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<p><img src="media/image1.tmp" style="width:6.5in;height:2.71597in" alt="Text Description automatically generated" /></p>
+<blockquote></blockquote>
+<ol>
+<li>
+<p>Delete the environment.</p>
+<ol>
+<li>Conda deactivate<br />
+    Conda remove -n tempEnv1 –all</li>
+</ol>
+</li>
+</ol>
+<p><img src="media/image2.tmp" style="width:6.5in;height:5.06875in" alt="Text Description automatically generated" /></p>
+<blockquote></blockquote>
+<ol>
+<li>
+<p>Edit your .bashrc to remove references to Conda,
+    `/usr/lpp/IBM/anaconda`</p>
+<ol>
+<li>
+<p>Note: You may want to leave references to
+    /usr/lpp/IBM/anaconda/bin in the PATH variable if you need to
+    retain access to BASH until a non-IzODA copy is obtained.</p>
+<ol>
+<li>How does /usr/bin/bash-4.3 affect this?</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>Time to start configuring your new Python and PIP environment!</p>
+<ol>
+<li>
+<p>Use `python3 -m ensurepip --upgrade` to ensure PIP installed</p>
+</li>
+<li>
+<p>Use `python3 -m pip install --upgrade pip` to get latest PIP</p>
+</li>
+<li>
+<p>Add the Python AI Toolkit to your environment</p>
+<ol>
+<li>Follow the "set up environment" instructions. You will be
+    creating a</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<blockquote>
+<p>`$HOME/.config/pip/pip.conf` using the following commands:</p>
+</blockquote>
+<ul>
+<li>
+<p>touch $HOME/.config/pip/pip.conf</p>
+</li>
+<li>
+<p>chtag -t -c ISO8859-1 $HOME/.config/pip/pip.conf</p>
+</li>
+<li>
+<p>Create a virtual environment for holding your packages: (Hint: this
+    creates a directory for future use. You should be in your $HOME
+    directory or a directory under it, and not under the .config
+    directory.)</p>
+</li>
+</ul>
+<blockquote>
+<p>python3 -m venv theFirst<br />
+source python_play/bin/activate</p>
+</blockquote>
+<p><img src="media/image3.tmp" style="width:6.5in;height:0.98681in" alt="Text Description automatically generated" /></p>
+<ol>
+<li>
+<p>Install packages with `python3 -m pip install &lt;package
+    name&gt;<br />
+    (See the available list of Python AI toolkit packages at:
+    <a href="https://ibm-z-oss-oda.github.io/python_ai_toolkit_zos/">https://ibm-z-oss-oda.github.io/python_ai_toolkit_zos/</a>)</p>
+<ol>
+<li>Using “beautifulsoup4” as an example:</li>
+</ol>
+</li>
+</ol>
+<p><img src="media/image4.tmp" style="width:8.65111in;height:1.73958in" alt="Text Description automatically generated" /> </p>
+<blockquote></blockquote>
+<h2 id="usage-notes">Usage Notes</h2>
+<p>None yet.</p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../../migration/anaconda_mig/" class="btn btn-neutral float-left" title="Anaconda"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../jupyter-remote-notebook/" class="btn btn-neutral float-right" title="Jupyter with Remote Notebook on the Mainframe">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../ODL_mig/" class="btn btn-neutral float-left" title="ODL/MDS"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../spark/spark/" class="btn btn-neutral float-right" title="Overview">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -185,10 +311,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../../migration/anaconda_mig/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../ODL_mig/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../jupyter-remote-notebook/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../../spark/spark/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

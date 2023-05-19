@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Stephen Stone" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Apache Spark - IzODA Documentation</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link href="../../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Apache Spark";
+        var mkdocs_page_input_path = "migration\\spark_mig.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> IzODA Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">About</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Migration to new offerings</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="" href="../overview.md">Overview</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Apache Spark</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#new-product">New Product</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#migration">Migration</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#steps-to-migrate-from-izoda-spark-spark-24-to-new-spark-product-spark-3x">Steps to migrate from IzODA Spark (Spark 2.4) to new Spark product (Spark 3.x)</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ODL_mig/">ODL/MDS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../anaconda_mig/">Anaconda</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Apache Spark</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../spark/spark/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../spark/jupyter-remote-notebook/">Jupyter with Remote Notebook on the Mainframe</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../spark/wlm-metering/">WLM Metering and Capping for IzODA Spark</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Optimized Data Layer / MDS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../odl/odl/">Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Anaconda</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../anaconda/anaconda/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../anaconda/install-config/">Installation and Configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../anaconda/packages/">Available Packages</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../anaconda/r-jupyter-notebook/">Using R in Jupyter Notebook</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../anaconda/optional-packages/">Optional Package Guides</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../anaconda/apar-notes/">APAR Notes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../anaconda/izoda-extras/">izoda-extras</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../anaconda/jkg2at-migration/">JKG2AT Migration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../anaconda/ivp-jupyter-notebook/">Anaconda/ODL Installation Verification with Jupyter Notebook</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../anaconda/ivp-pyspark/">IzODA Installation Verification with PySpark</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../ecosystem/">Ecosystem</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Best Practices</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../best-practices/jupyter-notebook-usage/">Jupyter Notebook Usage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../best-practices/hlq-c-libraries/">HLQ xlc for C Libraries</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../best-practices/vegas-support/">Vegas Support</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../best-practices/modify-base-env/">Modifying the Base Environment</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">IzODA Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+          <li>Migration to new offerings &raquo;</li>
+      <li>Apache Spark</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="apache-spark">Apache Spark</h1>
+<p><a href="https://spark.apache.org/">Apache Spark</a> is a general purpose, high performance clustering analytics engine that allocates resources and distributes work across a set of processes and tasks. It is organized as a set core functions that underpin a collection of functional libraries.</p>
+<p><img alt="Spark stack" src="../../img/spark-stack.png" title="Spark Stack" /></p>
+<p>Spark was originally released through the IBM z/OS Platform for Apache Spark offering in March of 2016.</p>
+<h2 id="new-product">New Product</h2>
+<p>The replacement for IzODA Apache Spark is the IBM Z Platform for Apache Spark (PID 5698-SPK).</p>
+<p>You can learn about this product <a href="https://www.ibm.com/support/z-content-solutions/journey-to-open-data-analytics/">here</a>,
+<a href="https://www.ibm.com/support/z-content-solutions/journey-to-open-data-analytics/">here</a> and <a href="https://www.ibm.com/docs/en/zpas/1.1.0">here</a>.</p>
+<h2 id="migration">Migration</h2>
+<h3 id="steps-to-migrate-from-izoda-spark-spark-24-to-new-spark-product-spark-3x">Steps to migrate from IzODA Spark (Spark 2.4) to new Spark product (Spark 3.x)</h3>
+<ol>
+<li>
+<p>Read through the entirety of these instructions before starting.
+    Knowing the information needed in later steps can often inform and
+    improve the decisions made in the earlier steps.</p>
+</li>
+<li>
+<p>Obtain and install the IBM Z Platform for Apache Spark product
+    (5698-SPK)</p>
+<ol>
+<li>
+<p>Notable differences between IzODA Spark and ZSpark</p>
+<ol>
+<li>
+<p>It should install to /usr/lpp/IBM/zspark/<br />
+    with a resulting SPARK_HOME directory of
+    /usr/lpp/IBM/zspark/spark/spark32x</p>
+</li>
+<li>
+<p>Sample started task JCL is availabel within the SPARK_HOME
+    directory, in $SPARK_HOME/samples/zos/jcl, instead of a
+    separate SAMPLIB data set.</p>
+</li>
+<li>
+<p>The product component prefix was "AZK" and is now "AFK", the
+    component ID is HSPK130 (rather than HSPK120).</p>
+</li>
+<li>
+<p>This version uses Log4J V2. The configuration options for
+    Log4J2 are set in $SPARK_CONF_DIR/log4j2.properties, which
+    can be copied from
+    $SPARK_HOME/conf/log4j2.properties.template</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Product documentation can be found at
+    <a href="https://www.ibm.com/docs/en/zpas/1.1.0">https://www.ibm.com/docs/en/zpas/1.1.0</a></p>
+</li>
+</ol>
+</li>
+<li>
+<p>Choose whether to use the existing configuration options and logging
+    locations, or create a new installation with new directories, new
+    port numbers assigned, new Spark job names, new Spark "SPARKID"
+    master user, new RACF resource names (some RACF updates will be
+    required, regardless.)</p>
+<ol>
+<li>
+<p>Considerations:</p>
+<ol>
+<li>
+<p>Upgrading in place is probably easiest, but will require
+    users to update their configuration and applications
+    (recompile) after the cluster master/worker is updated. It
+    will also be more difficult to test without affecting end
+    users. More on this below.</p>
+</li>
+<li>
+<p>If you used the existing naming convention for Spark started
+    tasks (e.g AZKMSTR, etc.), this may become confusing with
+    the new spark product. The Spark z/OS component prefix of
+    "AZK" for IzODA Spark, and is now AFK for IBM Z Platform for
+    Apache Spark.</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>If upgrading in place and reusing the directories (conf, logs, work,
+    etc.) and port numbers</p>
+<ol>
+<li>
+<p>To-do: started task procedure updates</p>
+<ol>
+<li>
+<p>Make a backup copy of existing Spark started task procedures
+    (e.g. AZKMSTR, AZKHIST, AZKWRKR)</p>
+</li>
+<li>
+<p>Using TSO OGET or ISPF cut/paste, copy the started task JCL
+    for AFKMSTR, AFKWRKR and (optionally)AFKHIST from
+    `$SPARK_HOME/samples/zos/jcl` to your PROCLIB data set.</p>
+<ol>
+<li>Example (using ISPF option 6)<br />
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<blockquote>
+<p>ISPF Command Shell</p>
+<p>ISPF Command ===&gt;</p>
+<p>Enter TSO or Workstation commands below:</p>
+<p>===&gt; oget</p>
+<p>'/usr/lpp/IBM/zspark/spark/spark32x/samples/zos/jcl/afkhist.jcl'</p>
+<p>'sbj.zspark.test.proclib(afkhist)' text</p>
+</blockquote>
+<ol>
+<li>
+<p>The samples are shipped in EBCDIC, so you should not need the
+    CONVERT keyword on the TSO OGET. The TEXT keyword is also unneeded,
+    but added here for clarity.</p>
+</li>
+<li>
+<p>Repeat for the other two included sample PROCLIB JCL members.</p>
+</li>
+</ol>
+<!-- -->
+
+<ol>
+<li>
+<p>Disable external shuffle server by removing it from COMMNDxx or
+    other automation. (In Apache Spark 3.x, the shuffle server will be
+    part of the Spark Worker in all supported IBM Z Platform for Apache
+    Spark MVS environments.)</p>
+</li>
+<li>
+<p>Update the Spark configuration</p>
+<ol>
+<li>
+<p>Locate the SPARK_CONF_DIR setting for the existing IzODA Spark
+    installation.</p>
+</li>
+<li>
+<p>Update the "export SPARK_CONF_DIR=" statement in each of the
+    JCL procedures to point to your installation's Spark conf
+    directory.</p>
+</li>
+<li>
+<p>Update SPARK_HOME environment variable (See 1.a.i above) in the
+    $SPARK_CONF_DIR/spark-zos-started-tasks.sh file, if necessary.</p>
+</li>
+<li>
+<p>As noted above, you must use the new `log4j2.properties` file
+    which has a different format than in log4j v1. To do this, copy
+    the template file to your Spark conf directory. For example, if
+    your installation's Spark conf directory is
+    /etc/zspark/spark/conf, you could copy the file using the
+    following USS command:<br />
+    cp $SPARK_HOME/conf/log4j2.properties.template
+    /etc/zspark/spark/conf/</p>
+<ol>
+<li>If you have made any changes to the Spark "log4j.properties"
+    file, you will need to make those same changes to the new
+    file, adjusting for the syntax changes. See the following
+    reference for details:<br />
+    Reference:
+    <a href="https://stackoverflow.com/questions/35900555/migrating-from-log4j-to-log4j2-properties-file-configuration">https://stackoverflow.com/questions/35900555/migrating-from-log4j-to-log4j2-properties-file-configuration</a>
+    .</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<!-- -->
+
+<ol>
+<li>
+<p>z/OS updates</p>
+<ol>
+<li>
+<p>Since you are reusing the IzODA Spark configuration, Spark
+    configuration is done. However, TCPIP and RACF updates might be
+    needed.</p>
+</li>
+<li>
+<p>TCPIP Port adjustments</p>
+<ol>
+<li>
+<p>Many customers "lock down" their TCPIP ports, only allowing
+    specific jobnames to access specific TCPIP port numbers. If
+    the spark jobnames for the master, worker or history server
+    have changed, updates to the TCPIP PORTS files to include
+    those job names may be necessary</p>
+<ol>
+<li>DO NOT use the SHAREPORT keyword on IzODA Spark or IBM Z
+    Platform for Apache Spark port specifications. This is
+    documented in the troubleshooting section of the I &amp; C
+    Guide.</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<blockquote></blockquote>
+<ol>
+<li>
+<p>ATTLS ?</p>
+</li>
+<li>
+<p>Trusted Partner ?</p>
+</li>
+<li>
+<p>SAF updates</p>
+<ol>
+<li>
+<p>Add the new ZSpark SAF resource. For RACF, this would be:<br />
+    RDEFINE XFACILIT AFK.SPARK.MASTER.CONNECT UACC(NONE)<br />
+    PERMIT AFK.SPARK.MASTER.CONNECT ID(SPARKUSR) CLASS(XFACILIT) +<br />
+    ACC(READ)</p>
+</li>
+<li>
+<p>If you created new started task procs, you will need to
+    associate those with the SPARKID userid:</p>
+</li>
+</ol>
+</li>
+</ol>
+<blockquote>
+<p>RDEFINE STARTED PENZMSTR.* STDATA(USER(SPARKID) GROUP(SYS1))</p>
+<p>RDEFINE STARTED PENZWRKR.* STDATA(USER(SPARKID) GROUP(SYS1))</p>
+<p>RDEFINE STARTED PENZHIST.* STDATA(USER(SPARKID) GROUP(SYS1))</p>
+</blockquote>
+<ol>
+<li>
+<p>If creating a new Spark installation, use the book and do all that
+    stuff. The steps above will help you locate the changes you made to
+    IzODA environment to properly configure zSpark, as documented in the
+    I &amp; C Guide.</p>
+</li>
+<li>
+<p>IVT<br />
+    Regardless of whether you reused your customized IzODA Spark
+    configuration or created a new Spark configuration, you can use the
+    steps documented in <u>Chapter 5. Verifying the IBM Z Platform for
+    Apache Spark customization</u> of the IBM Z Platform for Apache
+    Spark Installation and Customization Guide (GI13-5809-00)</p>
+</li>
+<li>
+<p>User updates:</p>
+<ol>
+<li>
+<p>Inform the user of the new product and configuration details.
+    They will need to update their environment variables including
+    SPARK_HOME, SPARK_CONF_DIR, logs,</p>
+</li>
+<li>
+<p>IBM Z Platform for Apache Spark features a different version of
+    Spark than IzODA Spark, Spark version 3.2. To use the Spark
+    platform, users will need to recompile their application with
+    Spark 3.2 classes.</p>
+</li>
+<li>
+<p>In addition, if you are also converting from IzODA MDS to DVM,
+    users will need to procure the appropriate DVM JDBC driver to
+    access DVM. If any virtual tables are renamed, they will need
+    that information to update the parameters being passed to their
+    JDBC driver in their code. See &lt;ref to DVM migration guide or
+    pubs here.&gt;</p>
+</li>
+</ol>
+</li>
+</ol>
+<blockquote></blockquote>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../.." class="btn btn-neutral float-left" title="About"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../ODL_mig/" class="btn btn-neutral float-right" title="ODL/MDS">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../.." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../ODL_mig/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../create-package-table.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

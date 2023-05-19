@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Stephen Stone" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>Overview - IzODA Documentation</title>
+    <title>ODL/MDS - IzODA Documentation</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
@@ -13,8 +13,8 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Overview";
-        var mkdocs_page_input_path = "spark\\spark.md";
+        var mkdocs_page_name = "ODL/MDS";
+        var mkdocs_page_input_path = "migration\\ODL_mig.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -46,33 +46,31 @@
                 </li>
               </ul>
               <p class="caption"><span class="caption-text">Migration to new offerings</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="" href="../../migration/overview.md">Overview</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../migration/spark_mig/">Apache Spark</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../migration/ODL_mig/">ODL/MDS</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../migration/anaconda_mig/">Anaconda</a>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Apache Spark</span></p>
               <ul class="current">
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Overview</a>
+                  <li class="toctree-l1"><a class="" href="../overview.md">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../spark_mig/">Apache Spark</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">ODL/MDS</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#spark-and-anaconda">Spark and Anaconda</a>
+    <li class="toctree-l2"><a class="reference internal" href="#new-product">New Product</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#installation-and-customization">Installation and Customization</a>
+    <li class="toctree-l2"><a class="reference internal" href="#migration">Migration</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#verify-your-installation">Verify Your Installation</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#reference-material">Reference Material</a>
+    <li class="toctree-l2"><a class="reference internal" href="#usage-notes">Usage Notes</a>
     </li>
     </ul>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../jupyter-remote-notebook/">Jupyter with Remote Notebook on the Mainframe</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../anaconda_mig/">Anaconda</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../wlm-metering/">WLM Metering and Capping for IzODA Spark</a>
+              </ul>
+              <p class="caption"><span class="caption-text">Apache Spark</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../spark/spark/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../spark/jupyter-remote-notebook/">Jupyter with Remote Notebook on the Mainframe</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../spark/wlm-metering/">WLM Metering and Capping for IzODA Spark</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Optimized Data Layer / MDS</span></p>
@@ -132,8 +130,8 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
-          <li>Apache Spark &raquo;</li>
-      <li>Overview</li>
+          <li>Migration to new offerings &raquo;</li>
+      <li>ODL/MDS</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -142,27 +140,46 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="apache-spark">Apache Spark</h1>
-<p><a href="https://spark.apache.org/">Apache Spark</a> is a general purpose, high performance clustering analytics engine that allocates resources and distributes work across a set of processes and tasks. It is organized as a set core functions that underpin a collection of functional libraries.</p>
-<p><img alt="Spark stack" src="../../img/spark-stack.png" /></p>
-<p>Spark was originally released through the IBM z/OS Platform for Apache Spark offering in March of 2016.</p>
-<h2 id="spark-and-anaconda">Spark and Anaconda</h2>
-<p>Apache Spark has no dependencies on Anaconda. However, Anaconda's package management capabilities have allowed for all of Spark's dependencies to be included in the IzODA Anaconda package library. This means that IzODA is a self-contained offering with no pre-requisites other than z/OS and Java at the proper service levels. It also means that Spark and Anaconda are effectively co-requisites, and should always be installed along with the ODL (MDS) FMID.</p>
-<p><img alt="Spark Architecture" src="../../img/IzODA_SparkArchitecture.png" /></p>
-<p>Along with Spark's pre-requisites, those parts of the Jupyter ecosystem that run on z/OS can now be installed via conda from the <a href="https://anaconda.org/izoda/jkg2at">JKG2AT package.</a> Setup information about JKG2AT can be <a href="jupyter-remote-notebook/">found here.</a></p>
-<h2 id="installation-and-customization">Installation and Customization</h2>
-<p>Refer to the <a href="https://www.ibm.com/support/knowledgecenter/">IBM Knowledge Center</a> for installation and customization instructions. The guides can be downloaded via <a href="https://www.ibm.com/support/knowledgecenter/SS3H8V_1.1.0/com.ibm.izoda.v1r1.izodalp/izoda.htm">PDF or TOC here.</a> Further instructions about how to install and customize Apache Spark are in chapters 2 and 3 of the <a href="https://www-304.ibm.com/servers/resourcelink/svc00100.nsf/pages/izodav110sc279033/$file/azk1a100.pdf">IzODA Installation and Customization Guide.</a></p>
-<h2 id="verify-your-installation">Verify Your Installation</h2>
-<p>We have created a collection of small sample applications which you can run to verify that Spark is installed and configured properly, and works with the other components of IzODA. Please choose one of the Install Verification Programs (IVPs) from the <a href="https://www.ibm.com/support/knowledgecenter/en/SS3H8V_1.1.0/com.ibm.izoda.v1r1.azka100/topics/azkic_c_partverify.htm">IBM Knowledge Center.</a></p>
-<h2 id="reference-material">Reference Material</h2>
-<p>A library of documentation is available for the IBM Open Data Analytics for z/OS offering. This can be found at the <a href="https://www.ibm.com/support/knowledgecenter/">IBM Knowledge Center.</a></p>
-<p>The <a href="http://www.redbooks.ibm.com/abstracts/sg248325.html">Apache Spark Implementation on IBM z/OS</a> is another good source of information about both Spark and ODL.</p>
+                <h1 id="optimized-data-layer">Optimized Data Layer</h1>
+<p>The Optimized Data Layer is also known as the <em>IBM Mainframe Data Service for Apache Spark</em> (MDS, or MDSS). It is a started task in the z/OS address space that provides a common interface to several different mainframe and off-platform data sources. The kinds of data sources that can be accessed through ODL include:</p>
+<ul>
+<li>IBM DB2</li>
+<li>IBM Virtual Storage Access Method (VSAM)</li>
+<li>IBM Information Management System (IMS)</li>
+<li>Partitioned Data Sets (PDS)</li>
+<li>z/OS sequential files (including log files)</li>
+<li>ADABAS</li>
+<li>Data from other platforms:</li>
+<li>Databases - SQL and NoSQL (e.g. MongoDB, Oracle, Teradata)</li>
+<li>Streaming feeds (e.g. Twitter, Facebook)</li>
+</ul>
+<p>Access to these data sources is provided by:</p>
+<ul>
+<li>JDBC for Java and Scala applications, usually run from the Spark environment.</li>
+<li>dsdbc for Python applications running in the Anaconda environment.</li>
+</ul>
+<p>Although ODL was originally developed to provide a JDBC interface to Scala and Java applications that use the Spark stack, it has been extended
+for IzODA to service Python applications through the dsdbc interface. Examples of both types of data access can be found in our
+<a href="https://github.com/IzODA/examples">examples</a> Github repo.</p>
+<p>ODL includes a workstation based interface called the Data Service Studio (DSS) that is used to create, view, and change metadata describing
+the mapping from mainframe data sources to a relational view of the data on provided by ODL on z/OS. DSS is based on Eclipse. It can either be
+installed separately, or can be added to an existing Eclipse shell.</p>
+<p>For more details about the z/OS and workstation-based components of ODL and how they relate to one another, as well as details about alternative methods for virtualizing database views, please see:</p>
+<h2 id="new-product">New Product</h2>
+<p>The replacement for IzODA ODL is a full license for the "IBM Data Virtualization Manager" offering.
+You can learn about these products <a href="https://www.ibm.com/docs/en/dvm/1.1.0?topic=SS4NKG_1.1.0/havuga10/topics/kc_welcome_user.htm">here</a>,
+<a href="https://www.ibm.com/docs/SS4NKG_1.1.0/havuga10/topics/havuga10.pdf">here</a> and <a href="https:www.redbooks.ibm.com/redbooks/pdfs/sg248514.pdf">here</a>.</p>
+<h2 id="migration">Migration</h2>
+<p>Instructions for migrating from IzODA ODL to full-license DVM can be found <a href="https://ibm.ent.box.com/folder/206072801314">here</a> (internal).
+Instructions for migrating from IzODA ODL to full-license DVM can be found <a href="https://www.ibm.com/support/pages/node/6986321">here</a> (external)</p>
+<h2 id="usage-notes">Usage Notes</h2>
+<p>None yet.</p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../../migration/anaconda_mig/" class="btn btn-neutral float-left" title="Anaconda"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../jupyter-remote-notebook/" class="btn btn-neutral float-right" title="Jupyter with Remote Notebook on the Mainframe">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../spark_mig/" class="btn btn-neutral float-left" title="Apache Spark"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../anaconda_mig/" class="btn btn-neutral float-right" title="Anaconda">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -185,10 +202,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../../migration/anaconda_mig/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../spark_mig/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../jupyter-remote-notebook/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../anaconda_mig/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
