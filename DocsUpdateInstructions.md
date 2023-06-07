@@ -11,7 +11,7 @@
 1. Create .md file in the directory you specified in step 4 under the ./docs directory
 
 1. From the izODA.github.io directory in your terminal, run  
-```mkdocs build```
+```mkdocs build``` (or ```python -m mkdocs build```)
 
 1. Push/Merge changes to master branch
 
@@ -20,3 +20,7 @@
 Note: Updates to Github Pages sometimes take up to 10 minutes
 
 Refer to https://www.mkdocs.org/#building-the-site for further information
+
+If you want to test locally before pushing to master branch, go into your main directory of your repo, use  
+```mkdocs serve``` (or ```python -m mkdocs serve```), then point your browser to
+`http://127.0.0.1:8000/`
