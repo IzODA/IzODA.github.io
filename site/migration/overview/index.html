@@ -144,17 +144,28 @@ IzODA are installed.  This is more fully explained in <a href="https://ibm.biz/O
 <p>Once the desired new products have been ordered and installed, your configurations will need to be migrated to the new product(s).  You can find
 migration documentation, as follows:</p>
 <ul>
-<li><a href="../anaconda_mig/">Migrating from Anaconda to IBM Enterprise Python and the Python AI Toolkit</a></li>
-<li><a href="migration/spark_mig.md">Migrating from IzODA Spark 2.4 to IBM Z Platform for Apache Spark (Spark 3.2)</a></li>
-<li><a href="migration/ODL_mig.md">Migrating from IzODA ODL to IBM Data Virtualization Manager</a></li>
+<li><a href="../anaconda_mig/">Migrating from Anaconda to IBM Enterprise Python and the Python AI Toolkit</a>  </li>
+<li><a href="migration/spark_mig.md">Migrating from IzODA Spark 2.4 to IBM Z Platform for Apache Spark (Spark 3.2)</a>  </li>
+<li><a href="migration/ODL_mig.md">Migrating from IzODA ODL to IBM Data Virtualization Manager</a>  </li>
 </ul>
 <p>Note that the Bash shell, formerly provided with IzODA Anaconda, must be obtained separately. The following versions have been shown
-to work:
-- <a href="www.rocketsoftware.com/ported-tools">Rocket Open tools</a>
-- <a href="https://github.com/ZOSOpenTools">IBM ZOpen tools</a></p>
-<p>The following functions have no replacement in the new Open Data Analytics product set:
-- zOSMF Dynamic Workflow for configuring Spark
-- Apache Livy</p>
+to work:  </p>
+<ul>
+<li><a href="www.rocketsoftware.com/ported-tools">Rocket Open tools</a>  </li>
+<li><a href="https://github.com/ZOSOpenTools">IBM ZOpen tools</a>  </li>
+</ul>
+<p>The following functions have no replacement in the new Open Data Analytics product set:  </p>
+<ul>
+<li>zOSMF Dynamic Workflow for configuring Spark  </li>
+<li>Apache Livy  </li>
+<li>R Language and associated packages  </li>
+</ul>
+<p>Another list of stuff:  </p>
+<ul>
+<li>JDBC driver (must get from individual data source providers (Db2, VSAM, etc.))  </li>
+<li>ODBC driver  </li>
+<li>Jupyter kernel gateway (JupyterHub recommended replacement)</li>
+</ul>
               
             </div>
           </div><footer>
