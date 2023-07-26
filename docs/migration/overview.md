@@ -12,9 +12,9 @@ IzODA are installed.  This is more fully explained in [this blog](https://ibm.bi
 Once the desired new products have been ordered and installed, your configurations will need to be migrated to the new product(s).  You can find
 migration documentation, as follows:
 
-- [Migrating from Anaconda to IBM Enterprise Python and the Python AI Toolkit](anaconda_mig.md)  
-- [Migrating from IzODA Spark 2.4 to IBM Z Platform for Apache Spark (Spark 3.2)](migration/spark_mig.md)  
-- [Migrating from IzODA ODL to IBM Data Virtualization Manager](migration/ODL_mig.md)  
+- [Migrating from Anaconda to IBM Enterprise Python and the Python AI Toolkit](./anaconda_mig.md)  
+- [Migrating from IzODA Spark 2.4 to IBM Z Platform for Apache Spark (Spark 3.2)](./spark_mig.md)  
+- [Migrating from IzODA ODL to IBM Data Virtualization Manager](./ODL_mig.md)  
 
 Note that the Bash shell, formerly provided with IzODA Anaconda, must be obtained separately. The following versions have been shown
 to work:  
