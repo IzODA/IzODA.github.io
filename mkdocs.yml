@@ -1,6 +1,11 @@
 site_name: IzODA Documentation
 nav:
   - 'About': 'index.md'
+  - 'Migration to new offerings':
+    - 'Overview': 'migration/overview.md'
+    - 'Apache Spark': 'migration/spark_mig.md'
+    - 'ODL/MDS': 'migration/ODL_mig.md'
+    - 'Anaconda': 'migration/anaconda_mig.md'
   - 'Apache Spark':
     - 'Overview': 'spark/spark.md'
     - 'Jupyter with Remote Notebook on the Mainframe': 'spark/jupyter-remote-notebook.md'
